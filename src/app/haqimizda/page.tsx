@@ -5,10 +5,20 @@ import { TEAM_MEMBERS, STATS, SITE_CONFIG } from "@/lib/constants";
 import { CTASection } from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
-  title: "Biz Haqimizda — SaytYaratamiz.uz Veb Studiya",
+  title: "Biz Haqimizda — SaytYaratamiz.uz Veb Studiya | 2019-yildan Beri",
   description:
-    "SaytYaratamiz.uz haqida: 5+ yillik tajriba, 150+ loyiha, 120+ mamnun mijoz. Professional veb studiya jamoasi bilan tanishing.",
+    "SaytYaratamiz.uz haqida: 2019-yildan beri faoliyat, 5+ yillik tajriba, 150+ loyiha, 120+ mamnun mijoz. Toshkentdagi professional veb studiya jamoasi bilan tanishing.",
   alternates: { canonical: `${SITE_CONFIG.url}/haqimizda` },
+  keywords: [
+    "saytyaratamiz haqida", "veb studiya Toshkent", "professional veb dasturchi O'zbekiston",
+    "sayt yaratish jamoasi", "5 yillik tajriba",
+  ],
+  openGraph: {
+    title: "Biz Haqimizda — SaytYaratamiz.uz",
+    description: "2019-yildan beri O'zbekistonda 150+ loyiha. Tajribali veb studiya jamoasi.",
+    url: `${SITE_CONFIG.url}/haqimizda`,
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
 };
 
 const VALUES = [
@@ -35,18 +45,68 @@ const AVATAR_COLORS = [
   "from-teal-400 to-teal-600",
 ];
 
+function AboutJsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Biz haqimizda", item: `${SITE_CONFIG.url}/haqimizda` },
+        ],
+      },
+      {
+        "@type": "AboutPage",
+        "@id": `${SITE_CONFIG.url}/haqimizda`,
+        url: `${SITE_CONFIG.url}/haqimizda`,
+        name: "SaytYaratamiz.uz haqida",
+        description: "O'zbekistondagi professional veb studiya. 2019-yildan beri 150+ loyiha.",
+        mainEntity: {
+          "@id": `${SITE_CONFIG.url}/#organization`,
+        },
+        breadcrumb: { "@id": `${SITE_CONFIG.url}/haqimizda#breadcrumb` },
+      },
+      {
+        "@type": "Organization",
+        "@id": `${SITE_CONFIG.url}/#organization`,
+        name: SITE_CONFIG.name,
+        url: SITE_CONFIG.url,
+        foundingDate: "2019",
+        numberOfEmployees: { "@type": "QuantitativeValue", value: 5 },
+        member: TEAM_MEMBERS.map((m) => ({
+          "@type": "Person",
+          name: m.name,
+          jobTitle: m.role,
+          description: m.bio,
+        })),
+      },
+    ],
+  };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+}
+
 export default function AboutPage() {
   return (
     <>
+      <AboutJsonLd />
+
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-background">
+      <section className="pt-28 pb-16 bg-background" aria-labelledby="about-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-muted-foreground mb-10">
+            <a href="/" className="hover:text-primary transition-colors">Bosh sahifa</a>
+            <span aria-hidden="true">/</span>
+            <span className="text-foreground font-medium" aria-current="page">Biz haqimizda</span>
+          </nav>
+
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className="space-y-6">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
                 Biz Haqimizda
               </span>
-              <h1 className="text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
+              <h1 id="about-heading" className="text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
                 O&apos;zbekistondagi{" "}
                 <span className="gradient-text">Ishonchli</span>{" "}
                 Veb Studiya
@@ -71,7 +131,7 @@ export default function AboutPage() {
             </div>
 
             {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4" aria-label="Kompaniya statistikasi">
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
@@ -103,11 +163,8 @@ export default function AboutPage() {
             {VALUES.map((v) => {
               const Icon = v.icon;
               return (
-                <article
-                  key={v.title}
-                  className="p-6 rounded-[16px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 flex items-center justify-center mb-5">
+                <article key={v.title} className="p-6 rounded-[16px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
+                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 flex items-center justify-center mb-5" aria-hidden="true">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground text-[15px] mb-2">{v.title}</h3>
@@ -134,11 +191,11 @@ export default function AboutPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-3xl mx-auto">
             {TEAM_MEMBERS.map((member, i) => (
-              <article
-                key={member.id}
-                className="p-6 rounded-[16px] bg-muted/30 border border-border text-center hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300"
-              >
-                <div className={`w-16 h-16 rounded-[16px] bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]} flex items-center justify-center mx-auto mb-4 text-xl font-black text-white shadow-[0_4px_14px_rgba(0,0,0,0.15)]`}>
+              <article key={member.id} className="p-6 rounded-[16px] bg-muted/30 border border-border text-center hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
+                <div
+                  className={`w-16 h-16 rounded-[16px] bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]} flex items-center justify-center mx-auto mb-4 text-xl font-black text-white shadow-[0_4px_14px_rgba(0,0,0,0.15)]`}
+                  aria-hidden="true"
+                >
                   {member.name[0]}
                 </div>
                 <h3 className="font-semibold text-foreground text-[15px]">{member.name}</h3>

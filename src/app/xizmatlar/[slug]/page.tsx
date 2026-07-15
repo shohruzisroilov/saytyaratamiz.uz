@@ -25,10 +25,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) return { title: "Topilmadi" };
+
+  const url = `${SITE_CONFIG.url}/xizmatlar/${slug}`;
+  const desc = `${service.description}${service.price ? ` Narx: ${service.price} so'mdan boshlab.` : ""} O'zbekistonda professional xizmat.`;
+
   return {
-    title: `${service.title} — Professional Xizmat`,
-    description: `${service.description} ${service.price ? `${service.price} so'mdan boshlab.` : ""}`,
-    alternates: { canonical: `${SITE_CONFIG.url}/xizmatlar/${slug}` },
+    title: `${service.title} — Professional Xizmat O'zbekistonda`,
+    description: desc,
+    alternates: { canonical: url },
+    keywords: [
+      service.title.toLowerCase(),
+      `${service.title.toLowerCase()} O'zbekiston`,
+      `${service.title.toLowerCase()} narxi`,
+      "saytyaratamiz",
+      ...service.features.slice(0, 3),
+    ],
+    openGraph: {
+      title: `${service.title} — SaytYaratamiz.uz`,
+      description: desc,
+      url,
+      images: [{ url: "/og.png", width: 1200, height: 630 }],
+    },
   };
 }
 
@@ -43,19 +60,67 @@ export default async function ServiceDetailPage({
 
   const Icon = ICON_MAP[service.icon] || Code2;
   const related = SERVICES.filter((s) => s.id !== service.id).slice(0, 3);
+  const pageUrl = `${SITE_CONFIG.url}/xizmatlar/${slug}`;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Xizmatlar", item: `${SITE_CONFIG.url}/xizmatlar` },
+          { "@type": "ListItem", position: 3, name: service.title, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": pageUrl,
+        name: service.title,
+        description: service.description,
+        url: pageUrl,
+        provider: { "@id": `${SITE_CONFIG.url}/#organization` },
+        areaServed: { "@type": "Country", name: "O'zbekiston", sameAs: "https://www.wikidata.org/wiki/Q265" },
+        serviceType: service.title,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: service.title,
+          itemListElement: service.features.map((f, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: { "@type": "Offer", itemOffered: { "@type": "Service", name: f } },
+          })),
+        },
+        ...(service.price && {
+          offers: {
+            "@type": "Offer",
+            price: service.price.replace(/\s/g, ""),
+            priceCurrency: "UZS",
+            availability: "https://schema.org/InStock",
+            priceValidUntil: "2026-12-31",
+            seller: { "@id": `${SITE_CONFIG.url}/#organization` },
+            url: pageUrl,
+          },
+        }),
+      },
+    ],
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+
       {/* Hero */}
-      <section className="pt-28 pb-16 bg-background">
+      <section className="pt-28 pb-16 bg-background" aria-labelledby="service-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <Link
-            href="/xizmatlar"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Barcha xizmatlar
-          </Link>
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-muted-foreground mb-10">
+            <a href="/" className="hover:text-primary transition-colors">Bosh sahifa</a>
+            <span aria-hidden="true">/</span>
+            <a href="/xizmatlar" className="hover:text-primary transition-colors">Xizmatlar</a>
+            <span aria-hidden="true">/</span>
+            <span className="text-foreground font-medium" aria-current="page">{service.title}</span>
+          </nav>
 
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className="space-y-6">
@@ -64,7 +129,7 @@ export default async function ServiceDetailPage({
                   Eng Mashhur Xizmat
                 </span>
               )}
-              <h1 className="text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
+              <h1 id="service-heading" className="text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
                 {service.title}
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -95,13 +160,13 @@ export default async function ServiceDetailPage({
                   href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-[12px] border border-border hover:border-primary/40 hover:text-primary transition-all duration-200 font-medium text-sm"
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-4 h-4" aria-hidden="true" />
                   Qo&apos;ng&apos;iroq
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center" aria-hidden="true">
               <div className="w-44 h-44 rounded-[28px] bg-primary/8 flex items-center justify-center shadow-[0_20px_60px_rgba(37,99,235,0.1)]">
                 <Icon className="w-20 h-20 text-primary/70" />
               </div>
@@ -116,17 +181,17 @@ export default async function ServiceDetailPage({
           <h2 id="features-heading" className="text-2xl font-bold text-foreground mb-8 tracking-[-0.02em]">
             Nima Kiradi?
           </h2>
-          <div className="grid sm:grid-cols-2 gap-3">
+          <ul className="grid sm:grid-cols-2 gap-3" aria-label={`${service.title} xususiyatlari`}>
             {service.features.map((feature) => (
-              <div
+              <li
                 key={feature}
                 className="flex items-center gap-3 p-4 rounded-[12px] bg-card border border-border hover:border-primary/20 transition-colors duration-200"
               >
-                <CheckCircle2 className="w-4.5 h-4.5 text-green-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" aria-hidden="true" />
                 <span className="font-medium text-foreground text-sm">{feature}</span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -145,7 +210,7 @@ export default async function ServiceDetailPage({
                   href={`/xizmatlar/${s.slug}`}
                   className="flex items-center gap-3.5 p-4 rounded-[14px] bg-muted/40 border border-border hover:border-primary/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.05)] transition-all duration-200 group"
                 >
-                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 group-hover:bg-primary/12 flex items-center justify-center shrink-0 transition-colors">
+                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 group-hover:bg-primary/12 flex items-center justify-center shrink-0 transition-colors" aria-hidden="true">
                     <RelIcon className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -156,7 +221,7 @@ export default async function ServiceDetailPage({
                       <p className="text-xs text-muted-foreground mt-0.5">{s.price} so&apos;mdan</p>
                     )}
                   </div>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
+                  <ArrowRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0" aria-hidden="true" />
                 </Link>
               );
             })}

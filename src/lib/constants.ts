@@ -6,10 +6,11 @@ export const SITE_CONFIG = {
   description:
     "O'zbekistonda professional sayt yaratish xizmati. Korporativ sayt, internet do'kon, landing page, va boshqa web yechimlar. Tez, arzon, sifatli.",
   ogImage: "/og.png",
-  phone: "+998 90 123 45 67",
-  telegram: "https://t.me/saytyaratamiz",
+  phone: "+998 94 008 04 73",
+  telegram: "https://t.me/Shohruz_Isroilov",
+  telegramDev: "https://t.me/devshohruz",
   instagram: "https://instagram.com/saytyaratamiz",
-  email: "info@saytyaratamiz.uz",
+  email: "devshohruz@gmail.com",
   address: "Toshkent, O'zbekiston",
 };
 

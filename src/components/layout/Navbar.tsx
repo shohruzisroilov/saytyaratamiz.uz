@@ -11,11 +11,15 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setIsScrolled(window.scrollY > 12);
+    // Set initial state
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -34,10 +38,18 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled
-            ? "bg-white/90 dark:bg-[#020817]/90 backdrop-blur-xl border-b border-[#e8edf3] dark:border-[#1e2d3d] shadow-[0_1px_20px_rgba(0,0,0,0.04)]"
+          mounted && isScrolled
+            ? "backdrop-blur-xl border-b shadow-[0_1px_20px_rgba(0,0,0,0.05)]"
             : "bg-transparent"
         )}
+        style={
+          mounted && isScrolled
+            ? {
+                backgroundColor: "color-mix(in srgb, var(--background) 92%, transparent)",
+                borderColor: "var(--border)",
+              }
+            : undefined
+        }
       >
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
           <div className="flex items-center justify-between h-[64px] lg:h-[72px]">

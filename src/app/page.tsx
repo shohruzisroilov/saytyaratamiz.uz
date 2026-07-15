@@ -8,25 +8,37 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { SITE_CONFIG } from "@/lib/constants";
+import { SITE_CONFIG, SERVICES, FAQS, PRICING_PLANS, TESTIMONIALS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "SaytYaratamiz.uz — O'zbekistonda №1 Professional Sayt Yaratish Xizmati",
   description:
     "O'zbekistonda professional sayt yaratish: korporativ sayt, internet do'kon, landing page, CRM, Telegram bot. 150+ muvaffaqiyatli loyiha. Bepul konsultatsiya.",
-  alternates: { canonical: SITE_CONFIG.url },
+  alternates: {
+    canonical: SITE_CONFIG.url,
+    types: { "application/rss+xml": `${SITE_CONFIG.url}/feed.xml` },
+  },
   keywords: [
     "sayt yaratish", "veb sayt yaratish", "internet do'kon yaratish",
     "landing page", "korporativ sayt", "web dizayn", "sayt yaratish narxi",
     "O'zbekiston veb studiya", "Toshkent sayt yaratish", "CRM tizim",
     "Telegram bot yaratish", "saytyaratamiz",
   ],
+  openGraph: {
+    type: "website",
+    title: "SaytYaratamiz.uz — O'zbekistonda №1 Professional Sayt Yaratish",
+    description:
+      "Korporativ sayt, internet do'kon, landing page, CRM, Telegram bot. 150+ loyiha. Bepul konsultatsiya.",
+    url: SITE_CONFIG.url,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "SaytYaratamiz.uz" }],
+  },
 };
 
-function JsonLd() {
+function HomeJsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
+      // WebSite
       {
         "@type": "WebSite",
         "@id": `${SITE_CONFIG.url}/#website`,
@@ -34,28 +46,38 @@ function JsonLd() {
         name: SITE_CONFIG.name,
         description: SITE_CONFIG.description,
         inLanguage: "uz",
+        publisher: { "@id": `${SITE_CONFIG.url}/#organization` },
         potentialAction: {
           "@type": "SearchAction",
           target: { "@type": "EntryPoint", urlTemplate: `${SITE_CONFIG.url}/?s={search_term_string}` },
           "query-input": "required name=search_term_string",
         },
       },
+      // LocalBusiness
       {
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": `${SITE_CONFIG.url}/#business`,
         name: SITE_CONFIG.name,
         description: SITE_CONFIG.description,
         url: SITE_CONFIG.url,
         telephone: SITE_CONFIG.phone,
         email: SITE_CONFIG.email,
+        priceRange: "$$",
+        currenciesAccepted: "UZS",
+        openingHours: "Mo-Sa 09:00-18:00",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Toshkent",
+          addressRegion: "Toshkent",
           addressCountry: "UZ",
         },
-        priceRange: "$$",
-        openingHours: "Mo-Sa 09:00-18:00",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 41.2995,
+          longitude: 69.2401,
+        },
         sameAs: [SITE_CONFIG.telegram, SITE_CONFIG.instagram],
+        hasMap: "https://maps.google.com/?q=Toshkent,O'zbekiston",
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "4.9",
@@ -63,6 +85,60 @@ function JsonLd() {
           bestRating: "5",
           worstRating: "1",
         },
+        review: TESTIMONIALS.slice(0, 3).map((t) => ({
+          "@type": "Review",
+          reviewRating: { "@type": "Rating", ratingValue: t.rating, bestRating: 5 },
+          author: { "@type": "Person", name: t.name },
+          reviewBody: t.content,
+        })),
+      },
+      // ItemList of Services
+      {
+        "@type": "ItemList",
+        "@id": `${SITE_CONFIG.url}/#services`,
+        name: "Sayt Yaratish Xizmatlari",
+        itemListElement: SERVICES.map((s, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          item: {
+            "@type": "Service",
+            name: s.title,
+            description: s.description,
+            url: `${SITE_CONFIG.url}/xizmatlar/${s.slug}`,
+            provider: { "@id": `${SITE_CONFIG.url}/#organization` },
+            ...(s.price && {
+              offers: {
+                "@type": "Offer",
+                price: s.price.replace(/\s/g, ""),
+                priceCurrency: "UZS",
+                priceValidUntil: "2026-12-31",
+                availability: "https://schema.org/InStock",
+              },
+            }),
+          },
+        })),
+      },
+      // FAQ
+      {
+        "@type": "FAQPage",
+        "@id": `${SITE_CONFIG.url}/#faq`,
+        mainEntity: FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      },
+      // BreadcrumbList
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Bosh sahifa",
+            item: SITE_CONFIG.url,
+          },
+        ],
       },
     ],
   };
@@ -72,7 +148,7 @@ function JsonLd() {
 export default function HomePage() {
   return (
     <>
-      <JsonLd />
+      <HomeJsonLd />
       <HeroSection />
       <StatsSection />
       <ServicesSection />

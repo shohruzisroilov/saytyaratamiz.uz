@@ -1,32 +1,60 @@
 import type { MetadataRoute } from "next";
-import { SITE_CONFIG, SERVICES, BLOG_POSTS } from "@/lib/constants";
+import { SITE_CONFIG, BLOG_POSTS } from "@/lib/constants";
+
+// All service detail slugs from SERVICES + dedicated pages
+const SERVICE_DETAIL_SLUGS = [
+  "korporativ-sayt",
+  "internet-dokon",
+  "landing-page",
+  "veb-dastur",
+  "seo-optimizatsiya",
+  "qayta-ishlash",
+];
+
+const DEDICATED_SERVICE_SLUGS = [
+  "sayt-yaratish",
+  "landing-page",
+  "korporativ-sayt",
+  "internet-dokon",
+  "crm",
+  "telegram-bot",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE_CONFIG.url;
   const now = new Date().toISOString();
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: base, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${base}/xizmatlar`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/xizmatlar/sayt-yaratish`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/xizmatlar/landing-page`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/xizmatlar/korporativ-sayt`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/xizmatlar/internet-dokon`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/xizmatlar/crm`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/xizmatlar/telegram-bot`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/portfel`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/narxlar`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/haqimizda`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/aloqa`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: base,                          lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${base}/xizmatlar`,           lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/narxlar`,             lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/portfel`,             lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
+    { url: `${base}/blog`,                lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
+    { url: `${base}/haqimizda`,           lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/aloqa`,               lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 
-  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((s) => ({
-    url: `${base}/xizmatlar/${s.slug}`,
+  // Dedicated /xizmatlar/* landing pages
+  const dedicatedServiceRoutes: MetadataRoute.Sitemap = DEDICATED_SERVICE_SLUGS.map((slug) => ({
+    url: `${base}/xizmatlar/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  // Dynamic /xizmatlar/[slug] detail pages (from SERVICES array)
+  const serviceDetailRoutes: MetadataRoute.Sitemap = SERVICE_DETAIL_SLUGS.map((slug) => ({
+    url: `${base}/xizmatlar/${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
+
+  // Deduplicate — dedicated pages override detail if same slug
+  const allServiceUrls = new Map<string, MetadataRoute.Sitemap[number]>();
+  [...serviceDetailRoutes, ...dedicatedServiceRoutes].forEach((r) => {
+    allServiceUrls.set(r.url, r);
+  });
 
   const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((p) => ({
     url: `${base}/blog/${p.slug}`,
@@ -35,5 +63,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  return [
+    ...staticRoutes,
+    ...Array.from(allServiceUrls.values()),
+    ...blogRoutes,
+  ];
 }
