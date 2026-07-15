@@ -4,18 +4,18 @@ import { CTASection } from "@/components/sections/CTASection";
 import { SITE_CONFIG, STATS, PROJECTS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Portfel — 150+ Muvaffaqiyatli Loyiha va Ish Namunalari",
+  title: "Loyihalarimiz — 150+ Muvaffaqiyatli Veb Saytlar va Ishlar",
   description:
-    "SaytYaratamiz.uz yaratgan saytlar: AutoParts.uz, MedCenter Pro, EduLearn.uz va boshqa 150+ loyiha. Internet do'konlar, korporativ saytlar, veb ilovalar.",
-  alternates: { canonical: `${SITE_CONFIG.url}/portfel` },
+    "SaytYaratamiz.uz tomonidan yaratilgan loyihalar: AutoParts, MedCenter Pro, EduLearn va boshqa 150+ loyiha. Internet do'konlar, korporativ saytlar va veb ilovalar.",
+  alternates: { canonical: `${SITE_CONFIG.url}/loyihalar` },
   keywords: [
-    "sayt namunalari", "veb dizayn portfel", "sayt yaratish namunalar",
+    "sayt namunalari", "veb dizayn loyihalar", "sayt yaratish namunalar",
     "internet do'kon namunasi", "korporativ sayt namuna", "next.js loyihalar",
   ],
   openGraph: {
-    title: "Portfel — 150+ Loyiha | SaytYaratamiz.uz",
+    title: "Loyihalar — 150+ Loyiha | SaytYaratamiz.uz",
     description: "Real loyihalar, haqiqiy natijalar. Internet do'konlar, korporativ saytlar, veb ilovalar.",
-    url: `${SITE_CONFIG.url}/portfel`,
+    url: `${SITE_CONFIG.url}/loyihalar`,
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
 };
@@ -28,14 +28,14 @@ function PortfolioJsonLd() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
-          { "@type": "ListItem", position: 2, name: "Portfel", item: `${SITE_CONFIG.url}/portfel` },
+          { "@type": "ListItem", position: 2, name: "Loyihalar", item: `${SITE_CONFIG.url}/loyihalar` },
         ],
       },
       {
         "@type": "CollectionPage",
-        "@id": `${SITE_CONFIG.url}/portfel`,
-        url: `${SITE_CONFIG.url}/portfel`,
-        name: "SaytYaratamiz.uz Portfel",
+        "@id": `${SITE_CONFIG.url}/loyihalar`,
+        url: `${SITE_CONFIG.url}/loyihalar`,
+        name: "SaytYaratamiz.uz Loyihalari",
         description: "150+ muvaffaqiyatli loyiha",
         mainEntity: {
           "@type": "ItemList",
@@ -68,12 +68,12 @@ export default function PortfolioPage() {
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-muted-foreground mb-8">
             <a href="/" className="hover:text-primary transition-colors">Bosh sahifa</a>
             <span aria-hidden="true">/</span>
-            <span className="text-foreground font-medium" aria-current="page">Portfel</span>
+            <span className="text-foreground font-medium" aria-current="page">Loyihalarimiz</span>
           </nav>
 
           <div className="max-w-2xl mx-auto text-center space-y-5">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
-              Portfel
+              Loyihalar
             </span>
             <h1 id="portfolio-heading" className="text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
               Bizning{" "}

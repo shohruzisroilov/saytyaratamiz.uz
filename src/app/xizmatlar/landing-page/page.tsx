@@ -7,14 +7,14 @@ import { CTASection } from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Landing Page Yaratish — Yuqori Konversiyali Bir Sahifali Sayt",
   description:
-    "Reklama kampaniyalari uchun yuqori konversiyali landing page yaratish. 5–7 kunda tayyor, A/B testing, Payme/Click integratsiya. Narx 800 000 so'mdan.",
+    "Reklama kampaniyalari uchun yuqori konversiyali landing page yaratish. 3-5 ish kunida tayyor, A/B testing, Payme/Click integratsiya. Narx 1 200 000 so'mdan.",
   alternates: { canonical: `${SITE_CONFIG.url}/xizmatlar/landing-page` },
   keywords: ["landing page yaratish", "bir sahifali sayt", "konversiya", "reklama sayt", "landing page narxi"],
 };
 
 const FEATURES = [
   "Yuqori konversiyali dizayn",
-  "5–7 ish kunida topshirish",
+  "3-5 ish kunida topshirish",
   "Tez yuklash (1 soniyadan kam)",
   "Payme / Click forma integratsiya",
   "Google Analytics ulanishi",
@@ -37,11 +37,23 @@ const USE_CASES = [
 function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Landing Page Yaratish",
-    description: "Yuqori konversiyali bir sahifali sayt yaratish xizmati",
-    provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
-    offers: { "@type": "Offer", price: "800000", priceCurrency: "UZS" },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Xizmatlar", item: `${SITE_CONFIG.url}/xizmatlar` },
+          { "@type": "ListItem", position: 3, name: "Landing Page", item: `${SITE_CONFIG.url}/xizmatlar/landing-page` },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Landing Page Yaratish",
+        description: "Yuqori konversiyali bir sahifali sayt yaratish xizmati",
+        provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+        offers: { "@type": "Offer", price: "1200000", priceCurrency: "UZS" },
+      },
+    ],
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
@@ -73,8 +85,8 @@ export default function LandingPagePage() {
               <div className="grid grid-cols-3 gap-4 py-2">
                 {[
                   { val: "40%", label: "O'rtacha konversiya o'sishi" },
-                  { val: "5 kun", label: "Yaratish muddati" },
-                  { val: "800K", label: "So'mdan boshlab" },
+                  { val: "3 kun", label: "Yaratish muddati" },
+                  { val: "1.2M", label: "So'mdan boshlab" },
                 ].map((s) => (
                   <div key={s.label} className="text-center p-3 rounded-[12px] bg-muted/40 border border-border">
                     <p className="font-black text-primary text-lg tracking-[-0.02em]">{s.val}</p>
@@ -88,7 +100,7 @@ export default function LandingPagePage() {
                   Buyurtma berish
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link href="/portfel" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+                <Link href="/loyihalar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                   Namunalar
                 </Link>
               </div>

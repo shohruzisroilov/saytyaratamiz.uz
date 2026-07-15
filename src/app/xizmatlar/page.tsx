@@ -40,18 +40,29 @@ const EXTRA_SERVICES = [
 function ServiceJsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "SaytYaratamiz.uz Xizmatlari",
-    itemListElement: SERVICES.map((s, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      item: {
-        "@type": "Service",
-        name: s.title,
-        description: s.description,
-        url: `${SITE_CONFIG.url}/xizmatlar/${s.slug}`,
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Xizmatlar", item: `${SITE_CONFIG.url}/xizmatlar` },
+        ],
       },
-    })),
+      {
+        "@type": "ItemList",
+        name: "SaytYaratamiz.uz Xizmatlari",
+        itemListElement: SERVICES.map((s, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          item: {
+            "@type": "Service",
+            name: s.title,
+            description: s.description,
+            url: `${SITE_CONFIG.url}/xizmatlar/${s.slug}`,
+          },
+        })),
+      },
+    ],
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }

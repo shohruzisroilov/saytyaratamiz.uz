@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Send, Camera, ArrowUpRight } from "lucide-react";
 import { SITE_CONFIG, NAV_ITEMS, SERVICES } from "@/lib/constants";
+import { Logo } from "@/components/ui/Logo";
 
 const serviceLinks = SERVICES.slice(0, 5).map((s) => ({
   label: s.title,
@@ -16,15 +17,7 @@ export function Footer() {
 
           {/* Brand — wider column */}
           <div className="lg:col-span-4 space-y-5">
-            <Link href="/" className="inline-flex items-center gap-2.5 group">
-              <div className="w-9 h-9 bg-primary rounded-[10px] flex items-center justify-center shadow-[0_4px_14px_rgba(37,99,235,0.35)] group-hover:shadow-[0_6px_20px_rgba(37,99,235,0.45)] transition-shadow">
-                <span className="text-white font-bold text-sm">S</span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-semibold text-white text-sm tracking-tight">SaytYaratamiz</span>
-                <span className="text-[11px] text-white/40 font-medium">.uz</span>
-              </div>
-            </Link>
+            <Logo lightText={true} />
 
             <p className="text-sm text-white/55 leading-relaxed max-w-[260px]">
               O&apos;zbekistonda professional veb-sayt yaratish xizmati. Sifat,

@@ -45,7 +45,7 @@ export function ProjectsSection() {
           className="max-w-xl mx-auto text-center mb-10 space-y-4"
         >
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
-            Portfel
+            Loyihalar
           </span>
           <h2 id="projects-heading" className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
             Yaratgan Saytlarimiz
@@ -93,24 +93,12 @@ export function ProjectsSection() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-4xl select-none">{TECH_INITIALS[project.category] || "🌐"}</span>
                   </div>
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
-                  {/* View button */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <Link
-                      href={`/portfel/${project.slug}`}
-                      className="flex items-center gap-2 px-4 py-2 rounded-[10px] bg-white dark:bg-[#162032] text-foreground text-sm font-semibold shadow-[0_4px_16px_rgba(0,0,0,0.12)] translate-y-2 group-hover:translate-y-0 transition-transform duration-200"
-                    >
-                      Ko&apos;rish
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-5 space-y-3">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-semibold text-foreground text-[15px] group-hover:text-primary transition-colors duration-200">
+                    <h3 className="font-semibold text-foreground text-[15px] transition-colors duration-200">
                       {project.title}
                     </h3>
                     <span className={cn(
@@ -150,7 +138,7 @@ export function ProjectsSection() {
           className="text-center mt-12"
         >
           <Link
-            href="/portfel"
+            href="/loyihalar"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.25)] hover:bg-primary-dark hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all duration-200 hover:-translate-y-px"
           >
             Barcha Loyihalar

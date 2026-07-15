@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { StatsSection } from "@/components/sections/StatsSection";
+import { TrustedCompanies } from "@/components/sections/TrustedCompanies";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { WhyUsSection } from "@/components/sections/WhyUsSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { PricingSection } from "@/components/sections/PricingSection";
-import { FAQSection } from "@/components/sections/FAQSection";
-import { CTASection } from "@/components/sections/CTASection";
-import { SITE_CONFIG, SERVICES, FAQS, PRICING_PLANS, TESTIMONIALS } from "@/lib/constants";
+import { StatsSection } from "@/components/sections/StatsSection";
+import { SITE_CONFIG, SERVICES, FAQS, TESTIMONIALS } from "@/lib/constants";
+
+const ProjectsSection = dynamic(() => import("@/components/sections/ProjectsSection").then((m) => m.ProjectsSection));
+const PricingSection = dynamic(() => import("@/components/sections/PricingSection").then((m) => m.PricingSection));
+const TestimonialsSection = dynamic(() => import("@/components/sections/TestimonialsSection").then((m) => m.TestimonialsSection));
+const FAQSection = dynamic(() => import("@/components/sections/FAQSection").then((m) => m.FAQSection));
+const CTASection = dynamic(() => import("@/components/sections/CTASection").then((m) => m.CTASection));
 
 export const metadata: Metadata = {
-  title: "SaytYaratamiz.uz — O'zbekistonda №1 Professional Sayt Yaratish Xizmati",
+  title: "SaytYaratamiz.uz — Professional Sayt Yaratish Xizmati O'zbekistonda",
   description:
     "O'zbekistonda professional sayt yaratish: korporativ sayt, internet do'kon, landing page, CRM, Telegram bot. 150+ muvaffaqiyatli loyiha. Bepul konsultatsiya.",
   alternates: {
@@ -21,12 +25,12 @@ export const metadata: Metadata = {
   keywords: [
     "sayt yaratish", "veb sayt yaratish", "internet do'kon yaratish",
     "landing page", "korporativ sayt", "web dizayn", "sayt yaratish narxi",
-    "O'zbekiston veb studiya", "Toshkent sayt yaratish", "CRM tizim",
+    "O'zbekiston veb studiya", "O'zbekiston bo'ylab sayt yaratish", "CRM tizim",
     "Telegram bot yaratish", "saytyaratamiz",
   ],
   openGraph: {
     type: "website",
-    title: "SaytYaratamiz.uz — O'zbekistonda №1 Professional Sayt Yaratish",
+    title: "SaytYaratamiz.uz — Professional Sayt Yaratish Xizmati",
     description:
       "Korporativ sayt, internet do'kon, landing page, CRM, Telegram bot. 150+ loyiha. Bepul konsultatsiya.",
     url: SITE_CONFIG.url,
@@ -67,8 +71,8 @@ function HomeJsonLd() {
         openingHours: "Mo-Sa 09:00-18:00",
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Toshkent",
-          addressRegion: "Toshkent",
+          addressLocality: "O'zbekiston",
+          addressRegion: "O'zbekiston bo'ylab",
           addressCountry: "UZ",
         },
         geo: {
@@ -77,7 +81,7 @@ function HomeJsonLd() {
           longitude: 69.2401,
         },
         sameAs: [SITE_CONFIG.telegram, SITE_CONFIG.instagram],
-        hasMap: "https://maps.google.com/?q=Toshkent,O'zbekiston",
+        hasMap: "https://maps.google.com/?q=O'zbekiston",
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "4.9",
@@ -150,12 +154,14 @@ export default function HomePage() {
     <>
       <HomeJsonLd />
       <HeroSection />
-      <StatsSection />
+      <TrustedCompanies />
       <ServicesSection />
+      <WhyUsSection />
       <ProcessSection />
       <ProjectsSection />
-      <TestimonialsSection />
       <PricingSection />
+      <StatsSection />
+      <TestimonialsSection />
       <FAQSection />
       <CTASection />
     </>

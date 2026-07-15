@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/ui/Logo";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,22 +54,7 @@ export function Navbar() {
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
           <div className="flex items-center justify-between h-[64px] lg:h-[72px]">
             {/* Logo */}
-            <Link
-              href="/"
-              className="flex items-center gap-2.5 group shrink-0"
-              aria-label="SaytYaratamiz.uz bosh sahifasi"
-            >
-              <div className="relative w-8 h-8 lg:w-9 lg:h-9">
-                <div className="absolute inset-0 bg-primary rounded-[10px] shadow-[0_4px_12px_rgba(37,99,235,0.25)] group-hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-shadow duration-300" />
-                <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">S</span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-semibold text-foreground text-sm tracking-tight group-hover:text-primary transition-colors duration-200">
-                  SaytYaratamiz
-                </span>
-                <span className="text-[11px] text-muted-foreground font-medium">.uz</span>
-              </div>
-            </Link>
+            <Logo />
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-0.5" aria-label="Asosiy navigatsiya">
@@ -101,7 +86,6 @@ export function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-2.5">
-              <ThemeToggle />
               <a
                 href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
                 className="flex items-center gap-2 px-3.5 py-2 rounded-[10px] text-sm font-medium text-foreground/65 hover:text-foreground border border-transparent hover:border-border transition-all duration-200"
@@ -120,7 +104,6 @@ export function Navbar() {
 
             {/* Mobile controls */}
             <div className="flex lg:hidden items-center gap-2">
-              <ThemeToggle />
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
                 className="w-9 h-9 rounded-[10px] flex items-center justify-center bg-muted/70 hover:bg-muted transition-colors"
@@ -158,12 +141,7 @@ export function Navbar() {
             >
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileOpen(false)}>
-                  <div className="w-8 h-8 bg-primary rounded-[10px] flex items-center justify-center shadow-[0_4px_12px_rgba(37,99,235,0.25)]">
-                    <span className="text-white font-bold text-sm">S</span>
-                  </div>
-                  <span className="font-semibold text-foreground text-sm">SaytYaratamiz.uz</span>
-                </Link>
+                <Logo onClick={() => setIsMobileOpen(false)} />
                 <button
                   onClick={() => setIsMobileOpen(false)}
                   className="w-8 h-8 rounded-[10px] bg-muted flex items-center justify-center hover:bg-border transition-colors"

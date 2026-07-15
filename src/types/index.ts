@@ -54,6 +54,7 @@ export interface PricingPlan {
   id: string;
   name: string;
   price: string;
+  duration: string;
   description: string;
   features: string[];
   notIncluded?: string[];

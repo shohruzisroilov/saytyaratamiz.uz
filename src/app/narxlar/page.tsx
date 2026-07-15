@@ -7,7 +7,7 @@ import { SITE_CONFIG, PRICING_PLANS, FAQS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Narxlar — Sayt Yaratish Qanchaga Tushadi? Shaffof Narx Jadvali 2025",
   description:
-    "Landing page 800 000 so'mdan, korporativ sayt 1 500 000 so'mdan, internet do'kon 3 000 000 so'mdan. Yashirin to'lovlarsiz. O'zbekistonda sayt yaratish narxi 2025.",
+    "Landing page 1 200 000 so'mdan, korporativ sayt 2 900 000 so'mdan, internet do'kon 4 900 000 so'mdan. Yashirin to'lovlarsiz. O'zbekistonda sayt yaratish narxi 2025.",
   alternates: { canonical: `${SITE_CONFIG.url}/narxlar` },
   keywords: [
     "sayt yaratish narxi", "landing page narxi", "korporativ sayt narxi",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Sayt Yaratish Narxlari 2025 — SaytYaratamiz.uz",
-    description: "Shaffof narxlar: landing page 800K, korporativ sayt 1.5M, internet do'kon 3M so'mdan.",
+    description: "Shaffof narxlar: landing page 1.2M, korporativ sayt 2.9M, internet do'kon 4.9M so'mdan.",
     url: `${SITE_CONFIG.url}/narxlar`,
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },

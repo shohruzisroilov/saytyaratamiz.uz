@@ -5,6 +5,7 @@ import { ArrowLeft, Clock, Calendar, Tag, ArrowRight } from "lucide-react";
 import { SITE_CONFIG, BLOG_POSTS } from "@/lib/constants";
 import { CTASection } from "@/components/sections/CTASection";
 import { cn } from "@/lib/utils";
+import { SocialShare } from "@/components/blog/SocialShare";
 
 export async function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
@@ -86,6 +87,18 @@ export default async function BlogPostPage({
   const relatedPosts = [...related, ...others].slice(0, 3);
 
   const postUrl = `${SITE_CONFIG.url}/blog/${post.slug}`;
+
+  const toc = post.content
+    .split("\n\n")
+    .filter((para) => /^\*\*[^*]+\*\*$/.test(para.trim()))
+    .map((para) => {
+      const text = para.replace(/\*\*/g, "").trim();
+      const id = text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-");
+      return { text, id };
+    });
 
   const schema = {
     "@context": "https://schema.org",
@@ -203,50 +216,82 @@ export default async function BlogPostPage({
 
       {/* Article content */}
       <article className="py-12 bg-background" aria-labelledby="post-heading">
-        <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-3xl">
-          <div className="prose max-w-none">
-            {post.content.split("\n\n").map((para, i) => {
-              // Bold-only paragraphs become h2
-              if (/^\*\*[^*]+\*\*$/.test(para.trim())) {
-                return (
-                  <h2
-                    key={i}
-                    className="text-xl font-bold text-foreground mt-10 mb-3 tracking-[-0.01em]"
-                  >
-                    {para.trim().replace(/\*\*/g, "")}
-                  </h2>
-                );
-              }
-              const parts = para.split(/(\*\*[^*]+\*\*)/g);
-              return (
-                <p key={i} className="text-foreground/85 leading-[1.8] mb-5">
-                  {parts.map((part, j) =>
-                    part.startsWith("**") && part.endsWith("**") ? (
-                      <strong key={j} className="font-semibold text-foreground">
-                        {part.replace(/\*\*/g, "")}
-                      </strong>
-                    ) : (
-                      part
-                    )
-                  )}
-                </p>
-              );
-            })}
-          </div>
+        <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-5xl">
+          <div className="grid lg:grid-cols-4 gap-10 items-start">
+            
+            {/* Desktop Sidebar (TOC & Share) */}
+            <aside className="lg:col-span-1 lg:sticky lg:top-24 space-y-6 order-last lg:order-first">
+              {toc.length > 0 && (
+                <nav className="space-y-3 bg-muted/30 p-5 rounded-[16px] border border-border" aria-label="Mundarija">
+                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Mundarija</p>
+                  <ul className="space-y-2.5 text-xs">
+                    {toc.map((item) => (
+                      <li key={item.id}>
+                        <a href={`#${item.id}`} className="block text-foreground/70 hover:text-primary leading-normal hover:translate-x-0.5 transition-all">
+                          {item.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              )}
+              <SocialShare url={postUrl} title={post.title} />
+            </aside>
 
-          {/* Tags */}
-          <footer className="flex flex-wrap items-center gap-2 mt-10 pt-6 border-t border-border">
-            <Tag className="w-4 h-4 text-muted-foreground shrink-0" aria-hidden="true" />
-            <span className="sr-only">Teglar:</span>
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground border border-border hover:border-primary/30 transition-colors"
-              >
-                {tag}
-              </span>
-            ))}
-          </footer>
+            {/* Article Body */}
+            <div className="lg:col-span-3">
+              <div className="prose max-w-none">
+                {post.content.split("\n\n").map((para, i) => {
+                  // Bold-only paragraphs become h2 with ID
+                  if (/^\*\*[^*]+\*\*$/.test(para.trim())) {
+                    const headingText = para.trim().replace(/\*\*/g, "");
+                    const headingId = headingText
+                      .toLowerCase()
+                      .replace(/[^a-z0-9\s-]/g, "")
+                      .replace(/\s+/g, "-");
+                    return (
+                      <h2
+                        key={i}
+                        id={headingId}
+                        className="text-xl font-bold text-foreground mt-10 mb-3 tracking-[-0.01em] scroll-mt-24"
+                      >
+                        {headingText}
+                      </h2>
+                    );
+                  }
+                  const parts = para.split(/(\*\*[^*]+\*\*)/g);
+                  return (
+                    <p key={i} className="text-foreground/85 leading-[1.8] mb-5 text-sm sm:text-base">
+                      {parts.map((part, j) =>
+                        part.startsWith("**") && part.endsWith("**") ? (
+                          <strong key={j} className="font-semibold text-foreground">
+                            {part.replace(/\*\*/g, "")}
+                          </strong>
+                        ) : (
+                          part
+                        )
+                      )}
+                    </p>
+                  );
+                })}
+              </div>
+
+              {/* Tags */}
+              <footer className="flex flex-wrap items-center gap-2 mt-10 pt-6 border-t border-border">
+                <Tag className="w-4 h-4 text-muted-foreground shrink-0" aria-hidden="true" />
+                <span className="sr-only">Teglar:</span>
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground border border-border hover:border-primary/30 transition-colors"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </footer>
+            </div>
+
+          </div>
         </div>
       </article>
 

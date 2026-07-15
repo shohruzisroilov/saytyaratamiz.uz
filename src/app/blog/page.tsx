@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import { SITE_CONFIG, BLOG_POSTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { BlogList } from "@/components/blog/BlogList";
 
 export const metadata: Metadata = {
   title: "Blog — Veb Dizayn, SEO va E-Commerce Maqolalari",
@@ -130,36 +131,12 @@ export default function BlogPage() {
             </article>
           </Link>
 
-          {/* Other posts */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {rest.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`}>
-                <article className="h-full rounded-[16px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300 group overflow-hidden cursor-pointer">
-                  <div className="h-40 bg-gradient-to-br from-muted/60 to-muted flex items-center justify-center text-5xl select-none" role="img" aria-label={post.title}>
-                    {post.emoji}
-                  </div>
-                  <div className="p-5 space-y-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className={cn("px-2.5 py-0.5 rounded-full text-[11px] font-semibold", CATEGORY_COLORS[post.category])}>
-                        {post.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" aria-hidden="true" />
-                        {post.readTime}
-                      </span>
-                    </div>
-                    <h3 className="font-semibold text-foreground text-[15px] group-hover:text-primary transition-colors duration-200 leading-snug">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{post.excerpt}</p>
-                    <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary pt-1">
-                      O&apos;qish
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            ))}
+          {/* Interactive search, categories & pagination list */}
+          <div className="mt-14 pt-14 border-t border-border">
+            <h2 className="text-2xl font-bold text-foreground tracking-[-0.02em] mb-6">
+              Barcha maqolalar
+            </h2>
+            <BlogList posts={BLOG_POSTS} />
           </div>
         </div>
       </section>

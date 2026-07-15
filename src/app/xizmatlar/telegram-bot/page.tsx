@@ -7,7 +7,7 @@ import { CTASection } from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Telegram Bot Yaratish — Savdo va Xizmat uchun Avtomatik Bot",
   description:
-    "Biznesingiz uchun Telegram bot yaratish: buyurtma qabul qilish, Payme/Click to'lov, bildirishnomalar va mijozlar bazasi. O'zbekistonda Telegram bot narxi 2 000 000 so'mdan.",
+    "Biznesingiz uchun Telegram bot yaratish: buyurtma qabul qilish, Payme/Click to'lov, bildirishnomalar va mijozlar bazasi. O'zbekistonda Telegram bot narxi 1 800 000 so'mdan.",
   alternates: { canonical: `${SITE_CONFIG.url}/xizmatlar/telegram-bot` },
   keywords: ["Telegram bot yaratish", "savdo boti", "Telegram orqali savdo", "bot yaratish O'zbekiston", "Payme bot"],
 };
@@ -41,11 +41,23 @@ const PROCESS = [
 function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Telegram Bot Yaratish",
-    description: "Biznes uchun Telegram bot yaratish xizmati",
-    provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
-    offers: { "@type": "Offer", price: "2000000", priceCurrency: "UZS" },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Xizmatlar", item: `${SITE_CONFIG.url}/xizmatlar` },
+          { "@type": "ListItem", position: 3, name: "Telegram Bot", item: `${SITE_CONFIG.url}/xizmatlar/telegram-bot` },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Telegram Bot Yaratish",
+        description: "Biznes uchun Telegram bot yaratish xizmati",
+        provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+        offers: { "@type": "Offer", price: "2000000", priceCurrency: "UZS" },
+      },
+    ],
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }

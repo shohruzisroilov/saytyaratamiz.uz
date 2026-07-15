@@ -7,10 +7,10 @@ import { CTASection } from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Biz Haqimizda — SaytYaratamiz.uz Veb Studiya | 2019-yildan Beri",
   description:
-    "SaytYaratamiz.uz haqida: 2019-yildan beri faoliyat, 5+ yillik tajriba, 150+ loyiha, 120+ mamnun mijoz. Toshkentdagi professional veb studiya jamoasi bilan tanishing.",
+    "SaytYaratamiz.uz haqida: 2019-yildan beri faoliyat, 5+ yillik tajriba, 150+ loyiha, 120+ mamnun mijoz. O'zbekistondagi professional veb studiya jamoasi bilan tanishing.",
   alternates: { canonical: `${SITE_CONFIG.url}/haqimizda` },
   keywords: [
-    "saytyaratamiz haqida", "veb studiya Toshkent", "professional veb dasturchi O'zbekiston",
+    "saytyaratamiz haqida", "veb studiya O'zbekiston", "professional veb dasturchi O'zbekiston",
     "sayt yaratish jamoasi", "5 yillik tajriba",
   ],
   openGraph: {

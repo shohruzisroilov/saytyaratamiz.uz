@@ -7,7 +7,7 @@ import { CTASection } from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "CRM Tizim Yaratish — Mijozlar Boshqaruvi va Savdo Avtomatizatsiyasi",
   description:
-    "Biznesingiz uchun maxsus CRM tizim: mijozlar bazasi, savdo pipeline, avtomatik eslatmalar va analitika. O'zbekistonda CRM dastur yaratish. Narx 5 000 000 so'mdan.",
+    "Biznesingiz uchun maxsus CRM tizim: mijozlar bazasi, savdo pipeline, avtomatik eslatmalar va analitika. O'zbekistonda CRM dastur yaratish. Narx 6 000 000 so'mdan.",
   alternates: { canonical: `${SITE_CONFIG.url}/xizmatlar/crm` },
   keywords: ["CRM tizim yaratish", "mijozlar boshqaruvi", "savdo avtomatizatsiya", "CRM dastur O'zbekiston"],
 };
@@ -39,11 +39,23 @@ const FOR_WHO = [
 function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "CRM Tizim Yaratish",
-    description: "Biznes uchun maxsus CRM dastur yaratish xizmati",
-    provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
-    offers: { "@type": "Offer", price: "5000000", priceCurrency: "UZS" },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Xizmatlar", item: `${SITE_CONFIG.url}/xizmatlar` },
+          { "@type": "ListItem", position: 3, name: "CRM Tizim", item: `${SITE_CONFIG.url}/xizmatlar/crm` },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "CRM Tizim Yaratish",
+        description: "Biznes uchun maxsus CRM dastur yaratish xizmati",
+        provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+        offers: { "@type": "Offer", price: "5000000", priceCurrency: "UZS" },
+      },
+    ],
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
@@ -68,7 +80,7 @@ export default function CrmPage() {
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Biznesingizning ehtiyojlariga mos maxsus CRM tizim. Mijozlar yo'qolmasin,
               bitimlar unutilmasin, savdo ko'rsatkichlari oshsin.
-              Narx <strong className="text-foreground">5 000 000 so'mdan</strong> boshlanadi.
+              Narx <strong className="text-foreground">6 000 000 so'mdan</strong> boshlanadi.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200 hover:-translate-y-px">

@@ -17,7 +17,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
   display: "swap",
-  preload: false,
+  preload: true,
 });
 
 // ─── Global default metadata ───────────────────────────────────────────────────
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
 
   title: {
-    default: "SaytYaratamiz.uz — Professional Sayt Yaratish | O'zbekiston №1 Veb Studiya",
+    default: "SaytYaratamiz.uz — Professional Sayt Yaratish Xizmati",
     template: "%s | SaytYaratamiz.uz",
   },
   description:
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "sayt yaratish narxi",
     "sayt yaratish xizmati",
     "O'zbekiston veb studiya",
-    "Toshkent sayt yaratish",
+    "O'zbekiston bo'ylab sayt yaratish",
     "CRM tizim",
     "Telegram bot yaratish",
     "saytyaratamiz",
@@ -136,10 +136,7 @@ export const metadata: Metadata = {
 
 // ─── Viewport ─────────────────────────────────────────────────────────────────
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)",  color: "#020817" },
-  ],
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -180,7 +177,7 @@ function OrganizationJsonLd() {
     ],
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Toshkent",
+      addressLocality: "O'zbekiston",
       addressCountry: "UZ",
     },
     email: SITE_CONFIG.email,

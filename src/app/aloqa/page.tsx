@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Phone, Mail, MapPin, Send, Clock, MessageCircle } from "lucide-react";
-import { ContactForm } from "@/components/ui/ContactForm";
+import { Phone, Mail, MapPin, Send, MessageCircle, HelpCircle, ChevronDown } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "Aloqa — Biz bilan Bog'laning | Bepul Konsultatsiya",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_CONFIG.url}/aloqa` },
   keywords: [
     "saytyaratamiz aloqa", "veb studiya telefon", "sayt yaratish konsultatsiya",
-    "bepul konsultatsiya sayt", "Toshkent veb studiya aloqa",
+    "bepul konsultatsiya sayt", "O'zbekiston veb studiya aloqa",
   ],
   openGraph: {
     title: "Biz bilan Bog'laning — SaytYaratamiz.uz",
@@ -47,9 +47,28 @@ const CONTACT_ITEMS = [
     icon: MapPin,
     label: "Manzil",
     value: SITE_CONFIG.address,
-    href: "https://maps.google.com/?q=Toshkent,O'zbekiston",
+    href: "https://maps.google.com/?q=O'zbekiston",
     description: "Online va offline uchrashuv",
     external: true,
+  },
+];
+
+const CONTACT_FAQS = [
+  {
+    q: "Loyiha bo'yicha konsultatsiya olish mutlaqo bepulmi?",
+    a: "Ha, loyihangiz maqsadi, kerakli sahifalar soni va umumiy xarajatlarni aniqlab beruvchi dastlabki konsultatsiya va smeta hisob-kitobi mutlaqo bepul bo'lib, sizga hech qanday majburiyat yuklamaydi.",
+  },
+  {
+    q: "Murojaat yuborilganidan so'ng qancha vaqtda javob berasiz?",
+    a: "Telegram orqali bog'lansangiz, mutaxassisimiz 30 daqiqa ichida javob beradi. Veb-saytdagi murojaat formasi orqali yuborilgan so'rovlarga esa ish vaqtida 1-2 soat ichida bog'lanamiz.",
+  },
+  {
+    q: "Sayt yaratish uchun qanday ma'lumotlar talab etiladi?",
+    a: "Dastlab saytning asosiy maqsadi, raqobatchilaringiz va sizga ma'qul kelgan boshqa sayt havolalari kerak bo'ladi. Matnlar va rasmlar bo'lsa, ularni ham taqdim etishingiz mumkin.",
+  },
+  {
+    q: "Hamkorlik qanday to'lov usullarida amalga oshiriladi?",
+    a: "To'lovlarni Click, Payme ilovalari orqali, bank kartalari yordamida yoki yuridik shaxslar uchun rasmiy shartnoma asosida pul o'tkazish (yuridik to'lov) yo'li bilan amalga oshirishingiz mumkin.",
   },
 ];
 
@@ -78,7 +97,7 @@ function ContactJsonLd() {
           url: SITE_CONFIG.url,
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Toshkent",
+            addressLocality: "O'zbekiston",
             addressCountry: "UZ",
           },
         },
@@ -94,7 +113,7 @@ export default function ContactPage() {
       <ContactJsonLd />
 
       {/* Hero */}
-      <section className="pt-28 pb-14 bg-background" aria-labelledby="contact-heading">
+      <section className="pt-28 pb-10 bg-background" aria-labelledby="contact-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-2xl text-center">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-6">
@@ -106,31 +125,25 @@ export default function ContactPage() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15 mb-5">
             Aloqa
           </span>
-          <h1 id="contact-heading" className="text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em] mb-4">
-            Biz bilan{" "}
-            <span className="gradient-text">Bog&apos;laning</span>
+          <h1 id="contact-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-[-0.02em] mb-4">
+            Biz bilan <span className="gradient-text">Bog&apos;laning</span>
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Loyihangiz haqida suhbatlashishga tayyor. Bepul konsultatsiya oling
-            va saytingizni qachon yaratishni rejalashtiring.
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            Loyihangiz haqida batafsil suhbatlashish va bepul smeta hisob-kitobini olish uchun quyidagi shaklni to&apos;ldiring yoki biz bilan to&apos;g&apos;ridan-to&apos;g&apos;ri bog&apos;laning.
           </p>
         </div>
       </section>
 
-      {/* Main */}
-      <section className="pb-20 lg:pb-28 bg-background">
+      {/* Main Grid */}
+      <section className="pb-16 bg-background">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <div className="grid lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-5 gap-8 max-w-5xl mx-auto items-start">
 
-            {/* Left: contact info */}
-            <aside className="lg:col-span-2 space-y-5">
+            {/* Left Column: Contact details & Working Hours */}
+            <aside className="lg:col-span-2 space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-foreground mb-1.5">
-                  Aloqa Ma&apos;lumotlari
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  Quyidagi kanallar orqali biz bilan bog&apos;lanishingiz mumkin.
-                </p>
+                <h2 className="text-lg font-bold text-foreground tracking-tight mb-1">Aloqa ma&apos;lumotlari</h2>
+                <p className="text-xs text-muted-foreground">Kompaniyamizning barcha rasmiy aloqa kanallari.</p>
               </div>
 
               <address className="not-italic space-y-3">
@@ -142,55 +155,70 @@ export default function ContactPage() {
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noopener noreferrer" : undefined}
-                      className="flex items-start gap-3.5 p-4 rounded-[14px] bg-muted/40 border border-border hover:border-primary/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.05)] transition-all duration-200 group"
+                      className="flex items-start gap-3.5 p-4 rounded-[16px] bg-muted/30 border border-border/80 hover:border-primary/20 hover:shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:bg-card transition-all duration-300 group"
                     >
-                      <div className="w-9 h-9 rounded-[10px] bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/12 transition-colors" aria-hidden="true">
+                      <div className="w-9 h-9 rounded-[10px] bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/12 transition-colors">
                         <Icon className="w-4 h-4 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[11px] text-muted-foreground font-medium mb-0.5 uppercase tracking-wider">{item.label}</p>
-                        <p className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">
+                        <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mb-0.5">{item.label}</p>
+                        <p className="font-bold text-foreground text-sm group-hover:text-primary transition-colors">
                           {item.value}
                         </p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
+                        <p className="text-[11px] text-muted-foreground mt-0.5">{item.description}</p>
                       </div>
                     </a>
                   );
                 })}
               </address>
 
-              {/* Working hours */}
-              <div className="p-4 rounded-[14px] bg-primary/5 border border-primary/15">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <Clock className="w-4 h-4 text-primary" aria-hidden="true" />
-                  <span className="font-semibold text-foreground text-sm">Ish vaqti</span>
-                </div>
-                <p className="text-sm text-muted-foreground">Dushanba – Shanba: 9:00 – 18:00</p>
-                <p className="text-sm text-muted-foreground">Yakshanba: Dam olish kuni</p>
-              </div>
 
-              {/* Quick response */}
-              <div className="flex items-start gap-3 p-4 rounded-[14px] bg-green-500/5 border border-green-500/15">
-                <MessageCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" aria-hidden="true" />
+
+              {/* Quick Response Notice */}
+              <div className="flex items-start gap-3.5 p-5 rounded-[16px] bg-green-500/5 border border-green-500/12">
+                <MessageCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Tez javob kafolati</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    Telegram orqali murojaat qilsangiz, 30 daqiqa ichida javob beramiz.
+                  <h3 className="text-xs font-bold text-foreground">Tezkor aloqa maslahati</h3>
+                  <p className="text-[11px] text-muted-foreground leading-relaxed mt-1">
+                    Telegram orqali yozsangiz, loyihangizni tezda ovozli qo&apos;ng&apos;iroq orqali muhokama qilishimiz mumkin.
                   </p>
                 </div>
               </div>
             </aside>
 
-            {/* Right: form */}
+            {/* Right Column: Contact Form */}
             <div className="lg:col-span-3">
-              <div className="rounded-[20px] border border-border bg-card p-6 sm:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
-                <h2 className="text-xl font-bold text-foreground mb-1.5">Murojaat Formasi</h2>
-                <p className="text-sm text-muted-foreground mb-6">
-                  Formani to&apos;ldiring — 1–2 soat ichida javob beramiz.
-                </p>
-                <ContactForm />
-              </div>
+              <ContactForm />
             </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* FAQs Section */}
+      <section className="py-20 lg:py-24 bg-background">
+        <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-3xl">
+          <div className="text-center mb-12 space-y-3">
+            <div className="w-10 h-10 rounded-full bg-primary/8 flex items-center justify-center text-primary mx-auto">
+              <HelpCircle className="w-5 h-5" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground tracking-tight">Bog&apos;lanish bo&apos;yicha tez-tez beriladigan savollar</h2>
+            <p className="text-xs text-muted-foreground">Biz bilan ishlash jarayoni va aloqaga oid eng ko&apos;p beriladigan savollar.</p>
+          </div>
+
+          <div className="space-y-1">
+            {CONTACT_FAQS.map((faq, i) => (
+              <details key={i} className="group border-b border-border/80 py-4.5 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between font-bold text-foreground text-sm cursor-pointer list-none focus:outline-none select-none">
+                  <span>{faq.q}</span>
+                  <ChevronDown className="w-4 h-4 text-muted-foreground group-open:rotate-180 transition-transform duration-300 shrink-0" />
+                </summary>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-3 leading-relaxed">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

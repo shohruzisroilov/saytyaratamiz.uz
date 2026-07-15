@@ -7,7 +7,7 @@ import { CTASection } from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Internet Do'kon Yaratish — O'zbekistonda Online Savdo Boshlang",
   description:
-    "Professional internet do'kon yaratish: Payme/Click to'lov, mahsulot katalogi, buyurtma boshqaruvi, CRM integratsiya. Narx 3 000 000 so'mdan. 20–30 kunda tayyor.",
+    "Professional internet do'kon yaratish: Payme/Click to'lov, mahsulot katalogi, buyurtma boshqaruvi, CRM integratsiya. Narx 4 900 000 so'mdan. 10–15 ish kunida tayyor.",
   alternates: { canonical: `${SITE_CONFIG.url}/xizmatlar/internet-dokon` },
   keywords: ["internet do'kon yaratish", "online do'kon", "e-commerce O'zbekiston", "Payme integratsiya", "online savdo"],
 };
@@ -39,11 +39,23 @@ const BENEFITS = [
 function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Internet Do'kon Yaratish",
-    description: "To'liq funksional e-commerce sayt yaratish xizmati",
-    provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
-    offers: { "@type": "Offer", price: "3000000", priceCurrency: "UZS" },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Xizmatlar", item: `${SITE_CONFIG.url}/xizmatlar` },
+          { "@type": "ListItem", position: 3, name: "Internet Do'kon", item: `${SITE_CONFIG.url}/xizmatlar/internet-dokon` },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Internet Do'kon Yaratish",
+        description: "To'liq funksional e-commerce sayt yaratish xizmati",
+        provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+        offers: { "@type": "Offer", price: "3000000", priceCurrency: "UZS" },
+      },
+    ],
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
@@ -68,7 +80,7 @@ export default function InternetDokonPage() {
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Mahsulotlaringizni 24/7 onlayn soting. To'liq funksional internet do'kon:
               Payme/Click to'lov, mahsulot katalogi, buyurtma boshqaruvi va mijozlar kabineti.
-              Narx <strong className="text-foreground">3 000 000 so'mdan</strong> boshlanadi.
+              Narx <strong className="text-foreground">4 900 000 so'mdan</strong> boshlanadi.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -76,7 +88,7 @@ export default function InternetDokonPage() {
                 Bepul Konsultatsiya
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/portfel" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+              <Link href="/loyihalar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                 Do'kon namunalari
               </Link>
             </div>

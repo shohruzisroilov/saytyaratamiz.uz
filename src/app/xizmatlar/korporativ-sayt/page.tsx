@@ -7,7 +7,7 @@ import { CTASection } from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Korporativ Sayt Yaratish — Kompaniyangiz Imijini Kuchaytiring",
   description:
-    "Kompaniyangiz uchun professional korporativ veb-sayt. Brend identifikatsiyasi, SEO, admin panel, ko'p tilli versiya. Narx 1 500 000 so'mdan. 10–15 kunda tayyor.",
+    "Kompaniyangiz uchun professional korporativ veb-sayt. Brend identifikatsiyasi, SEO, admin panel, ko'p tilli versiya. Narx 2 900 000 so'mdan. 7-10 ish kunida tayyor.",
   alternates: { canonical: `${SITE_CONFIG.url}/xizmatlar/korporativ-sayt` },
   keywords: ["korporativ sayt", "kompaniya sayt yaratish", "biznes sayt", "professional sayt O'zbekiston"],
 };
@@ -43,11 +43,23 @@ const INDUSTRIES = [
 function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Korporativ Sayt Yaratish",
-    description: "Kompaniyalar uchun professional korporativ veb-sayt yaratish xizmati",
-    provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
-    offers: { "@type": "Offer", price: "1500000", priceCurrency: "UZS" },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Xizmatlar", item: `${SITE_CONFIG.url}/xizmatlar` },
+          { "@type": "ListItem", position: 3, name: "Korporativ Sayt", item: `${SITE_CONFIG.url}/xizmatlar/korporativ-sayt` },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Korporativ Sayt Yaratish",
+        description: "Kompaniyalar uchun professional korporativ veb-sayt yaratish xizmati",
+        provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+        offers: { "@type": "Offer", price: "1500000", priceCurrency: "UZS" },
+      },
+    ],
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
@@ -71,7 +83,7 @@ export default function KorporativSaytPage() {
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Birinchi taassurot muhim. Professional korporativ sayt yangi mijozlar jalb qiladi,
               ishonch uyg'otadi va brendingizni yuksaltiradi. Narx{" "}
-              <strong className="text-foreground">1 500 000 so'mdan</strong> boshlanadi.
+              <strong className="text-foreground">2 900 000 so'mdan</strong> boshlanadi.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -79,7 +91,7 @@ export default function KorporativSaytPage() {
                 Bepul Maslahat Olish
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/portfel" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+              <Link href="/loyihalar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                 Namunalarni Ko'rish
               </Link>
             </div>

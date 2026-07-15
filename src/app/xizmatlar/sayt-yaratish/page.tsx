@@ -7,7 +7,7 @@ import { CTASection } from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Sayt Yaratish Xizmati — O'zbekistonda Professional Veb Dizayn",
   description:
-    "O'zbekistonda professional sayt yaratish xizmati. Next.js, React asosida tez yuklanadigan, SEO optimallashtirilgan va mobil mos saytlar. Narx 800 000 so'mdan.",
+    "O'zbekistonda professional sayt yaratish xizmati. Next.js, React asosida tez yuklanadigan, SEO optimallashtirilgan va mobil mos saytlar. Narx 1 200 000 so'mdan.",
   alternates: { canonical: `${SITE_CONFIG.url}/xizmatlar/sayt-yaratish` },
   keywords: ["sayt yaratish", "veb sayt yaratish", "professional sayt", "Next.js sayt", "React sayt"],
 };
@@ -18,7 +18,7 @@ const WHY_US = [
   { icon: Globe, title: "SEO ready", desc: "Har bir sahifa meta teglar, schema markup va tezlik bo'yicha optimallashtirilgan." },
   { icon: Smartphone, title: "100% Responsive", desc: "Telefon, planshet va kompyuterda mukammal ko'rinadi." },
   { icon: BarChart2, title: "Analytics", desc: "Google Analytics va Search Console integratsiyasi bepul kiradi." },
-  { icon: Clock, title: "Tez yetkazish", desc: "Landing page 5 kunda, korporativ sayt 15 kunda topshiriladi." },
+  { icon: Clock, title: "Tez yetkazish", desc: "Landing page 3-5 kunda, korporativ sayt 7-10 kunda topshiriladi." },
 ];
 
 const PROCESS = [
@@ -32,13 +32,25 @@ const PROCESS = [
 function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Sayt Yaratish Xizmati",
-    description: "O'zbekistonda professional sayt yaratish xizmati",
-    provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
-    areaServed: { "@type": "Country", name: "O'zbekiston" },
-    serviceType: "Web Development",
-    offers: { "@type": "Offer", priceRange: "800000-5000000", priceCurrency: "UZS" },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Xizmatlar", item: `${SITE_CONFIG.url}/xizmatlar` },
+          { "@type": "ListItem", position: 3, name: "Sayt Yaratish", item: `${SITE_CONFIG.url}/xizmatlar/sayt-yaratish` },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Sayt Yaratish Xizmati",
+        description: "O'zbekistonda professional sayt yaratish xizmati",
+        provider: { "@type": "Organization", name: SITE_CONFIG.name, url: SITE_CONFIG.url },
+        areaServed: { "@type": "Country", name: "O'zbekiston" },
+        serviceType: "Web Development",
+        offers: { "@type": "Offer", priceRange: "1200000-6000000", priceCurrency: "UZS" },
+      },
+    ],
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
@@ -63,7 +75,7 @@ export default function SaytYaratishPage() {
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               O'zbekistondagi eng tajribali veb studiya. Next.js, React va zamonaviy texnologiyalar
               asosida tez yuklanadigan, SEO ready va chiroyli saytlar yaratamiz.
-              Narx 800 000 so'mdan boshlanadi.
+              Narx 1 200 000 so'mdan boshlanadi.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
