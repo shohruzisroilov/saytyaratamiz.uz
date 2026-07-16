@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -209,6 +210,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-S2EHQ259P0"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-S2EHQ259P0');
+          `}
+        </Script>
         <OrganizationJsonLd />
         <ThemeProvider>
           {/* Skip-to-main for accessibility */}
