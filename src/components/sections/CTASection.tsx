@@ -18,7 +18,7 @@ export function CTASection() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative overflow-hidden rounded-[24px] bg-[#0f172a] px-8 sm:px-12 lg:px-16 py-14 lg:py-20"
+          className="relative overflow-hidden rounded-3xl bg-[#0f172a] px-8 sm:px-12 lg:px-16 py-14 lg:py-20"
         >
           {/* Subtle blue gradient top-left */}
           <div
@@ -47,7 +47,7 @@ export function CTASection() {
               Bugun buyurtma bering — ertaga boshamiz
             </div>
 
-            <h2 id="cta-heading" className="text-3xl sm:text-4xl lg:text-[2.8rem] font-bold text-white leading-[1.15] tracking-[-0.02em]">
+            <h2 id="cta-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.8rem] font-bold text-white leading-[1.15] tracking-[-0.02em]">
               Saytingizni Yaratishga<br className="hidden sm:block" /> Tayyor Bo&apos;ling!
             </h2>
 
@@ -61,7 +61,7 @@ export function CTASection() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
                 href="/aloqa"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] bg-white text-[#0f172a] font-bold text-sm hover:bg-white/95 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_28px_rgba(255,255,255,0.2)] transition-all duration-200 hover:-translate-y-px"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#0f172a] font-bold text-sm hover:bg-white/95 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_28px_rgba(255,255,255,0.2)] transition-all duration-200 hover:-translate-y-px"
               >
                 Bepul Konsultatsiya
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -70,7 +70,7 @@ export function CTASection() {
                 href={SITE_CONFIG.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-white/20 hover:border-white/40 text-white font-semibold text-sm hover:bg-white/8 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 hover:border-white/40 text-white font-semibold text-sm hover:bg-white/8 transition-all duration-200"
               >
                 <Send className="w-4 h-4" />
                 Telegram

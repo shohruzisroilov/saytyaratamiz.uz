@@ -75,7 +75,7 @@ export default function PortfolioPage() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Loyihalar
             </span>
-            <h1 id="portfolio-heading" className="text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
+            <h1 id="portfolio-heading" className="font-display text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
               Bizning{" "}
               <span className="gradient-text">Yaratgan Ishlarimiz</span>
             </h1>
@@ -88,7 +88,7 @@ export default function PortfolioPage() {
           {/* Stats strip */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 max-w-3xl mx-auto" aria-label="Statistika">
             {STATS.map((s) => (
-              <div key={s.label} className="text-center p-4 rounded-[14px] bg-muted/40 border border-border">
+              <div key={s.label} className="text-center p-4 rounded-lg bg-muted/40 border border-border">
                 <p className="text-2xl font-black text-primary tracking-[-0.02em] tabular-nums">{s.value}{s.suffix}</p>
                 <p className="text-xs text-muted-foreground mt-1 font-medium">{s.label}</p>
               </div>

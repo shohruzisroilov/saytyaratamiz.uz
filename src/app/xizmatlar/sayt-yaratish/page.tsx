@@ -67,7 +67,7 @@ export default function SaytYaratishPage() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Xizmatlar
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-[3rem] font-bold text-foreground tracking-[-0.02em]">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3rem] font-bold text-foreground tracking-[-0.02em]">
               Professional{" "}
               <span className="gradient-text">Sayt Yaratish</span>{" "}
               Xizmati
@@ -80,12 +80,12 @@ export default function SaytYaratishPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
                 href="/aloqa"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200 hover:-translate-y-px"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 Bepul Konsultatsiya
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/narxlar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+              <Link href="/narxlar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                 Narxlarni Ko'rish
               </Link>
             </div>
@@ -96,7 +96,7 @@ export default function SaytYaratishPage() {
       {/* Service types */}
       <section className="py-16 bg-surface" aria-labelledby="services-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="services-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
+          <h2 id="services-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
             Qaysi turdagi sayt kerak?
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -104,9 +104,9 @@ export default function SaytYaratishPage() {
               <Link
                 key={s.id}
                 href={`/xizmatlar/${s.slug}`}
-                className="group flex items-start gap-4 p-5 rounded-[16px] bg-card border border-border hover:border-primary/25 hover:shadow-[0_8px_28px_rgba(0,0,0,0.06)] transition-all duration-300"
+                className="group flex items-start gap-4 p-5 rounded-xl bg-card border border-border hover:border-primary/25 hover:shadow-[0_8px_28px_rgba(0,0,0,0.06)] transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-[10px] bg-primary/8 group-hover:bg-primary/12 flex items-center justify-center shrink-0 transition-colors">
+                <div className="w-10 h-10 rounded bg-primary/8 group-hover:bg-primary/12 flex items-center justify-center shrink-0 transition-colors">
                   <span className="text-primary font-bold text-sm">{s.title[0]}</span>
                 </div>
                 <div className="flex-1 min-w-0">
@@ -123,18 +123,18 @@ export default function SaytYaratishPage() {
       {/* Why us */}
       <section className="py-16 lg:py-20 bg-background" aria-labelledby="why-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="why-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
+          <h2 id="why-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
             Nima uchun bizni tanlashadi?
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {WHY_US.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="p-5 rounded-[16px] bg-muted/40 border border-border hover:border-primary/20 transition-colors duration-200">
-                  <div className="w-9 h-9 rounded-[10px] bg-primary/8 flex items-center justify-center mb-4">
+                <div key={item.title} className="p-5 rounded-xl bg-muted/40 border border-border hover:border-primary/20 transition-colors duration-200">
+                  <div className="w-9 h-9 rounded bg-primary/8 flex items-center justify-center mb-4">
                     <Icon className="w-4.5 h-4.5 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
+                  <h3 className="font-display font-semibold text-foreground text-sm mb-1.5">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               );
@@ -146,7 +146,7 @@ export default function SaytYaratishPage() {
       {/* Process */}
       <section className="py-16 bg-surface" aria-labelledby="process-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-3xl">
-          <h2 id="process-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
+          <h2 id="process-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
             Ish jarayoni
           </h2>
           <div className="relative">
@@ -158,7 +158,7 @@ export default function SaytYaratishPage() {
                     {step.num}
                   </div>
                   <div className="flex-1 pt-2.5">
-                    <h3 className="font-semibold text-foreground text-[15px]">{step.title}</h3>
+                    <h3 className="font-display font-semibold text-foreground text-[15px]">{step.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{step.desc}</p>
                   </div>
                 </div>

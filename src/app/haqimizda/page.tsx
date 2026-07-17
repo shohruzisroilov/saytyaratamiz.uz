@@ -106,7 +106,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
                 Biz Haqimizda
               </span>
-              <h1 id="about-heading" className="text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
+              <h1 id="about-heading" className="font-display text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
                 O&apos;zbekistondagi{" "}
                 <span className="gradient-text">Ishonchli</span>{" "}
                 Veb Studiya
@@ -123,7 +123,7 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/aloqa"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark hover:shadow-[0_6px_20px_rgba(37,99,235,0.38)] transition-all duration-200 hover:-translate-y-px"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark hover:shadow-[0_6px_20px_rgba(37,99,235,0.38)] transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 Biz bilan bog&apos;laning
                 <ArrowRight className="w-4 h-4" />
@@ -135,7 +135,7 @@ export default function AboutPage() {
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className="p-6 rounded-[16px] bg-muted/40 border border-border text-center hover:border-primary/20 transition-colors duration-200"
+                  className="p-6 rounded-xl bg-muted/40 border border-border text-center hover:border-primary/20 transition-colors duration-200"
                 >
                   <p className="text-[2.2rem] font-black text-primary tracking-[-0.03em] tabular-nums">
                     {stat.value}{stat.suffix}
@@ -155,7 +155,7 @@ export default function AboutPage() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Qadriyatlarimiz
             </span>
-            <h2 id="values-heading" className="text-3xl sm:text-4xl font-bold text-foreground tracking-[-0.02em]">
+            <h2 id="values-heading" className="font-display text-3xl sm:text-4xl font-bold text-foreground tracking-[-0.02em]">
               Nima Uchun Bizni Tanlashadi?
             </h2>
           </div>
@@ -163,11 +163,11 @@ export default function AboutPage() {
             {VALUES.map((v) => {
               const Icon = v.icon;
               return (
-                <article key={v.title} className="p-6 rounded-[16px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
-                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 flex items-center justify-center mb-5" aria-hidden="true">
+                <article key={v.title} className="p-6 rounded-xl bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
+                  <div className="w-10 h-10 rounded bg-primary/8 flex items-center justify-center mb-5" aria-hidden="true">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-[15px] mb-2">{v.title}</h3>
+                  <h3 className="font-display font-semibold text-foreground text-[15px] mb-2">{v.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
                 </article>
               );
@@ -183,7 +183,7 @@ export default function AboutPage() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Jamoa
             </span>
-            <h2 id="team-heading" className="text-3xl sm:text-4xl font-bold text-foreground tracking-[-0.02em]">
+            <h2 id="team-heading" className="font-display text-3xl sm:text-4xl font-bold text-foreground tracking-[-0.02em]">
               Sizning Loyihangiz Ustida Kim Ishlaydi?
             </h2>
             <p className="text-muted-foreground">Tajribali va ishtiyoqli mutaxassislar jamoasi.</p>
@@ -191,14 +191,14 @@ export default function AboutPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-3xl mx-auto">
             {TEAM_MEMBERS.map((member, i) => (
-              <article key={member.id} className="p-6 rounded-[16px] bg-muted/30 border border-border text-center hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
+              <article key={member.id} className="p-6 rounded-xl bg-muted/30 border border-border text-center hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
                 <div
-                  className={`w-16 h-16 rounded-[16px] bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]} flex items-center justify-center mx-auto mb-4 text-xl font-black text-white shadow-[0_4px_14px_rgba(0,0,0,0.15)]`}
+                  className={`w-16 h-16 rounded-xl bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]} flex items-center justify-center mx-auto mb-4 text-xl font-black text-white shadow-[0_4px_14px_rgba(0,0,0,0.15)]`}
                   aria-hidden="true"
                 >
                   {member.name[0]}
                 </div>
-                <h3 className="font-semibold text-foreground text-[15px]">{member.name}</h3>
+                <h3 className="font-display font-semibold text-foreground text-[15px]">{member.name}</h3>
                 <p className="text-xs text-primary font-semibold mt-1 mb-3">{member.role}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
               </article>

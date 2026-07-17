@@ -24,8 +24,15 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+const CHIP_COLORS = [
+  "bg-primary/10 text-primary group-hover:bg-primary/15",
+  "bg-mint/10 text-mint group-hover:bg-mint/15",
+  "bg-lavender/10 text-lavender group-hover:bg-lavender/15",
+];
+
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   const Icon = ICON_MAP[service.icon] || Code2;
+  const chipColor = CHIP_COLORS[index % CHIP_COLORS.length];
 
   return (
     <motion.article
@@ -34,10 +41,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
       className={cn(
-        "relative flex flex-col rounded-[16px] p-6 border border-border bg-card",
-        "hover:border-primary/25 hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)]",
+        "relative flex flex-col rounded-2xl p-6 bg-card shadow-card",
+        "hover:shadow-card-hover hover:-translate-y-0.5",
         "transition-all duration-300 group",
-        service.popular && "border-primary/30 shadow-[0_0_0_1px_rgba(37,99,235,0.12),0_8px_32px_rgba(37,99,235,0.08)]"
+        service.popular && "ring-1 ring-primary/20"
       )}
     >
       {service.popular && (
@@ -50,15 +57,15 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
       {/* Icon */}
       <div className={cn(
-        "w-11 h-11 rounded-[12px] flex items-center justify-center mb-5",
-        "bg-primary/8 group-hover:bg-primary/12 transition-colors duration-300"
+        "w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300",
+        chipColor
       )}>
-        <Icon className="w-5 h-5 text-primary" />
+        <Icon className="w-5 h-5" />
       </div>
 
       {/* Content */}
       <div className="flex-1 space-y-3">
-        <h3 className="font-semibold text-foreground text-[15px] leading-tight group-hover:text-primary transition-colors duration-200">
+        <h3 className="font-display font-semibold text-foreground text-[15px] leading-tight group-hover:text-primary transition-colors duration-200">
           {service.title}
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed">
@@ -116,7 +123,7 @@ export function ServicesSection() {
           className="max-w-2xl mx-auto text-center mb-14 lg:mb-16 space-y-4"
         >
           <SectionLabel>Bizning Xizmatlar</SectionLabel>
-          <h2 id="services-heading" className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
+          <h2 id="services-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
             Qanday Sayt Kerak?
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
@@ -145,7 +152,7 @@ export function ServicesSection() {
           </p>
           <Link
             href="/aloqa"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] border border-primary/30 text-primary font-semibold text-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 hover:shadow-[0_4px_16px_rgba(37,99,235,0.25)]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 text-primary font-semibold text-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 hover:shadow-[0_4px_16px_rgba(37,99,235,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Biz bilan bog&apos;laning
             <ArrowRight className="w-4 h-4" />

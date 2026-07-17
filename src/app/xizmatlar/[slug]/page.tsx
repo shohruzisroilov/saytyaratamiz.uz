@@ -129,7 +129,7 @@ export default async function ServiceDetailPage({
                   Eng Mashhur Xizmat
                 </span>
               )}
-              <h1 id="service-heading" className="text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
+              <h1 id="service-heading" className="font-display text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
                 {service.title}
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -137,7 +137,7 @@ export default async function ServiceDetailPage({
               </p>
 
               {service.price && (
-                <div className="inline-block p-5 rounded-[16px] bg-muted/40 border border-border">
+                <div className="inline-block p-5 rounded-xl bg-muted/40 border border-border">
                   <span className="text-xs text-muted-foreground block mb-1 uppercase tracking-wider font-medium">
                     Narx: dan boshlab
                   </span>
@@ -151,14 +151,14 @@ export default async function ServiceDetailPage({
               <div className="flex gap-3 flex-wrap">
                 <Link
                   href="/aloqa"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark hover:shadow-[0_6px_20px_rgba(37,99,235,0.38)] transition-all duration-200 hover:-translate-y-px"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark hover:shadow-[0_6px_20px_rgba(37,99,235,0.38)] transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   Buyurtma Berish
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
                   href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-[12px] border border-border hover:border-primary/40 hover:text-primary transition-all duration-200 font-medium text-sm"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-border hover:border-primary/40 hover:text-primary transition-all duration-200 font-medium text-sm"
                 >
                   <Phone className="w-4 h-4" aria-hidden="true" />
                   Qo&apos;ng&apos;iroq
@@ -178,14 +178,14 @@ export default async function ServiceDetailPage({
       {/* Features */}
       <section className="py-16 bg-surface" aria-labelledby="features-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-3xl">
-          <h2 id="features-heading" className="text-2xl font-bold text-foreground mb-8 tracking-[-0.02em]">
+          <h2 id="features-heading" className="font-display text-2xl font-bold text-foreground mb-8 tracking-[-0.02em]">
             Nima Kiradi?
           </h2>
           <ul className="grid sm:grid-cols-2 gap-3" aria-label={`${service.title} xususiyatlari`}>
             {service.features.map((feature) => (
               <li
                 key={feature}
-                className="flex items-center gap-3 p-4 rounded-[12px] bg-card border border-border hover:border-primary/20 transition-colors duration-200"
+                className="flex items-center gap-3 p-4 rounded-md bg-card border border-border hover:border-primary/20 transition-colors duration-200"
               >
                 <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" aria-hidden="true" />
                 <span className="font-medium text-foreground text-sm">{feature}</span>
@@ -198,7 +198,7 @@ export default async function ServiceDetailPage({
       {/* Related Services */}
       <section className="py-16 bg-background" aria-labelledby="related-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="related-heading" className="text-xl font-bold text-foreground mb-6 tracking-[-0.02em]">
+          <h2 id="related-heading" className="font-display text-xl font-bold text-foreground mb-6 tracking-[-0.02em]">
             Boshqa Xizmatlar
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -208,9 +208,9 @@ export default async function ServiceDetailPage({
                 <Link
                   key={s.id}
                   href={`/xizmatlar/${s.slug}`}
-                  className="flex items-center gap-3.5 p-4 rounded-[14px] bg-muted/40 border border-border hover:border-primary/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.05)] transition-all duration-200 group"
+                  className="flex items-center gap-3.5 p-4 rounded-lg bg-muted/40 border border-border hover:border-primary/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.05)] transition-all duration-200 group"
                 >
-                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 group-hover:bg-primary/12 flex items-center justify-center shrink-0 transition-colors" aria-hidden="true">
+                  <div className="w-10 h-10 rounded bg-primary/8 group-hover:bg-primary/12 flex items-center justify-center shrink-0 transition-colors" aria-hidden="true">
                     <RelIcon className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">

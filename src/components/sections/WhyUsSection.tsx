@@ -2,6 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Zap, Search, Eye, ShieldCheck, Smartphone, TrendingUp } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const CHIP_COLORS = [
+  "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white",
+  "bg-mint/10 text-mint group-hover:bg-mint group-hover:text-white",
+  "bg-lavender/10 text-lavender group-hover:bg-lavender group-hover:text-white",
+];
 
 const BENEFITS = [
   {
@@ -38,7 +45,7 @@ const BENEFITS = [
 
 export function WhyUsSection() {
   return (
-    <section className="py-20 lg:py-24 bg-surface-elevated" aria-labelledby="why-us-heading">
+    <section className="py-20 lg:py-28 bg-surface-elevated" aria-labelledby="why-us-heading">
       <div className="container mx-auto px-5 sm:px-8 lg:px-10">
         
         {/* Header */}
@@ -46,7 +53,7 @@ export function WhyUsSection() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15 tracking-wide">
             Nima uchun biz?
           </span>
-          <h2 id="why-us-heading" className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
+          <h2 id="why-us-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
             Biznesingizni <span className="gradient-text">Raqamli Dunyoda</span> Rivojlantiring
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
@@ -58,6 +65,7 @@ export function WhyUsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {BENEFITS.map((b, i) => {
             const Icon = b.icon;
+            const chip = CHIP_COLORS[i % CHIP_COLORS.length];
             return (
               <motion.article
                 key={b.title}
@@ -65,12 +73,12 @@ export function WhyUsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="p-6 sm:p-8 rounded-[20px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:-translate-y-0.5 transition-all duration-300 group"
+                className="p-6 sm:p-8 rounded-2xl bg-card shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-[14px] bg-primary/8 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300", chip)}>
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-foreground text-lg mb-3 tracking-tight group-hover:text-primary transition-colors duration-200">
+                <h3 className="font-display font-bold text-foreground text-lg mb-3 tracking-tight group-hover:text-primary transition-colors duration-200">
                   {b.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">

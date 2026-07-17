@@ -72,7 +72,7 @@ export default function InternetDokonPage() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Xizmat — Internet Do'kon
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
+            <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
               O'zbekistonda{" "}
               <span className="gradient-text">Online Savdo</span>{" "}
               Boshlang
@@ -84,11 +84,11 @@ export default function InternetDokonPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-              <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200 hover:-translate-y-px">
+              <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Bepul Konsultatsiya
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/loyihalar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+              <Link href="/loyihalar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                 Do'kon namunalari
               </Link>
             </div>
@@ -99,18 +99,18 @@ export default function InternetDokonPage() {
       {/* Benefits */}
       <section className="py-16 bg-surface" aria-labelledby="benefits-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="benefits-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
+          <h2 id="benefits-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
             Nima olasiz?
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {BENEFITS.map((b) => {
               const Icon = b.icon;
               return (
-                <div key={b.title} className="p-5 rounded-[16px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
-                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 flex items-center justify-center mb-4">
+                <div key={b.title} className="p-5 rounded-xl bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
+                  <div className="w-10 h-10 rounded bg-primary/8 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-[15px] mb-2">{b.title}</h3>
+                  <h3 className="font-display font-semibold text-foreground text-[15px] mb-2">{b.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
                 </div>
               );
@@ -122,12 +122,12 @@ export default function InternetDokonPage() {
       {/* Features */}
       <section className="py-16 bg-background" aria-labelledby="features-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-3xl">
-          <h2 id="features-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] mb-8">
+          <h2 id="features-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] mb-8">
             To'liq funksionallik
           </h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {FEATURES.map((f) => (
-              <div key={f} className="flex items-center gap-3 p-4 rounded-[12px] bg-muted/40 border border-border">
+              <div key={f} className="flex items-center gap-3 p-4 rounded-md bg-muted/40 border border-border">
                 <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
                 <span className="text-sm font-medium text-foreground">{f}</span>
               </div>
@@ -139,7 +139,7 @@ export default function InternetDokonPage() {
       {/* Price */}
       <section className="py-16 bg-surface">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <div className="max-w-lg mx-auto rounded-[20px] border border-primary/20 bg-card p-8 text-center shadow-[0_8px_32px_rgba(37,99,235,0.08)]">
+          <div className="max-w-lg mx-auto rounded-2xl border border-primary/20 bg-card p-8 text-center shadow-[0_8px_32px_rgba(37,99,235,0.08)]">
             <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider font-medium">Narx</p>
             <p className="text-[2.6rem] font-black text-foreground tracking-[-0.03em]">
               3 000 000{" "}
@@ -148,7 +148,7 @@ export default function InternetDokonPage() {
             <p className="text-sm text-muted-foreground mt-2 mb-6">
               20–30 ish kunida topshiriladi · 1 yil qo'llab-quvvatlash
             </p>
-            <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] bg-primary text-white font-semibold text-sm w-full justify-center shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200">
+            <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-primary text-white font-semibold text-sm w-full justify-center shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
               Buyurtma Berish
               <ArrowRight className="w-4 h-4" />
             </Link>

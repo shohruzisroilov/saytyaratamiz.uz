@@ -72,7 +72,7 @@ export default function CrmPage() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Xizmat — CRM Tizim
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
+            <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
               Savdoni{" "}
               <span className="gradient-text">Avtomatlashtiring</span>{" "}
               va Nazorat Qiling
@@ -83,11 +83,11 @@ export default function CrmPage() {
               Narx <strong className="text-foreground">6 000 000 so'mdan</strong> boshlanadi.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-              <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200 hover:-translate-y-px">
+              <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:bg-primary-dark transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
                 Demo Ko'rish
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+              <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                 Narx so'rash
               </Link>
             </div>
@@ -98,18 +98,18 @@ export default function CrmPage() {
       {/* Features */}
       <section className="py-16 bg-surface" aria-labelledby="features-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="features-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
+          <h2 id="features-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
             CRM tizim imkoniyatlari
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {FEATURES.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.title} className="p-5 rounded-[16px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
-                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 flex items-center justify-center mb-4">
+                <div key={f.title} className="p-5 rounded-xl bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
+                  <div className="w-10 h-10 rounded bg-primary/8 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-[15px] mb-2">{f.title}</h3>
+                  <h3 className="font-display font-semibold text-foreground text-[15px] mb-2">{f.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
                 </div>
               );
@@ -121,7 +121,7 @@ export default function CrmPage() {
       {/* Who needs it */}
       <section className="py-16 bg-background" aria-labelledby="forwho-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="forwho-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-8">
+          <h2 id="forwho-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-8">
             Kim uchun?
           </h2>
           <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
@@ -138,7 +138,7 @@ export default function CrmPage() {
       {/* Integrations */}
       <section className="py-16 bg-surface" aria-labelledby="integrations-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="integrations-heading" className="text-2xl font-bold text-foreground tracking-[-0.02em] text-center mb-8">
+          <h2 id="integrations-heading" className="font-display text-2xl font-bold text-foreground tracking-[-0.02em] text-center mb-8">
             Integratsiyalar
           </h2>
           <div className="flex flex-wrap justify-center gap-2.5 max-w-2xl mx-auto">

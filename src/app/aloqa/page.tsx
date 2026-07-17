@@ -125,7 +125,7 @@ export default function ContactPage() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15 mb-5">
             Aloqa
           </span>
-          <h1 id="contact-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-[-0.02em] mb-4">
+          <h1 id="contact-heading" className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-[-0.02em] mb-4">
             Biz bilan <span className="gradient-text">Bog&apos;laning</span>
           </h1>
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -142,7 +142,7 @@ export default function ContactPage() {
             {/* Left Column: Contact details & Working Hours */}
             <aside className="lg:col-span-2 space-y-6">
               <div>
-                <h2 className="text-lg font-bold text-foreground tracking-tight mb-1">Aloqa ma&apos;lumotlari</h2>
+                <h2 className="font-display text-lg font-bold text-foreground tracking-tight mb-1">Aloqa ma&apos;lumotlari</h2>
                 <p className="text-xs text-muted-foreground">Kompaniyamizning barcha rasmiy aloqa kanallari.</p>
               </div>
 
@@ -155,9 +155,9 @@ export default function ContactPage() {
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noopener noreferrer" : undefined}
-                      className="flex items-start gap-3.5 p-4 rounded-[16px] bg-muted/30 border border-border/80 hover:border-primary/20 hover:shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:bg-card transition-all duration-300 group"
+                      className="flex items-start gap-3.5 p-4 rounded-xl bg-muted/30 border border-border/80 hover:border-primary/20 hover:shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:bg-card transition-all duration-300 group"
                     >
-                      <div className="w-9 h-9 rounded-[10px] bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/12 transition-colors">
+                      <div className="w-9 h-9 rounded bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/12 transition-colors">
                         <Icon className="w-4 h-4 text-primary" />
                       </div>
                       <div>
@@ -175,10 +175,10 @@ export default function ContactPage() {
 
 
               {/* Quick Response Notice */}
-              <div className="flex items-start gap-3.5 p-5 rounded-[16px] bg-green-500/5 border border-green-500/12">
+              <div className="flex items-start gap-3.5 p-5 rounded-xl bg-green-500/5 border border-green-500/12">
                 <MessageCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="text-xs font-bold text-foreground">Tezkor aloqa maslahati</h3>
+                  <h3 className="font-display text-xs font-bold text-foreground">Tezkor aloqa maslahati</h3>
                   <p className="text-[11px] text-muted-foreground leading-relaxed mt-1">
                     Telegram orqali yozsangiz, loyihangizni tezda ovozli qo&apos;ng&apos;iroq orqali muhokama qilishimiz mumkin.
                   </p>
@@ -203,7 +203,7 @@ export default function ContactPage() {
             <div className="w-10 h-10 rounded-full bg-primary/8 flex items-center justify-center text-primary mx-auto">
               <HelpCircle className="w-5 h-5" />
             </div>
-            <h2 className="text-2xl font-bold text-foreground tracking-tight">Bog&apos;lanish bo&apos;yicha tez-tez beriladigan savollar</h2>
+            <h2 className="font-display text-2xl font-bold text-foreground tracking-tight">Bog&apos;lanish bo&apos;yicha tez-tez beriladigan savollar</h2>
             <p className="text-xs text-muted-foreground">Biz bilan ishlash jarayoni va aloqaga oid eng ko&apos;p beriladigan savollar.</p>
           </div>
 

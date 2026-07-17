@@ -35,7 +35,7 @@ export function PricingSection() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
             Tariflar va narxlar
           </span>
-          <h2 id="pricing-heading" className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
+          <h2 id="pricing-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
             Shaffof va <span className="gradient-text">Raqobatbardosh</span> Tariflar
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
@@ -45,11 +45,11 @@ export function PricingSection() {
 
         {/* Tabs Control */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1.5 rounded-[16px] bg-muted/60 border border-border">
-            <button
+          <div className="inline-flex p-1.5 rounded-xl bg-muted/60 border border-border">
+            <button type="button"
               onClick={() => setActiveTab("web")}
               className={cn(
-                "px-5 py-2.5 rounded-[12px] text-sm font-semibold transition-all duration-300",
+                "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
                 activeTab === "web"
                   ? "bg-background text-primary shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
                   : "text-muted-foreground hover:text-foreground"
@@ -57,10 +57,10 @@ export function PricingSection() {
             >
               💻 Veb-saytlar
             </button>
-            <button
+            <button type="button"
               onClick={() => setActiveTab("systems")}
               className={cn(
-                "px-5 py-2.5 rounded-[12px] text-sm font-semibold transition-all duration-300",
+                "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
                 activeTab === "systems"
                   ? "bg-background text-primary shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
                   : "text-muted-foreground hover:text-foreground"
@@ -82,10 +82,10 @@ export function PricingSection() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className={cn(
-                "relative flex flex-col rounded-[24px] border bg-card p-6 sm:p-8 transition-all duration-300",
+                "relative flex flex-col rounded-3xl bg-card p-6 sm:p-8 transition-all duration-300",
                 plan.popular
-                  ? "border-primary/45 shadow-[0_20px_40px_rgba(37,99,235,0.07)] ring-1 ring-primary/10 scale-[1.02] md:scale-[1.03]"
-                  : "border-border hover:border-primary/20 hover:shadow-[0_12px_32px_rgba(0,0,0,0.04)]"
+                  ? "shadow-[0_20px_40px_rgba(37,99,235,0.1)] ring-1 ring-primary/25 scale-[1.02] md:scale-[1.03]"
+                  : "shadow-card hover:shadow-card-hover"
               )}
             >
               {/* Popular Recommended Badge */}
@@ -99,7 +99,7 @@ export function PricingSection() {
 
               {/* Plan Metadata */}
               <div className="mb-6">
-                <h3 className="font-bold text-foreground text-xl tracking-tight mb-1">{plan.name}</h3>
+                <h3 className="font-display font-bold text-foreground text-xl tracking-tight mb-1">{plan.name}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed min-h-[32px]">{plan.description}</p>
               </div>
 
@@ -113,7 +113,7 @@ export function PricingSection() {
                     {plan.id === "seo" ? "so'm / oydan" : "so'mdan"}
                   </span>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[8px] bg-muted/65 text-[11px] font-semibold text-foreground/80 border border-border/60">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-muted/65 text-[11px] font-semibold text-foreground/80 border border-border/60">
                   ⏳ Muddat: <span className="text-primary font-bold">{plan.duration}</span>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export function PricingSection() {
               <Link
                 href="/aloqa"
                 className={cn(
-                  "flex items-center justify-center gap-2 py-3.5 rounded-[14px] font-bold text-sm transition-all duration-300",
+                  "flex items-center justify-center gap-2 py-3.5 rounded-full font-bold text-sm transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                   plan.popular
                     ? "bg-primary text-white hover:bg-primary-dark shadow-[0_6px_20px_rgba(37,99,235,0.25)] hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)]"
                     : "border border-border hover:border-primary/45 text-foreground hover:text-primary hover:bg-primary/4"
@@ -153,12 +153,12 @@ export function PricingSection() {
 
         {/* Feature Comparison Table Title */}
         <div className="max-w-2xl mx-auto text-center mb-8 space-y-2">
-          <h3 className="text-xl font-bold text-foreground tracking-tight">Tariflarni batafsil taqqoslash</h3>
+          <h3 className="font-display text-xl font-bold text-foreground tracking-tight">Tariflarni batafsil taqqoslash</h3>
           <p className="text-xs text-muted-foreground">O&apos;zingizga mos yechimni to&apos;liq xususiyatlar jadvalidan tanlab oling.</p>
         </div>
 
         {/* Responsive Comparison Table Wrapper */}
-        <div className="w-full overflow-x-auto rounded-[20px] border border-border bg-card shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+        <div className="w-full overflow-x-auto rounded-2xl border border-border bg-card shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
           <table className="w-full border-collapse text-left min-w-[700px]">
             <thead>
               <tr className="border-b border-border bg-muted/30">
@@ -188,7 +188,7 @@ export function PricingSection() {
         </div>
 
         {/* Footer Support Info */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 p-6 rounded-[20px] bg-muted/30 border border-border">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 p-6 rounded-2xl bg-muted/30 border border-border">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-primary/8 flex items-center justify-center text-primary">
               <HelpCircle className="w-5 h-5" />
@@ -200,7 +200,7 @@ export function PricingSection() {
           </div>
           <Link
             href="/aloqa"
-            className="px-5 py-2.5 rounded-[12px] bg-primary hover:bg-primary-dark text-white font-semibold text-xs transition-colors shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
+            className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white font-semibold text-xs transition-colors shadow-[0_4px_12px_rgba(37,99,235,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Bepul loyiha smetasi
           </Link>

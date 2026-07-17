@@ -23,7 +23,7 @@ interface FormErrors {
 const initial: FormData = { name: "", phone: "", email: "", service: "", message: "" };
 
 const inputBase = cn(
-  "w-full px-4 py-3 rounded-[12px] text-sm border bg-muted/40 text-foreground",
+  "w-full px-4 py-3 rounded-md text-sm border bg-muted/40 text-foreground",
   "placeholder:text-muted-foreground/60",
   "focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40",
   "transition-all duration-200"
@@ -70,14 +70,14 @@ export function ContactForm() {
           <CheckCircle2 className="w-7 h-7 text-green-500" />
         </div>
         <div>
-          <h3 className="text-lg font-bold text-foreground mb-1.5">Xabaringiz yuborildi!</h3>
+          <h3 className="font-display text-lg font-bold text-foreground mb-1.5">Xabaringiz yuborildi!</h3>
           <p className="text-sm text-muted-foreground max-w-xs">
             Tez orada siz bilan bog&apos;lanamiz. Odatda 1–2 soat ichida javob beramiz.
           </p>
         </div>
-        <button
+        <button type="button"
           onClick={() => setStatus("idle")}
-          className="mt-1 px-5 py-2.5 rounded-[12px] border border-border text-sm font-medium hover:border-primary/40 hover:text-primary transition-all duration-200"
+          className="mt-1 px-5 py-2.5 rounded-md border border-border text-sm font-medium hover:border-primary/40 hover:text-primary transition-all duration-200"
         >
           Yana yuborish
         </button>
@@ -173,7 +173,7 @@ export function ContactForm() {
         type="submit"
         disabled={status === "loading"}
         className={cn(
-          "w-full flex items-center justify-center gap-2 py-3.5 rounded-[12px]",
+          "w-full flex items-center justify-center gap-2 py-3.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
           "font-semibold text-sm text-white bg-primary hover:bg-primary-dark",
           "shadow-[0_4px_16px_rgba(37,99,235,0.28)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.38)]",
           "transition-all duration-200 hover:-translate-y-px",

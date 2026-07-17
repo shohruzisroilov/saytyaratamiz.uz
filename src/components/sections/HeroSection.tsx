@@ -42,14 +42,16 @@ export function HeroSection() {
       className="relative min-h-screen flex items-center overflow-hidden pt-16 lg:pt-20"
       aria-label="Bosh sahifa"
     >
-      {/* Background — very subtle */}
+      {/* Background — soft atmospheric mesh */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         {/* Dot grid */}
-        <div className="absolute inset-0 dot-pattern opacity-60 dark:opacity-20" />
+        <div className="absolute inset-0 dot-pattern opacity-60" />
         {/* Blue glow top-left */}
         <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary/6 rounded-full blur-[100px]" />
-        {/* Accent glow bottom-right */}
-        <div className="absolute -bottom-40 -right-20 w-[500px] h-[500px] bg-accent/6 rounded-full blur-[100px]" />
+        {/* Mint glow top-right */}
+        <div className="absolute -top-24 right-0 w-[420px] h-[420px] bg-mint/8 rounded-full blur-[100px]" />
+        {/* Lavender glow bottom-right */}
+        <div className="absolute -bottom-40 -right-20 w-[500px] h-[500px] bg-lavender/8 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-5 sm:px-8 lg:px-10 py-20 lg:py-28">
@@ -66,7 +68,7 @@ export function HeroSection() {
 
             {/* Heading */}
             <motion.div variants={item} className="space-y-3">
-              <h1 className="text-[2.6rem] sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem] font-bold text-foreground leading-[1.12] tracking-[-0.02em]">
+              <h1 className="font-display text-[2.6rem] sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem] font-bold text-foreground leading-[1.12] tracking-[-0.02em]">
                 Professional{" "}
                 <span className="gradient-text">Sayt Yaratish</span>{" "}
                 Xizmati
@@ -85,14 +87,14 @@ export function HeroSection() {
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/aloqa"
-                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-[12px] font-semibold text-white text-sm bg-primary hover:bg-primary-dark shadow-[0_4px_20px_rgba(37,99,235,0.28)] hover:shadow-[0_8px_28px_rgba(37,99,235,0.38)] transition-all duration-250 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-white text-sm bg-primary hover:bg-primary-dark shadow-[0_4px_20px_rgba(37,99,235,0.28)] hover:shadow-[0_8px_28px_rgba(37,99,235,0.38)] transition-all duration-250 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Bepul Konsultatsiya
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
                 href="/loyihalar"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-[12px] font-semibold text-sm text-foreground border border-border hover:border-primary/40 hover:bg-muted/60 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm text-foreground border border-border hover:border-primary/40 hover:bg-muted/60 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Ishlarimizni Ko&apos;rish
               </Link>
@@ -105,7 +107,7 @@ export function HeroSection() {
                   {["J", "M", "B", "N"].map((letter, i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-white dark:border-[#020817] flex items-center justify-center"
+                      className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-white flex items-center justify-center"
                     >
                       <span className="text-[10px] font-bold text-primary">{letter}</span>
                     </div>
@@ -137,11 +139,11 @@ export function HeroSection() {
             aria-hidden="true"
           >
             {/* Glow */}
-            <div className="absolute inset-0 bg-primary/5 rounded-[24px] blur-3xl scale-110" />
+            <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-3xl scale-110" />
 
             {/* Browser window */}
             <motion.div
-              className="relative rounded-[20px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] cursor-default origin-center transition-shadow duration-300 hover:shadow-[0_28px_80px_rgba(37,99,235,0.14)]"
+              className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] cursor-default origin-center transition-shadow duration-300 hover:shadow-[0_28px_80px_rgba(37,99,235,0.14)]"
               style={{ border: `1px solid ${mock.border}` }}
               whileHover={{ rotateX: 3, rotateY: -4, scale: 1.015 }}
               transition={{ type: "spring", stiffness: 100, damping: 18 }}
@@ -169,7 +171,7 @@ export function HeroSection() {
                 {/* Fake nav */}
                 <div className="flex items-center justify-between mb-2 select-none">
                   <motion.div 
-                    className="w-20 h-5 rounded-[8px] cursor-pointer" 
+                    className="w-20 h-5 rounded-sm cursor-pointer" 
                     style={{ background: "rgba(37,99,235,0.20)" }}
                     whileHover={{ background: "rgba(37,99,235,0.30)", scale: 1.03 }}
                   />
@@ -184,7 +186,7 @@ export function HeroSection() {
                     ))}
                   </div>
                   <motion.div 
-                    className="w-16 h-7 rounded-[8px] bg-primary cursor-pointer"
+                    className="w-16 h-7 rounded-sm bg-primary cursor-pointer"
                     whileHover={{ scale: 1.04, backgroundColor: "#1d4ed8" }}
                     whileTap={{ scale: 0.98 }}
                   />
@@ -192,8 +194,8 @@ export function HeroSection() {
 
                 {/* Fake hero text */}
                 <div className="space-y-2.5 pt-2 select-none">
-                  <div className="w-[72%] h-7 rounded-[10px]" style={{ background: mock.heading }} />
-                  <div className="w-[52%] h-7 rounded-[10px]" style={{ background: "rgba(37,99,235,0.18)" }} />
+                  <div className="w-[72%] h-7 rounded" style={{ background: mock.heading }} />
+                  <div className="w-[52%] h-7 rounded" style={{ background: "rgba(37,99,235,0.18)" }} />
                   <div className="w-full h-2.5 rounded mt-3" style={{ background: mock.skeleton }} />
                   <div className="w-[84%] h-2.5 rounded" style={{ background: mock.skeleton }} />
                 </div>
@@ -201,12 +203,12 @@ export function HeroSection() {
                 {/* CTA buttons */}
                 <div className="flex gap-3 pt-1 select-none">
                   <motion.div 
-                    className="w-28 h-9 rounded-[10px] bg-primary cursor-pointer"
+                    className="w-28 h-9 rounded bg-primary cursor-pointer"
                     whileHover={{ scale: 1.04, backgroundColor: "#1d4ed8", boxShadow: "0 4px 15px rgba(37,99,235,0.3)" }}
                     whileTap={{ scale: 0.98 }}
                   />
                   <motion.div 
-                    className="w-24 h-9 rounded-[10px] cursor-pointer" 
+                    className="w-24 h-9 rounded cursor-pointer" 
                     style={{ background: mock.skeletonAlt, border: `1px solid ${mock.border}` }}
                     whileHover={{ scale: 1.04, background: "rgba(0,0,0,0.04)" }}
                     whileTap={{ scale: 0.98 }}
@@ -218,7 +220,7 @@ export function HeroSection() {
                   {[1, 2, 3].map((i) => (
                     <motion.div
                       key={i}
-                      className="rounded-[12px] p-3 flex items-center gap-2 cursor-pointer"
+                      className="rounded-md p-3 flex items-center gap-2 cursor-pointer"
                       style={{ background: mock.skeletonAlt, border: `1px solid ${mock.border}` }}
                       whileHover={{ 
                         scale: 1.05, 
@@ -231,7 +233,7 @@ export function HeroSection() {
                     >
                       {/* Left: Icon placeholder */}
                       <motion.div 
-                        className="w-8 h-8 rounded-[8px] shrink-0" 
+                        className="w-8 h-8 rounded-sm shrink-0" 
                         style={{ background: "rgba(37,99,235,0.14)" }}
                         whileHover={{ background: "rgba(37,99,235,0.24)", scale: 1.08 }}
                       />
@@ -251,7 +253,7 @@ export function HeroSection() {
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
               whileHover={{ scale: 1.1, rotate: -2, boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
-              className="absolute -top-5 -left-8 px-4 py-2.5 rounded-[12px] shadow-[0_8px_28px_rgba(0,0,0,0.12)] flex items-center gap-2 cursor-pointer transition-shadow"
+              className="absolute -top-5 -left-8 px-4 py-2.5 rounded-md shadow-[0_8px_28px_rgba(0,0,0,0.12)] flex items-center gap-2 cursor-pointer transition-shadow"
               style={{ background: mock.floatBg, border: `1px solid ${mock.border}` }}
             >
               <div className="w-2 h-2 bg-green-500 rounded-full" />
@@ -265,7 +267,7 @@ export function HeroSection() {
               animate={{ y: [0, 7, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
               whileHover={{ scale: 1.1, rotate: 2, boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
-              className="absolute -bottom-5 -right-6 px-4 py-2.5 rounded-[12px] shadow-[0_8px_28px_rgba(0,0,0,0.12)] flex items-center gap-2.5 cursor-pointer transition-shadow"
+              className="absolute -bottom-5 -right-6 px-4 py-2.5 rounded-md shadow-[0_8px_28px_rgba(0,0,0,0.12)] flex items-center gap-2.5 cursor-pointer transition-shadow"
               style={{ background: mock.floatBg, border: `1px solid ${mock.border}` }}
             >
               <span className="text-base">📈</span>

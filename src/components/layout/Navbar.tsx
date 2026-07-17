@@ -65,7 +65,7 @@ export function Navbar() {
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "relative px-3.5 py-2 rounded-[10px] text-sm font-medium transition-all duration-200",
+                      "relative px-3.5 py-2 rounded-full text-sm font-medium transition-all duration-200",
                       isActive
                         ? "text-primary"
                         : "text-foreground/65 hover:text-foreground hover:bg-muted/70"
@@ -75,7 +75,7 @@ export function Navbar() {
                     {isActive && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute inset-0 bg-primary/8 rounded-[10px]"
+                        className="absolute inset-0 bg-primary/8 rounded-full"
                         transition={{ type: "spring", stiffness: 400, damping: 35 }}
                       />
                     )}
@@ -88,14 +88,14 @@ export function Navbar() {
             <div className="hidden lg:flex items-center gap-2.5">
               <a
                 href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-2 px-3.5 py-2 rounded-[10px] text-sm font-medium text-foreground/65 hover:text-foreground border border-transparent hover:border-border transition-all duration-200"
+                className="flex items-center gap-2 px-3.5 py-2 rounded-full text-sm font-medium text-foreground/65 hover:text-foreground border border-transparent hover:border-border transition-all duration-200"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>{SITE_CONFIG.phone}</span>
               </a>
               <Link
                 href="/aloqa"
-                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-[10px] text-sm font-semibold text-white bg-primary hover:bg-primary-dark shadow-[0_2px_12px_rgba(37,99,235,0.3)] hover:shadow-[0_4px_16px_rgba(37,99,235,0.4)] transition-all duration-200 hover:-translate-y-px"
+                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold text-white bg-primary hover:bg-primary-dark shadow-[0_2px_12px_rgba(37,99,235,0.3)] hover:shadow-[0_4px_16px_rgba(37,99,235,0.4)] transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 Bepul Konsultatsiya
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -104,9 +104,9 @@ export function Navbar() {
 
             {/* Mobile controls */}
             <div className="flex lg:hidden items-center gap-2">
-              <button
+              <button type="button"
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="w-9 h-9 rounded-[10px] flex items-center justify-center bg-muted/70 hover:bg-muted transition-colors"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-muted/70 hover:bg-muted transition-colors"
                 aria-label={isMobileOpen ? "Menyuni yopish" : "Menyuni ochish"}
                 aria-expanded={isMobileOpen}
               >
@@ -142,9 +142,9 @@ export function Navbar() {
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-border">
                 <Logo onClick={() => setIsMobileOpen(false)} />
-                <button
+                <button type="button"
                   onClick={() => setIsMobileOpen(false)}
-                  className="w-8 h-8 rounded-[10px] bg-muted flex items-center justify-center hover:bg-border transition-colors"
+                  className="w-8 h-8 rounded-full bg-muted flex items-center justify-center hover:bg-border transition-colors"
                 >
                   <X className="w-4 h-4 text-foreground" />
                 </button>
@@ -163,7 +163,7 @@ export function Navbar() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "flex items-center px-3.5 py-2.5 rounded-[10px] text-sm font-medium transition-all duration-200",
+                          "flex items-center px-3.5 py-2.5 rounded-full text-sm font-medium transition-all duration-200",
                           pathname === item.href
                             ? "bg-primary/8 text-primary"
                             : "text-foreground/70 hover:bg-muted hover:text-foreground"
@@ -180,14 +180,14 @@ export function Navbar() {
               <div className="p-4 border-t border-border space-y-2.5">
                 <a
                   href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
-                  className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-[10px] border border-border text-sm font-medium text-foreground/70 hover:border-primary/40 hover:text-primary transition-all"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full border border-border text-sm font-medium text-foreground/70 hover:border-primary/40 hover:text-primary transition-all"
                 >
                   <Phone className="w-4 h-4" />
                   {SITE_CONFIG.phone}
                 </a>
                 <Link
                   href="/aloqa"
-                  className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-[10px] bg-primary text-white text-sm font-semibold shadow-[0_2px_12px_rgba(37,99,235,0.3)] hover:bg-primary-dark transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full bg-primary text-white text-sm font-semibold shadow-[0_2px_12px_rgba(37,99,235,0.3)] hover:bg-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   Bepul Konsultatsiya
                   <ArrowRight className="w-4 h-4" />

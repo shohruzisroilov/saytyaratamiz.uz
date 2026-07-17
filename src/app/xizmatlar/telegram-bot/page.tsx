@@ -74,7 +74,7 @@ export default function TelegramBotPage() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Xizmat — Telegram Bot
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
+            <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
               Telegram Orqali{" "}
               <span className="gradient-text">24/7 Savdo</span>{" "}
               Qiling
@@ -89,12 +89,12 @@ export default function TelegramBotPage() {
                 href={SITE_CONFIG.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] bg-[#229ED9] text-white font-semibold text-sm hover:bg-[#1a8ec2] shadow-[0_4px_16px_rgba(34,158,217,0.28)] transition-all duration-200 hover:-translate-y-px"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-[#229ED9] text-white font-semibold text-sm hover:bg-[#1a8ec2] shadow-[0_4px_16px_rgba(34,158,217,0.28)] transition-all duration-200 hover:-translate-y-px"
               >
                 Telegramda Yozing
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[12px] border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+              <Link href="/aloqa" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                 Narx so'rash
               </Link>
             </div>
@@ -105,15 +105,15 @@ export default function TelegramBotPage() {
       {/* Bot types */}
       <section className="py-16 bg-surface" aria-labelledby="bottypes-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="bottypes-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
+          <h2 id="bottypes-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
             Qanday bot kerak?
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {BOT_TYPES.map((b) => (
-              <div key={b.title} className="flex items-start gap-4 p-5 rounded-[16px] bg-card border border-border hover:border-primary/20 transition-colors duration-200">
+              <div key={b.title} className="flex items-start gap-4 p-5 rounded-xl bg-card border border-border hover:border-primary/20 transition-colors duration-200">
                 <span className="text-2xl">{b.emoji}</span>
                 <div>
-                  <h3 className="font-semibold text-foreground text-sm mb-1">{b.title}</h3>
+                  <h3 className="font-display font-semibold text-foreground text-sm mb-1">{b.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
                 </div>
               </div>
@@ -125,18 +125,18 @@ export default function TelegramBotPage() {
       {/* Features */}
       <section className="py-16 bg-background" aria-labelledby="features-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="features-heading" className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
+          <h2 id="features-heading" className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
             Botingiz imkoniyatlari
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {FEATURES.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.title} className="p-5 rounded-[16px] bg-muted/40 border border-border hover:border-primary/20 transition-colors duration-200">
-                  <div className="w-10 h-10 rounded-[10px] bg-primary/8 flex items-center justify-center mb-4">
+                <div key={f.title} className="p-5 rounded-xl bg-muted/40 border border-border hover:border-primary/20 transition-colors duration-200">
+                  <div className="w-10 h-10 rounded bg-primary/8 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-[15px] mb-2">{f.title}</h3>
+                  <h3 className="font-display font-semibold text-foreground text-[15px] mb-2">{f.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
                 </div>
               );
@@ -148,17 +148,17 @@ export default function TelegramBotPage() {
       {/* Process */}
       <section className="py-16 bg-surface" aria-labelledby="process-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-2xl">
-          <h2 id="process-heading" className="text-2xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
+          <h2 id="process-heading" className="font-display text-2xl font-bold text-foreground tracking-[-0.02em] text-center mb-10">
             Ish jarayoni
           </h2>
           <div className="space-y-5">
             {PROCESS.map((step) => (
-              <div key={step.num} className="flex gap-4 items-start p-4 rounded-[14px] bg-card border border-border">
+              <div key={step.num} className="flex gap-4 items-start p-4 rounded-lg bg-card border border-border">
                 <div className="w-9 h-9 rounded-full bg-primary text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-[0_4px_12px_rgba(37,99,235,0.25)]">
                   {step.num}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground text-sm">{step.title}</h3>
+                  <h3 className="font-display font-semibold text-foreground text-sm">{step.title}</h3>
                   <p className="text-sm text-muted-foreground mt-0.5">{step.desc}</p>
                 </div>
               </div>

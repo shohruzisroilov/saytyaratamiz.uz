@@ -56,11 +56,11 @@ export async function generateMetadata({
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  SEO: "text-green-600 bg-green-50 dark:bg-green-950/30 dark:text-green-400",
-  "E-commerce": "text-blue-600 bg-blue-50 dark:bg-blue-950/30 dark:text-blue-400",
-  "Landing Page": "text-violet-600 bg-violet-50 dark:bg-violet-950/30 dark:text-violet-400",
-  Texnologiya: "text-orange-600 bg-orange-50 dark:bg-orange-950/30 dark:text-orange-400",
-  Performance: "text-cyan-600 bg-cyan-50 dark:bg-cyan-950/30 dark:text-cyan-400",
+  SEO: "text-green-600 bg-green-50",
+  "E-commerce": "text-blue-600 bg-blue-50",
+  "Landing Page": "text-violet-600 bg-violet-50",
+  Texnologiya: "text-orange-600 bg-orange-50",
+  Performance: "text-cyan-600 bg-cyan-50",
 };
 
 function formatDate(dateStr: string) {
@@ -177,7 +177,7 @@ export default async function BlogPostPage({
             </time>
           </div>
 
-          <h1 id="post-heading" className="text-3xl sm:text-4xl font-bold text-foreground tracking-[-0.02em] leading-tight mb-5">
+          <h1 id="post-heading" className="font-display text-3xl sm:text-4xl font-bold text-foreground tracking-[-0.02em] leading-tight mb-5">
             {post.title}
           </h1>
 
@@ -222,7 +222,7 @@ export default async function BlogPostPage({
             {/* Desktop Sidebar (TOC & Share) */}
             <aside className="lg:col-span-1 lg:sticky lg:top-24 space-y-6 order-last lg:order-first">
               {toc.length > 0 && (
-                <nav className="space-y-3 bg-muted/30 p-5 rounded-[16px] border border-border" aria-label="Mundarija">
+                <nav className="space-y-3 bg-muted/30 p-5 rounded-xl border border-border" aria-label="Mundarija">
                   <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Mundarija</p>
                   <ul className="space-y-2.5 text-xs">
                     {toc.map((item) => (
@@ -253,7 +253,7 @@ export default async function BlogPostPage({
                       <h2
                         key={i}
                         id={headingId}
-                        className="text-xl font-bold text-foreground mt-10 mb-3 tracking-[-0.01em] scroll-mt-24"
+                        className="font-display text-xl font-bold text-foreground mt-10 mb-3 tracking-[-0.01em] scroll-mt-24"
                       >
                         {headingText}
                       </h2>
@@ -299,13 +299,13 @@ export default async function BlogPostPage({
       {relatedPosts.length > 0 && (
         <aside className="py-16 bg-surface" aria-labelledby="related-heading">
           <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-            <h2 id="related-heading" className="text-xl font-bold text-foreground tracking-[-0.02em] mb-6">
+            <h2 id="related-heading" className="font-display text-xl font-bold text-foreground tracking-[-0.02em] mb-6">
               Boshqa maqolalar
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {relatedPosts.map((p) => (
                 <Link key={p.id} href={`/blog/${p.slug}`}>
-                  <article className="h-full rounded-[16px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300 group overflow-hidden cursor-pointer">
+                  <article className="h-full rounded-xl bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300 group overflow-hidden cursor-pointer">
                     <div className="h-32 bg-gradient-to-br from-muted/60 to-muted flex items-center justify-center text-4xl select-none" role="img" aria-label={p.title}>
                       {p.emoji}
                     </div>
@@ -313,7 +313,7 @@ export default async function BlogPostPage({
                       <span className={cn("px-2.5 py-0.5 rounded-full text-[11px] font-semibold", CATEGORY_COLORS[p.category] || "bg-muted text-muted-foreground")}>
                         {p.category}
                       </span>
-                      <h3 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors duration-200 leading-snug">
+                      <h3 className="font-display font-semibold text-foreground text-sm group-hover:text-primary transition-colors duration-200 leading-snug">
                         {p.title}
                       </h3>
                       <div className="inline-flex items-center gap-1 text-xs font-semibold text-primary">

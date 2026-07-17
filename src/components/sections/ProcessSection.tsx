@@ -13,42 +13,48 @@ const STEPS = [
     icon: MessageSquare,
     title: "Konsultatsiya",
     desc: "Bepul konsultatsiya o'tkazamiz. Loyiha maqsadlari, talablar va muddatlarni aniqlaymiz.",
-    color: "bg-blue-500/8 text-blue-500",
+    color: "bg-primary/10 text-primary",
+    badge: "bg-primary",
   },
   {
     num: "02",
     icon: FileText,
     title: "Texnik Vazifa",
     desc: "Barcha talablarni yozma shaklda rasmiylashtiramiz. Narx va muddat belgilanadi.",
-    color: "bg-violet-500/8 text-violet-500",
+    color: "bg-lavender/10 text-lavender",
+    badge: "bg-lavender",
   },
   {
     num: "03",
     icon: Palette,
     title: "Dizayn",
     desc: "Figma'da prototip va dizayn tayyorlaymiz. Siz tasdiqlaguningizcha tahrirlanadi.",
-    color: "bg-pink-500/8 text-pink-500",
+    color: "bg-mint/10 text-mint",
+    badge: "bg-mint",
   },
   {
     num: "04",
     icon: Code2,
     title: "Dasturlash",
     desc: "Tasdiqlangan dizayn asosida zamonaviy texnologiyalar bilan saytni quramiz.",
-    color: "bg-orange-500/8 text-orange-500",
+    color: "bg-primary/10 text-primary",
+    badge: "bg-primary",
   },
   {
     num: "05",
     icon: TestTube2,
     title: "Test",
     desc: "Barcha qurilmalarda test qilamiz. Xato va kamchiliklarni bartaraf etamiz.",
-    color: "bg-teal-500/8 text-teal-500",
+    color: "bg-lavender/10 text-lavender",
+    badge: "bg-lavender",
   },
   {
     num: "06",
     icon: Rocket,
     title: "Ishga Tushirish",
     desc: "Saytni domenga joylashtiramiz. Qo'llanma va 3 oy bepul qo'llab-quvvatlash beramiz.",
-    color: "bg-green-500/8 text-green-500",
+    color: "bg-mint/10 text-mint",
+    badge: "bg-mint",
   },
 ];
 
@@ -70,7 +76,7 @@ export function ProcessSection() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
             Ish Jarayoni
           </span>
-          <h2 id="process-heading" className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
+          <h2 id="process-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
             Qanday Ishlayamiz?
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
@@ -89,19 +95,22 @@ export function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: index * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
-                className="relative p-6 rounded-[16px] border border-border bg-card hover:border-primary/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300 group overflow-hidden"
+                className="relative p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group overflow-hidden"
               >
-                {/* Step number — large background */}
-                <span className="absolute top-4 right-5 text-[52px] font-black text-border/60 select-none leading-none group-hover:text-primary/8 transition-colors duration-300">
-                  {step.num}
+                {/* Step number — small filled badge */}
+                <span className={cn(
+                  "absolute top-5 right-5 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold text-white select-none",
+                  step.badge
+                )}>
+                  {index + 1}
                 </span>
 
                 {/* Icon */}
-                <div className={cn("w-10 h-10 rounded-[10px] flex items-center justify-center mb-5", step.color)}>
+                <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center mb-5", step.color)}>
                   <Icon className="w-5 h-5" />
                 </div>
 
-                <h3 className="font-semibold text-foreground text-[15px] mb-2">{step.title}</h3>
+                <h3 className="font-display font-semibold text-foreground text-[15px] mb-2">{step.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed pr-8">{step.desc}</p>
               </motion.article>
             );

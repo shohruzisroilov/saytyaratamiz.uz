@@ -22,15 +22,15 @@ function FAQItem({
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className={cn(
-        "rounded-[14px] border overflow-hidden transition-all duration-200",
+        "rounded-2xl overflow-hidden transition-all duration-200 bg-card",
         isOpen
-          ? "border-primary/25 shadow-[0_4px_20px_rgba(37,99,235,0.06)]"
-          : "border-border hover:border-primary/15"
+          ? "shadow-card-hover ring-1 ring-primary/15"
+          : "shadow-card hover:shadow-card-hover"
       )}
     >
-      <button
+      <button type="button"
         onClick={onToggle}
-        className="flex items-center justify-between w-full px-5 py-4 text-left bg-card hover:bg-muted/40 transition-colors duration-150"
+        className="flex items-center justify-between w-full px-5 py-4 text-left bg-card hover:bg-muted/40 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         aria-expanded={isOpen}
       >
         <span className="font-medium text-foreground text-sm sm:text-[15px] pr-6 leading-snug">
@@ -84,7 +84,7 @@ export function FAQSection() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Ko&apos;p So&apos;raladigan Savollar
             </span>
-            <h2 id="faq-heading" className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
+            <h2 id="faq-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
               Savollaringiz Bormi?
             </h2>
             <p className="text-muted-foreground text-base lg:text-lg">

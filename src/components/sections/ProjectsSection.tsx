@@ -10,10 +10,10 @@ import { cn } from "@/lib/utils";
 const CATEGORIES = ["Barchasi", "Internet Do'kon", "Korporativ Sayt", "Veb Dastur", "Landing Page"];
 
 const CATEGORY_COLORS: Record<string, string> = {
-  "Internet Do'kon": "text-blue-600 bg-blue-50 dark:bg-blue-950/30 dark:text-blue-400",
-  "Korporativ Sayt": "text-violet-600 bg-violet-50 dark:bg-violet-950/30 dark:text-violet-400",
-  "Veb Dastur": "text-orange-600 bg-orange-50 dark:bg-orange-950/30 dark:text-orange-400",
-  "Landing Page": "text-green-600 bg-green-50 dark:bg-green-950/30 dark:text-green-400",
+  "Internet Do'kon": "text-blue-600 bg-blue-50",
+  "Korporativ Sayt": "text-violet-600 bg-violet-50",
+  "Veb Dastur": "text-orange-600 bg-orange-50",
+  "Landing Page": "text-green-600 bg-green-50",
 };
 
 const TECH_INITIALS: Record<string, string> = {
@@ -47,7 +47,7 @@ export function ProjectsSection() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
             Loyihalar
           </span>
-          <h2 id="projects-heading" className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
+          <h2 id="projects-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
             Yaratgan Saytlarimiz
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
@@ -58,13 +58,13 @@ export function ProjectsSection() {
         {/* Filter tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-10" role="tablist" aria-label="Loyiha filtrlari">
           {CATEGORIES.map((cat) => (
-            <button
+            <button type="button"
               key={cat}
               onClick={() => setActiveCategory(cat)}
               role="tab"
               aria-selected={activeCategory === cat}
               className={cn(
-                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
+                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 activeCategory === cat
                   ? "bg-primary text-white shadow-[0_4px_12px_rgba(37,99,235,0.25)]"
                   : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
@@ -86,7 +86,7 @@ export function ProjectsSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group rounded-[16px] overflow-hidden border border-border bg-card hover:border-primary/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300"
+                className="group rounded-2xl overflow-hidden bg-card shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300"
               >
                 {/* Image placeholder */}
                 <div className="relative h-48 bg-gradient-to-br from-muted/60 to-muted overflow-hidden">
@@ -98,7 +98,7 @@ export function ProjectsSection() {
                 {/* Content */}
                 <div className="p-5 space-y-3">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-semibold text-foreground text-[15px] transition-colors duration-200">
+                    <h3 className="font-display font-semibold text-foreground text-[15px] transition-colors duration-200">
                       {project.title}
                     </h3>
                     <span className={cn(
@@ -139,7 +139,7 @@ export function ProjectsSection() {
         >
           <Link
             href="/loyihalar"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.25)] hover:bg-primary-dark hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all duration-200 hover:-translate-y-px"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white font-semibold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.25)] hover:bg-primary-dark hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Barcha Loyihalar
             <ArrowRight className="w-4 h-4" />

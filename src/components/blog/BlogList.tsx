@@ -13,11 +13,11 @@ interface BlogListProps {
 const CATEGORIES = ["Barchasi", "SEO", "E-commerce", "Landing Page", "Texnologiya", "Performance"];
 
 const CATEGORY_COLORS: Record<string, string> = {
-  SEO: "text-green-600 bg-green-50 dark:bg-green-950/20 dark:text-green-400 border-green-200/50",
-  "E-commerce": "text-blue-600 bg-blue-50 dark:bg-blue-950/20 dark:text-blue-400 border-blue-200/50",
-  "Landing Page": "text-violet-600 bg-violet-50 dark:bg-violet-950/20 dark:text-violet-400 border-violet-200/50",
-  Texnologiya: "text-orange-600 bg-orange-50 dark:bg-orange-950/20 dark:text-orange-400 border-orange-200/50",
-  Performance: "text-cyan-600 bg-cyan-50 dark:bg-cyan-950/20 dark:text-cyan-400 border-cyan-200/50",
+  SEO: "text-green-600 bg-green-50 border-green-200/50",
+  "E-commerce": "text-blue-600 bg-blue-50 border-blue-200/50",
+  "Landing Page": "text-violet-600 bg-violet-50 border-violet-200/50",
+  Texnologiya: "text-orange-600 bg-orange-50 border-orange-200/50",
+  Performance: "text-cyan-600 bg-cyan-50 border-cyan-200/50",
 };
 
 const ITEMS_PER_PAGE = 6;
@@ -68,16 +68,16 @@ export function BlogList({ posts }: BlogListProps) {
   return (
     <div className="space-y-12">
       {/* Controls: Search and Categories */}
-      <div className="flex flex-col md:flex-row gap-5 items-stretch md:items-center justify-between p-4 rounded-[20px] bg-muted/40 border border-border">
+      <div className="flex flex-col md:flex-row gap-5 items-stretch md:items-center justify-between p-4 rounded-2xl bg-muted/40 border border-border">
         
         {/* Category selector */}
         <div className="flex flex-wrap gap-1.5 overflow-x-auto no-scrollbar">
           {CATEGORIES.map((cat) => (
-            <button
+            <button type="button"
               key={cat}
               onClick={() => handleCategorySelect(cat)}
               className={cn(
-                "px-4 py-2 rounded-[12px] text-xs font-semibold whitespace-nowrap transition-all duration-300 border",
+                "px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap transition-all duration-300 border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 selectedCategory === cat
                   ? "bg-primary text-white border-primary shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
                   : "bg-background text-muted-foreground border-border/80 hover:text-foreground hover:bg-muted"
@@ -96,7 +96,7 @@ export function BlogList({ posts }: BlogListProps) {
             value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Maqolalardan izlash..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-[12px] text-xs bg-background border border-border focus:border-primary/45 focus:outline-none transition-all"
+            className="w-full pl-10 pr-4 py-2.5 rounded-md text-xs bg-background border border-border focus:border-primary/45 focus:outline-none transition-all"
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ export function BlogList({ posts }: BlogListProps) {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {paginatedPosts.map((post) => (
             <Link key={post.id} href={`/blog/${post.slug}`} className="group h-full flex">
-              <article className="flex flex-col w-full rounded-[20px] bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-all duration-300 overflow-hidden cursor-pointer">
+              <article className="flex flex-col w-full rounded-2xl bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-all duration-300 overflow-hidden cursor-pointer">
                 {/* Image Placeholder with Emoji */}
                 <div className="h-44 bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center text-5xl select-none group-hover:scale-[1.02] transition-transform duration-500" role="img" aria-label={post.title}>
                   {post.emoji}
@@ -123,7 +123,7 @@ export function BlogList({ posts }: BlogListProps) {
                         {post.readTime}
                       </span>
                     </div>
-                    <h3 className="font-bold text-foreground text-base tracking-tight leading-snug group-hover:text-primary transition-colors duration-200 line-clamp-2">
+                    <h3 className="font-display font-bold text-foreground text-base tracking-tight leading-snug group-hover:text-primary transition-colors duration-200 line-clamp-2">
                       {post.title}
                     </h3>
                     <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">{post.excerpt}</p>
@@ -138,9 +138,9 @@ export function BlogList({ posts }: BlogListProps) {
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 bg-muted/20 border border-border rounded-[20px]">
+        <div className="text-center py-16 bg-muted/20 border border-border rounded-2xl">
           <p className="text-base font-medium text-muted-foreground">Siz qidirgan so&apos;rov bo&apos;yicha maqola topilmadi.</p>
-          <button
+          <button type="button"
             onClick={() => { setSearchQuery(""); setSelectedCategory("Barchasi"); }}
             className="mt-4 text-xs font-bold text-primary hover:underline"
           >
@@ -152,21 +152,21 @@ export function BlogList({ posts }: BlogListProps) {
       {/* Pagination Controls */}
       {totalPages > 1 && (
         <nav aria-label="Sahifalar navigatsiyasi" className="flex items-center justify-center gap-2 pt-6">
-          <button
+          <button type="button"
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="w-10 h-10 rounded-[12px] border border-border flex items-center justify-center hover:bg-muted disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
+            className="w-10 h-10 rounded-md border border-border flex items-center justify-center hover:bg-muted disabled:opacity-40 disabled:hover:bg-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             aria-label="Oldingi sahifa"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
 
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-            <button
+            <button type="button"
               key={page}
               onClick={() => handlePageChange(page)}
               className={cn(
-                "w-10 h-10 rounded-[12px] text-xs font-bold transition-all border",
+                "w-10 h-10 rounded-md text-xs font-bold transition-all border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 currentPage === page
                   ? "bg-primary text-white border-primary shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
                   : "bg-background text-foreground border-border hover:bg-muted"
@@ -177,10 +177,10 @@ export function BlogList({ posts }: BlogListProps) {
             </button>
           ))}
 
-          <button
+          <button type="button"
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="w-10 h-10 rounded-[12px] border border-border flex items-center justify-center hover:bg-muted disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
+            className="w-10 h-10 rounded-md border border-border flex items-center justify-center hover:bg-muted disabled:opacity-40 disabled:hover:bg-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             aria-label="Keyingi sahifa"
           >
             <ChevronRight className="w-4 h-4" />

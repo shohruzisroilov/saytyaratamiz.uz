@@ -42,22 +42,22 @@ export function TestimonialsSection() {
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
               Mijozlar Fikri
             </span>
-            <h2 id="testimonials-heading" className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
+            <h2 id="testimonials-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
               Ular Nima Deydi?
             </h2>
           </div>
 
           <div className="flex items-center gap-2" aria-label="Navigatsiya">
-            <button
+            <button type="button"
               onClick={prev}
-              className="w-9 h-9 rounded-[10px] border border-border bg-card flex items-center justify-center text-muted-foreground hover:border-primary/40 hover:text-primary transition-all duration-200"
+              className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:border-primary/40 hover:text-primary transition-all duration-200"
               aria-label="Oldingi"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <button
+            <button type="button"
               onClick={next}
-              className="w-9 h-9 rounded-[10px] border border-border bg-card flex items-center justify-center text-muted-foreground hover:border-primary/40 hover:text-primary transition-all duration-200"
+              className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:border-primary/40 hover:text-primary transition-all duration-200"
               aria-label="Keyingi"
             >
               <ChevronRight className="w-4 h-4" />
@@ -77,7 +77,7 @@ export function TestimonialsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.35, delay: i * 0.06 }}
-                  className="flex flex-col p-6 rounded-[16px] border border-border bg-card hover:border-primary/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-300"
+                  className="flex flex-col p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover transition-all duration-300"
                 >
                   {/* Stars */}
                   <div className="flex gap-0.5 mb-4" aria-label={`${item.rating} yulduz`}>
@@ -113,7 +113,7 @@ export function TestimonialsSection() {
         {/* Dots */}
         <div className="flex justify-center gap-1.5 mt-8" role="tablist">
           {TESTIMONIALS.map((_, i) => (
-            <button
+            <button type="button"
               key={i}
               onClick={() => setCurrent(i)}
               role="tab"

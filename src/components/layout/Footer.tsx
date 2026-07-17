@@ -30,7 +30,7 @@ export function Footer() {
                 href={SITE_CONFIG.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-[10px] bg-white/6 hover:bg-primary flex items-center justify-center text-white/50 hover:text-white border border-white/8 hover:border-primary transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-white/6 hover:bg-primary flex items-center justify-center text-white/50 hover:text-white border border-white/8 hover:border-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label="Telegram kanalimiz"
               >
                 <Send className="w-4 h-4" />
@@ -39,7 +39,7 @@ export function Footer() {
                 href={SITE_CONFIG.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-[10px] bg-white/6 hover:bg-primary flex items-center justify-center text-white/50 hover:text-white border border-white/8 hover:border-primary transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-white/6 hover:bg-primary flex items-center justify-center text-white/50 hover:text-white border border-white/8 hover:border-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label="Instagram sahifamiz"
               >
                 <Camera className="w-4 h-4" />
@@ -49,7 +49,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs font-semibold text-white/35 uppercase tracking-widest">
+            <h3 className="font-display text-xs font-semibold text-white/55 uppercase tracking-widest">
               Sahifalar
             </h3>
             <ul className="space-y-2.5" role="list">
@@ -68,7 +68,7 @@ export function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs font-semibold text-white/35 uppercase tracking-widest">
+            <h3 className="font-display text-xs font-semibold text-white/55 uppercase tracking-widest">
               Xizmatlar
             </h3>
             <ul className="space-y-2.5" role="list">
@@ -87,7 +87,7 @@ export function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="text-xs font-semibold text-white/35 uppercase tracking-widest">
+            <h3 className="font-display text-xs font-semibold text-white/55 uppercase tracking-widest">
               Aloqa
             </h3>
             <ul className="space-y-3" role="list">
@@ -96,7 +96,7 @@ export function Footer() {
                   href={`tel:${SITE_CONFIG.phone.replace(/\s/g, "")}`}
                   className="flex items-center gap-3 text-sm text-white/55 hover:text-white transition-colors group"
                 >
-                  <span className="w-8 h-8 rounded-[10px] bg-white/6 group-hover:bg-white/10 border border-white/8 flex items-center justify-center shrink-0 transition-colors">
+                  <span className="w-8 h-8 rounded-full bg-white/6 group-hover:bg-white/10 border border-white/8 flex items-center justify-center shrink-0 transition-colors">
                     <Phone className="w-3.5 h-3.5 text-white/50" />
                   </span>
                   {SITE_CONFIG.phone}
@@ -107,7 +107,7 @@ export function Footer() {
                   href={`mailto:${SITE_CONFIG.email}`}
                   className="flex items-center gap-3 text-sm text-white/55 hover:text-white transition-colors group"
                 >
-                  <span className="w-8 h-8 rounded-[10px] bg-white/6 group-hover:bg-white/10 border border-white/8 flex items-center justify-center shrink-0 transition-colors">
+                  <span className="w-8 h-8 rounded-full bg-white/6 group-hover:bg-white/10 border border-white/8 flex items-center justify-center shrink-0 transition-colors">
                     <Mail className="w-3.5 h-3.5 text-white/50" />
                   </span>
                   {SITE_CONFIG.email}
@@ -115,7 +115,7 @@ export function Footer() {
               </li>
               <li>
                 <div className="flex items-center gap-3 text-sm text-white/55">
-                  <span className="w-8 h-8 rounded-[10px] bg-white/6 border border-white/8 flex items-center justify-center shrink-0">
+                  <span className="w-8 h-8 rounded-full bg-white/6 border border-white/8 flex items-center justify-center shrink-0">
                     <MapPin className="w-3.5 h-3.5 text-white/50" />
                   </span>
                   {SITE_CONFIG.address}
@@ -129,14 +129,14 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/8">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/30">
+          <p className="text-xs text-white/55">
             © {new Date().getFullYear()} SaytYaratamiz.uz. Barcha huquqlar himoyalangan.
           </p>
           <div className="flex items-center gap-5">
-            <Link href="/maxfiylik" className="text-xs text-white/30 hover:text-white/60 transition-colors">
+            <Link href="/maxfiylik" className="text-xs text-white/55 hover:text-white/60 transition-colors">
               Maxfiylik siyosati
             </Link>
-            <Link href="/foydalanish" className="text-xs text-white/30 hover:text-white/60 transition-colors">
+            <Link href="/foydalanish" className="text-xs text-white/55 hover:text-white/60 transition-colors">
               Foydalanish shartlari
             </Link>
           </div>

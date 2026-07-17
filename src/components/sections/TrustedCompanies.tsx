@@ -75,9 +75,9 @@ export function TrustedCompanies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="flex flex-col items-center justify-center text-center p-3 rounded-[12px] bg-background/50 border border-border/50 hover:border-primary/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:bg-background transition-all duration-300 group cursor-default"
+              className="flex flex-col items-center justify-center text-center p-3 rounded-xl bg-background/60 hover:shadow-card hover:bg-background transition-all duration-300 group cursor-default"
             >
-              <div className="w-9 h-9 rounded-[8px] bg-muted/80 flex items-center justify-center text-muted-foreground group-hover:bg-primary/8 group-hover:text-primary transition-colors duration-300 mb-2">
+              <div className="w-9 h-9 rounded-full bg-muted/80 flex items-center justify-center text-muted-foreground group-hover:bg-primary/8 group-hover:text-primary transition-colors duration-300 mb-2">
                 {company.icon}
               </div>
               <span className="font-bold text-foreground/80 group-hover:text-foreground text-[13px] tracking-tight transition-colors">

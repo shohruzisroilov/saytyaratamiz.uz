@@ -10,7 +10,7 @@ interface BackButtonProps {
 
 export function BackButton({ className, children }: BackButtonProps) {
   return (
-    <button
+    <button type="button"
       onClick={() => window.history.back()}
       className={cn(
         "inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl",

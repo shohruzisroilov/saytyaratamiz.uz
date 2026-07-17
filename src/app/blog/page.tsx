@@ -27,11 +27,11 @@ export const metadata: Metadata = {
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  SEO: "text-green-600 bg-green-50 dark:bg-green-950/30 dark:text-green-400",
-  "E-commerce": "text-blue-600 bg-blue-50 dark:bg-blue-950/30 dark:text-blue-400",
-  "Landing Page": "text-violet-600 bg-violet-50 dark:bg-violet-950/30 dark:text-violet-400",
-  Texnologiya: "text-orange-600 bg-orange-50 dark:bg-orange-950/30 dark:text-orange-400",
-  Performance: "text-cyan-600 bg-cyan-50 dark:bg-cyan-950/30 dark:text-cyan-400",
+  SEO: "text-green-600 bg-green-50",
+  "E-commerce": "text-blue-600 bg-blue-50",
+  "Landing Page": "text-violet-600 bg-violet-50",
+  Texnologiya: "text-orange-600 bg-orange-50",
+  Performance: "text-cyan-600 bg-cyan-50",
 };
 
 function BlogJsonLd() {
@@ -87,7 +87,7 @@ export default function BlogPage() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15 mb-5">
             Blog
           </span>
-          <h1 id="blog-heading" className="text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em] mb-4">
+          <h1 id="blog-heading" className="font-display text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em] mb-4">
             Foydali <span className="gradient-text">Maqolalar</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -101,7 +101,7 @@ export default function BlogPage() {
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
           {/* Featured post */}
           <Link href={`/blog/${featured.slug}`}>
-            <article className="mb-10 rounded-[20px] overflow-hidden border border-border bg-card hover:border-primary/20 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 group cursor-pointer">
+            <article className="mb-10 rounded-2xl overflow-hidden border border-border bg-card hover:border-primary/20 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 group cursor-pointer">
               <div className="grid md:grid-cols-2">
                 <div className="h-64 md:h-auto bg-gradient-to-br from-primary/8 to-accent/8 flex items-center justify-center text-7xl select-none" role="img" aria-label={featured.title}>
                   {featured.emoji}
@@ -117,7 +117,7 @@ export default function BlogPage() {
                         <span>{featured.readTime}</span>
                       </span>
                     </div>
-                    <h2 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 leading-tight">
+                    <h2 className="font-display text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 leading-tight">
                       {featured.title}
                     </h2>
                     <p className="text-muted-foreground leading-relaxed text-sm">{featured.excerpt}</p>
@@ -133,7 +133,7 @@ export default function BlogPage() {
 
           {/* Interactive search, categories & pagination list */}
           <div className="mt-14 pt-14 border-t border-border">
-            <h2 className="text-2xl font-bold text-foreground tracking-[-0.02em] mb-6">
+            <h2 className="font-display text-2xl font-bold text-foreground tracking-[-0.02em] mb-6">
               Barcha maqolalar
             </h2>
             <BlogList posts={BLOG_POSTS} />

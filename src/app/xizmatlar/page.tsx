@@ -78,7 +78,7 @@ export default function ServicesPage() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
             Bizning Xizmatlar
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-[3rem] font-bold text-foreground tracking-[-0.02em]">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[3rem] font-bold text-foreground tracking-[-0.02em]">
             Professional{" "}
             <span className="gradient-text">Veb Xizmatlar</span>
           </h1>
@@ -107,13 +107,13 @@ export default function ServicesPage() {
                   )}
                 >
                   <div className={cn(isEven && "[direction:ltr]")}>
-                    <div className="rounded-[20px] p-10 lg:p-14 flex items-center justify-center bg-muted/40 border border-border min-h-[220px]">
+                    <div className="rounded-2xl p-10 lg:p-14 flex items-center justify-center bg-muted/40 border border-border min-h-[220px]">
                       <div className="text-center space-y-4">
-                        <div className="w-16 h-16 rounded-[16px] bg-primary/8 flex items-center justify-center mx-auto">
+                        <div className="w-16 h-16 rounded-xl bg-primary/8 flex items-center justify-center mx-auto">
                           <Icon className="w-8 h-8 text-primary" />
                         </div>
                         {service.price && (
-                          <div className="inline-block px-4 py-2.5 rounded-[12px] bg-background border border-border">
+                          <div className="inline-block px-4 py-2.5 rounded-md bg-background border border-border">
                             <span className="text-[11px] text-muted-foreground block mb-0.5">dan boshlab</span>
                             <p className="font-bold text-foreground">{service.price} so&apos;m</p>
                           </div>
@@ -128,7 +128,7 @@ export default function ServicesPage() {
                         Eng Mashhur
                       </span>
                     )}
-                    <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em]">
+                    <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-[-0.02em]">
                       {service.title}
                     </h2>
                     <p className="text-muted-foreground leading-relaxed">{service.description}</p>
@@ -145,14 +145,14 @@ export default function ServicesPage() {
                     <div className="flex gap-3 pt-1">
                       <Link
                         href="/aloqa"
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-[12px] bg-primary text-white font-semibold text-sm shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:bg-primary-dark hover:-translate-y-px transition-all duration-200"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-primary text-white font-semibold text-sm shadow-[0_4px_14px_rgba(37,99,235,0.25)] hover:bg-primary-dark hover:-translate-y-px transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                       >
                         Buyurtma Berish
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                       <Link
                         href={`/xizmatlar/${service.slug}`}
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-[12px] border border-border text-sm font-medium hover:border-primary/40 hover:text-primary transition-all duration-200"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-border text-sm font-medium hover:border-primary/40 hover:text-primary transition-all duration-200"
                       >
                         Batafsil
                       </Link>
@@ -168,7 +168,7 @@ export default function ServicesPage() {
       {/* Extra services */}
       <section className="py-16 bg-surface" aria-labelledby="extra-heading">
         <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <h2 id="extra-heading" className="text-2xl font-bold text-foreground tracking-[-0.02em] mb-8">
+          <h2 id="extra-heading" className="font-display text-2xl font-bold text-foreground tracking-[-0.02em] mb-8">
             Qo&apos;shimcha xizmatlar
           </h2>
           <div className="grid sm:grid-cols-2 gap-5">
@@ -178,13 +178,13 @@ export default function ServicesPage() {
                 <Link
                   key={s.title}
                   href={s.href}
-                  className="group flex items-start gap-5 p-6 rounded-[16px] bg-card border border-border hover:border-primary/25 hover:shadow-[0_8px_28px_rgba(0,0,0,0.06)] transition-all duration-300"
+                  className="group flex items-start gap-5 p-6 rounded-xl bg-card border border-border hover:border-primary/25 hover:shadow-[0_8px_28px_rgba(0,0,0,0.06)] transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-[12px] bg-primary/8 group-hover:bg-primary/12 flex items-center justify-center shrink-0 transition-colors">
+                  <div className="w-12 h-12 rounded-md bg-primary/8 group-hover:bg-primary/12 flex items-center justify-center shrink-0 transition-colors">
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-foreground text-[15px] group-hover:text-primary transition-colors mb-1.5">
+                    <h3 className="font-display font-semibold text-foreground text-[15px] group-hover:text-primary transition-colors mb-1.5">
                       {s.title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-3">{s.desc}</p>

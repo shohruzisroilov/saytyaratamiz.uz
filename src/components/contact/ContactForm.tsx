@@ -172,7 +172,7 @@ export function ContactForm() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             className={cn(
-              "fixed top-6 right-6 z-50 flex items-start gap-3 p-4 rounded-[16px] shadow-[0_12px_32px_rgba(0,0,0,0.08)] max-w-sm border",
+              "fixed top-6 right-6 z-50 flex items-start gap-3 p-4 rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.08)] max-w-sm border",
               toast.type === "success"
                 ? "bg-[#F0FDF4] border-[#BBF7D0] text-[#166534]"
                 : "bg-[#FEF2F2] border-[#FECACA] text-[#991B1B]"
@@ -186,7 +186,7 @@ export function ContactForm() {
             <div className="flex-1 text-xs font-semibold leading-relaxed">
               {toast.message}
             </div>
-            <button
+            <button type="button"
               onClick={() => setToast(null)}
               className="text-muted-foreground hover:text-foreground shrink-0"
               aria-label="Yopish"
@@ -197,8 +197,8 @@ export function ContactForm() {
         )}
       </AnimatePresence>
 
-      <form onSubmit={handleSubmit} className="space-y-5 bg-card border border-border p-6 sm:p-8 rounded-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.03)]">
-        <h2 className="text-xl font-bold text-foreground tracking-tight mb-2">Murojaat Formasi</h2>
+      <form onSubmit={handleSubmit} className="space-y-5 bg-card border border-border p-6 sm:p-8 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.03)]">
+        <h2 className="font-display text-xl font-bold text-foreground tracking-tight mb-2">Murojaat Formasi</h2>
         
         {/* Anti-spam honeypot (visually hidden) */}
         <div className="hidden" aria-hidden="true">
@@ -225,7 +225,7 @@ export function ContactForm() {
               onChange={handleChange}
               placeholder="Ismingizni kiriting"
               className={cn(
-                "w-full px-4 py-3 rounded-[12px] bg-background border text-xs focus:outline-none focus:border-primary/45 transition-colors",
+                "w-full px-4 py-3 rounded-md bg-background border text-xs focus:outline-none focus:border-primary/45 transition-colors",
                 errors.name ? "border-red-500/70" : "border-border"
               )}
             />
@@ -243,7 +243,7 @@ export function ContactForm() {
               onChange={handleChange}
               placeholder="+998 90 123 45 67"
               className={cn(
-                "w-full px-4 py-3 rounded-[12px] bg-background border text-xs focus:outline-none focus:border-primary/45 transition-colors",
+                "w-full px-4 py-3 rounded-md bg-background border text-xs focus:outline-none focus:border-primary/45 transition-colors",
                 errors.phone ? "border-red-500/70" : "border-border"
               )}
             />
@@ -263,7 +263,7 @@ export function ContactForm() {
               onChange={handleChange}
               placeholder="example@mail.com"
               className={cn(
-                "w-full px-4 py-3 rounded-[12px] bg-background border text-xs focus:outline-none focus:border-primary/45 transition-colors",
+                "w-full px-4 py-3 rounded-md bg-background border text-xs focus:outline-none focus:border-primary/45 transition-colors",
                 errors.email ? "border-red-500/70" : "border-border"
               )}
             />
@@ -278,7 +278,7 @@ export function ContactForm() {
               name="service"
               value={formData.service}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-[12px] bg-background border border-border text-xs focus:outline-none focus:border-primary/45 transition-colors"
+              className="w-full px-4 py-3 rounded-md bg-background border border-border text-xs focus:outline-none focus:border-primary/45 transition-colors"
             >
               <option value="landing">Landing Page (Reklama sayti)</option>
               <option value="corporate">Korporativ sayt (Brend sayti)</option>
@@ -302,7 +302,7 @@ export function ContactForm() {
             onChange={handleChange}
             placeholder="Loyiha maqsadi, sahifalar soni, dizayn talablari va boshqalar..."
             className={cn(
-              "w-full px-4 py-3 rounded-[12px] bg-background border text-xs focus:outline-none focus:border-primary/45 transition-colors resize-none",
+              "w-full px-4 py-3 rounded-md bg-background border text-xs focus:outline-none focus:border-primary/45 transition-colors resize-none",
               errors.message ? "border-red-500/70" : "border-border"
             )}
           />
@@ -310,7 +310,7 @@ export function ContactForm() {
         </div>
 
         {/* Captcha Spam Protection */}
-        <div className="p-4 rounded-[14px] bg-muted/50 border border-border flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+        <div className="p-4 rounded-lg bg-muted/50 border border-border flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-primary/8 flex items-center justify-center text-primary">
               <ShieldCheck className="w-4 h-4" />
@@ -321,7 +321,7 @@ export function ContactForm() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-xs font-bold text-foreground tracking-wide bg-background border border-border px-3 py-2 rounded-[8px] select-none">
+            <span className="text-xs font-bold text-foreground tracking-wide bg-background border border-border px-3 py-2 rounded-sm select-none">
               {captchaNums.a} + {captchaNums.b} =
             </span>
             <input
@@ -331,7 +331,7 @@ export function ContactForm() {
               onChange={handleChange}
               placeholder="?"
               className={cn(
-                "w-16 px-3 py-2 rounded-[8px] bg-background border text-center text-xs font-bold focus:outline-none focus:border-primary/45 transition-colors",
+                "w-16 px-3 py-2 rounded-sm bg-background border text-center text-xs font-bold focus:outline-none focus:border-primary/45 transition-colors",
                 errors.captcha ? "border-red-500/70" : "border-border"
               )}
             />
@@ -343,7 +343,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-[12px] bg-primary hover:bg-primary-dark text-white font-bold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.22)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 disabled:opacity-50"
+          className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-md bg-primary hover:bg-primary-dark text-white font-bold text-sm shadow-[0_4px_16px_rgba(37,99,235,0.22)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.32)] transition-all duration-300 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
           {isSubmitting ? (
             <>

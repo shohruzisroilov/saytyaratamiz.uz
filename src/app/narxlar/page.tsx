@@ -82,7 +82,7 @@ export default function PricingPage() {
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
             Narxlar
           </span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
+          <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground tracking-[-0.02em]">
             Aniq va <span className="gradient-text">Shaffof Narxlar</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
