@@ -78,9 +78,8 @@ export default function InternetDokonPage() {
               Boshlang
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Mahsulotlaringizni 24/7 onlayn soting. To'liq funksional internet do'kon:
-              Payme/Click to'lov, mahsulot katalogi, buyurtma boshqaruvi va mijozlar kabineti.
-              Narx <strong className="text-foreground">4 900 000 so'mdan</strong> boshlanadi.
+              Mahsulotlaringizni 24/7 onlayn soting — to'lov, katalog, buyurtma va mijozlar
+              kabineti bitta tizimda. Narx <strong className="text-foreground">4 900 000 so'mdan</strong> boshlanadi.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -88,7 +87,7 @@ export default function InternetDokonPage() {
                 Bepul Konsultatsiya
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/loyihalar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+              <Link href="/xizmatlar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                 Do'kon namunalari
               </Link>
             </div>

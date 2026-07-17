@@ -88,7 +88,7 @@ export function FAQSection() {
               Savollaringiz Bormi?
             </h2>
             <p className="text-muted-foreground text-base lg:text-lg">
-              Eng ko&apos;p so&apos;raladigan savollarga javoblar. Boshqa savollar uchun biz bilan bog&apos;laning.
+              Ko&apos;p so&apos;raladigan savollarga javoblar — boshqasi bo&apos;lsa, bog&apos;laning.
             </p>
           </motion.div>
 

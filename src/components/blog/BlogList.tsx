@@ -2,9 +2,16 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { Search, Clock, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Search, Clock, ArrowRight, ChevronLeft, ChevronRight,
+  ShoppingCart, Target, Code2, Zap, BarChart2, FileText,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { BlogPost } from "@/lib/constants";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  Search, ShoppingCart, Target, Code2, Zap, BarChart2,
+};
 
 interface BlogListProps {
   posts: BlogPost[];
@@ -89,7 +96,7 @@ export function BlogList({ posts }: BlogListProps) {
         </div>
 
         {/* Search bar */}
-        <div className="relative min-w-[260px]">
+        <div className="relative w-full md:w-auto md:min-w-[260px]">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
             type="text"
@@ -104,12 +111,14 @@ export function BlogList({ posts }: BlogListProps) {
       {/* Blog Cards Grid */}
       {paginatedPosts.length > 0 ? (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {paginatedPosts.map((post) => (
+          {paginatedPosts.map((post) => {
+            const Icon = ICON_MAP[post.icon] || FileText;
+            return (
             <Link key={post.id} href={`/blog/${post.slug}`} className="group h-full flex">
               <article className="flex flex-col w-full rounded-2xl bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] transition-all duration-300 overflow-hidden cursor-pointer">
-                {/* Image Placeholder with Emoji */}
-                <div className="h-44 bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center text-5xl select-none group-hover:scale-[1.02] transition-transform duration-500" role="img" aria-label={post.title}>
-                  {post.emoji}
+                {/* Image Placeholder with Icon */}
+                <div className="h-44 bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center select-none group-hover:scale-[1.02] transition-transform duration-500" aria-hidden="true">
+                  <Icon className="w-11 h-11 text-primary/70" strokeWidth={1.5} />
                 </div>
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1 justify-between">
@@ -135,7 +144,8 @@ export function BlogList({ posts }: BlogListProps) {
                 </div>
               </article>
             </Link>
-          ))}
+            );
+          })}
         </div>
       ) : (
         <div className="text-center py-16 bg-muted/20 border border-border rounded-2xl">

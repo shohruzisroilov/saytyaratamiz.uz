@@ -86,13 +86,13 @@ export default function PricingPage() {
             Aniq va <span className="gradient-text">Shaffof Narxlar</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Yashirin to&apos;lovlar yo&apos;q. Narxga nima kirishini oldindan bilib olasiz.
+            Yashirin to&apos;lov yo&apos;q — narxga nima kirishini oldindan bilasiz.
             Individual loyihalar uchun alohida taklif tayyorlaymiz.
           </p>
         </div>
       </section>
 
-      <PricingSection />
+      <PricingSection showHeader={false} />
       <FAQSection />
       <CTASection />
     </>

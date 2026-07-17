@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, CheckCircle2, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Star, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 
@@ -17,6 +17,15 @@ const item = {
   hidden: { opacity: 0, y: 18 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] as const } },
 };
+
+const PARTICLES = [
+  { top: "15%", left: "18%", size: "w-2 h-2", color: "bg-primary/40", duration: 7, delay: 0 },
+  { top: "72%", left: "10%", size: "w-1.5 h-1.5", color: "bg-mint/50", duration: 9, delay: 1.5 },
+  { top: "22%", left: "88%", size: "w-2 h-2", color: "bg-lavender/40", duration: 8, delay: 0.5 },
+  { top: "62%", left: "78%", size: "w-1.5 h-1.5", color: "bg-primary/40", duration: 10, delay: 2 },
+  { top: "42%", left: "50%", size: "w-1 h-1", color: "bg-mint/40", duration: 6, delay: 1 },
+  { top: "85%", left: "45%", size: "w-1.5 h-1.5", color: "bg-lavender/40", duration: 11, delay: 2.5 },
+];
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
@@ -39,19 +48,43 @@ export function HeroSection() {
   };
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden pt-16 lg:pt-20"
+      className="relative min-h-dvh flex items-center overflow-hidden pt-16 lg:pt-20"
       aria-label="Bosh sahifa"
     >
-      {/* Background — soft atmospheric mesh */}
+      {/* Background — soft atmospheric mesh, slowly drifting */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         {/* Dot grid */}
         <div className="absolute inset-0 dot-pattern opacity-60" />
+
         {/* Blue glow top-left */}
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary/6 rounded-full blur-[100px]" />
+        <motion.div
+          className="absolute -top-40 -left-40 w-[650px] h-[650px] bg-primary/10 rounded-full blur-[110px]"
+          animate={{ x: [0, 40, -20, 0], y: [0, 30, -10, 0], scale: [1, 1.08, 0.96, 1] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        />
         {/* Mint glow top-right */}
-        <div className="absolute -top-24 right-0 w-[420px] h-[420px] bg-mint/8 rounded-full blur-[100px]" />
+        <motion.div
+          className="absolute -top-24 right-0 w-[460px] h-[460px] bg-mint/12 rounded-full blur-[110px]"
+          animate={{ x: [0, -30, 20, 0], y: [0, -25, 15, 0], scale: [1, 0.94, 1.06, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
         {/* Lavender glow bottom-right */}
-        <div className="absolute -bottom-40 -right-20 w-[500px] h-[500px] bg-lavender/8 rounded-full blur-[100px]" />
+        <motion.div
+          className="absolute -bottom-40 -right-20 w-[540px] h-[540px] bg-lavender/12 rounded-full blur-[110px]"
+          animate={{ x: [0, 25, -35, 0], y: [0, -20, 25, 0], scale: [1, 1.05, 0.95, 1] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
+
+        {/* Ambient floating particles */}
+        {PARTICLES.map((p, i) => (
+          <motion.div
+            key={i}
+            className={cn("absolute rounded-full", p.size, p.color)}
+            style={{ top: p.top, left: p.left }}
+            animate={{ y: [0, -18, 0], opacity: [0.15, 0.6, 0.15] }}
+            transition={{ duration: p.duration, repeat: Infinity, ease: "easeInOut", delay: p.delay }}
+          />
+        ))}
       </div>
 
       <div className="container mx-auto px-5 sm:px-8 lg:px-10 py-20 lg:py-28">
@@ -74,8 +107,7 @@ export function HeroSection() {
                 Xizmati
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[480px] mt-4">
-                Korporativ sayt, internet do&apos;kon, landing page —
-                barcha turdagi saytlarni{" "}
+                Korporativ sayt, internet do&apos;kon, landing page —{" "}
                 <strong className="text-foreground font-semibold">tez, sifatli va arzon</strong>{" "}
                 narxda yaratamiz.
               </p>
@@ -93,7 +125,7 @@ export function HeroSection() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
-                href="/loyihalar"
+                href="/xizmatlar"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm text-foreground border border-border hover:border-primary/40 hover:bg-muted/60 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Ishlarimizni Ko&apos;rish
@@ -107,7 +139,7 @@ export function HeroSection() {
                   {["J", "M", "B", "N"].map((letter, i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-white flex items-center justify-center"
+                      className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-white shadow-sm flex items-center justify-center"
                     >
                       <span className="text-[10px] font-bold text-primary">{letter}</span>
                     </div>
@@ -217,25 +249,29 @@ export function HeroSection() {
 
                 {/* Service cards */}
                 <div className="grid grid-cols-3 gap-3 pt-2 select-none">
-                  {[1, 2, 3].map((i) => (
+                  {[
+                    { tint: "rgba(37,99,235,0.14)", tintHover: "rgba(37,99,235,0.24)", glow: "rgba(37,99,235,0.35)" },
+                    { tint: "rgba(16,185,129,0.14)", tintHover: "rgba(16,185,129,0.24)", glow: "rgba(16,185,129,0.35)" },
+                    { tint: "rgba(139,92,246,0.14)", tintHover: "rgba(139,92,246,0.24)", glow: "rgba(139,92,246,0.35)" },
+                  ].map((c, i) => (
                     <motion.div
                       key={i}
                       className="rounded-md p-3 flex items-center gap-2 cursor-pointer"
                       style={{ background: mock.skeletonAlt, border: `1px solid ${mock.border}` }}
-                      whileHover={{ 
-                        scale: 1.05, 
+                      whileHover={{
+                        scale: 1.05,
                         y: -3,
-                        borderColor: "rgba(37,99,235,0.35)",
+                        borderColor: c.glow,
                         boxShadow: "0 10px 25px -5px rgba(37,99,235,0.08), 0 8px 10px -6px rgba(37,99,235,0.08)"
                       }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 200, damping: 15 }}
                     >
                       {/* Left: Icon placeholder */}
-                      <motion.div 
-                        className="w-8 h-8 rounded-sm shrink-0" 
-                        style={{ background: "rgba(37,99,235,0.14)" }}
-                        whileHover={{ background: "rgba(37,99,235,0.24)", scale: 1.08 }}
+                      <motion.div
+                        className="w-8 h-8 rounded-sm shrink-0"
+                        style={{ background: c.tint }}
+                        whileHover={{ background: c.tintHover, scale: 1.08 }}
                       />
                       {/* Right: Text placeholder lines */}
                       <div className="flex-1 space-y-1.5 min-w-0">
@@ -270,7 +306,9 @@ export function HeroSection() {
               className="absolute -bottom-5 -right-6 px-4 py-2.5 rounded-md shadow-[0_8px_28px_rgba(0,0,0,0.12)] flex items-center gap-2.5 cursor-pointer transition-shadow"
               style={{ background: mock.floatBg, border: `1px solid ${mock.border}` }}
             >
-              <span className="text-base">📈</span>
+              <div className="w-7 h-7 rounded-full bg-mint/15 flex items-center justify-center shrink-0">
+                <TrendingUp className="w-4 h-4 text-mint" aria-hidden="true" />
+              </div>
               <div>
                 <div className="text-xs font-bold" style={{ color: mock.floatText }}>+340%</div>
                 <div className="text-[10px]" style={{ color: mock.floatSub }}>Trafik oshdi</div>

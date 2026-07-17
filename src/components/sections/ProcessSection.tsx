@@ -12,7 +12,7 @@ const STEPS = [
     num: "01",
     icon: MessageSquare,
     title: "Konsultatsiya",
-    desc: "Bepul konsultatsiya o'tkazamiz. Loyiha maqsadlari, talablar va muddatlarni aniqlaymiz.",
+    desc: "Loyiha maqsadi, talablar va muddatni bepul konsultatsiyada aniqlaymiz.",
     color: "bg-primary/10 text-primary",
     badge: "bg-primary",
   },
@@ -20,7 +20,7 @@ const STEPS = [
     num: "02",
     icon: FileText,
     title: "Texnik Vazifa",
-    desc: "Barcha talablarni yozma shaklda rasmiylashtiramiz. Narx va muddat belgilanadi.",
+    desc: "Talablarni yozma shaklga o'tkazamiz — narx va muddat aniq belgilanadi.",
     color: "bg-lavender/10 text-lavender",
     badge: "bg-lavender",
   },
@@ -28,7 +28,7 @@ const STEPS = [
     num: "03",
     icon: Palette,
     title: "Dizayn",
-    desc: "Figma'da prototip va dizayn tayyorlaymiz. Siz tasdiqlaguningizcha tahrirlanadi.",
+    desc: "Figma'da dizayn tayyorlaymiz, tasdiqlaguningizcha tahrirlaymiz.",
     color: "bg-mint/10 text-mint",
     badge: "bg-mint",
   },
@@ -44,7 +44,7 @@ const STEPS = [
     num: "05",
     icon: TestTube2,
     title: "Test",
-    desc: "Barcha qurilmalarda test qilamiz. Xato va kamchiliklarni bartaraf etamiz.",
+    desc: "Barcha qurilmalarda sinab, xatolarni bartaraf etamiz.",
     color: "bg-lavender/10 text-lavender",
     badge: "bg-lavender",
   },
@@ -52,7 +52,7 @@ const STEPS = [
     num: "06",
     icon: Rocket,
     title: "Ishga Tushirish",
-    desc: "Saytni domenga joylashtiramiz. Qo'llanma va 3 oy bepul qo'llab-quvvatlash beramiz.",
+    desc: "Saytni domenga joylashtirib, qo'llanma va 3 oy bepul yordam beramiz.",
     color: "bg-mint/10 text-mint",
     badge: "bg-mint",
   },
@@ -80,7 +80,7 @@ export function ProcessSection() {
             Qanday Ishlayamiz?
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
-            Oddiy va shaffof jarayon. Har bir bosqich siz bilan kelishilgan holda amalga oshiriladi.
+            Oddiy va shaffof jarayon — har bir bosqich siz bilan kelishiladi.
           </p>
         </motion.div>
 

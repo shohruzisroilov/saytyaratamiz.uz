@@ -9,17 +9,6 @@ export interface Service {
   slug: string;
 }
 
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  technologies: string[];
-  link?: string;
-  slug: string;
-}
-
 export interface Testimonial {
   id: string;
   name: string;
@@ -85,7 +74,7 @@ export interface BlogPost {
   category: string;
   readTime: string;
   date: string;
-  emoji: string;
+  icon: string;
   tags: string[];
   author: string;
 }

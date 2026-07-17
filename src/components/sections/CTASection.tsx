@@ -48,13 +48,13 @@ export function CTASection() {
             </div>
 
             <h2 id="cta-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.8rem] font-bold text-white leading-[1.15] tracking-[-0.02em]">
-              Saytingizni Yaratishga<br className="hidden sm:block" /> Tayyor Bo&apos;ling!
+              O&apos;z Saytingizni<br className="hidden sm:block" /> Ishga Tushirmoqchimisiz?
             </h2>
 
             <p className="text-white/60 text-base sm:text-lg leading-relaxed max-w-lg mx-auto">
-              Hozir murojaat qiling va{" "}
+              Hozir murojaat qiling —{" "}
               <strong className="text-white font-semibold">bepul konsultatsiya</strong>{" "}
-              oling. Biznes maqsadlaringizga mos eng yaxshi yechimni taklif etamiz.
+              va biznesingizga mos eng yaxshi yechimni olasiz.
             </p>
 
             {/* Buttons */}

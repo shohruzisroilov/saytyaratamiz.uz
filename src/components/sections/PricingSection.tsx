@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { CheckCircle2, Minus, ArrowRight, Star, HelpCircle } from "lucide-react";
+import { CheckCircle2, Minus, ArrowRight, Star, HelpCircle, Laptop, Settings, Clock } from "lucide-react";
 import { PRICING_PLANS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +19,11 @@ const COMPARISON_FEATURES = [
   { name: "Bepul texnik yordam", landing: "1 oy", corporate: "3 oy", ecommerce: "3 oy", crm: "6 oy", bot: "1 oy", seo: "Doimiy" },
 ];
 
-export function PricingSection() {
+interface PricingSectionProps {
+  showHeader?: boolean;
+}
+
+export function PricingSection({ showHeader = true }: PricingSectionProps) {
   const [activeTab, setActiveTab] = useState<"web" | "systems">("web");
 
   const webPlans = PRICING_PLANS.filter((p) => ["landing", "corporate", "ecommerce"].includes(p.id));
@@ -27,21 +31,27 @@ export function PricingSection() {
   const activePlans = activeTab === "web" ? webPlans : systemPlans;
 
   return (
-    <section className="py-20 lg:py-28 bg-background" aria-labelledby="pricing-heading" id="narxlar">
+    <section
+      className="py-20 lg:py-28 bg-background"
+      id="narxlar"
+      {...(showHeader ? { "aria-labelledby": "pricing-heading" } : { "aria-label": "Narxlar" })}
+    >
       <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-        
+
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12 space-y-4">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
-            Tariflar va narxlar
-          </span>
-          <h2 id="pricing-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
-            Shaffof va <span className="gradient-text">Raqobatbardosh</span> Tariflar
-          </h2>
-          <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
-            Biznesingizning hozirgi ehtiyojlariga mos paketni tanlang. Hamma narxlar aniq ko&apos;rsatilgan, yashirin to&apos;lovlar mavjud emas.
-          </p>
-        </div>
+        {showHeader && (
+          <div className="max-w-3xl mx-auto text-center mb-12 space-y-4">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
+              Tariflar va narxlar
+            </span>
+            <h2 id="pricing-heading" className="font-display text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-foreground tracking-[-0.02em]">
+              Shaffof va <span className="gradient-text">Raqobatbardosh</span> Tariflar
+            </h2>
+            <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
+              Ehtiyojingizga mos paketni tanlang — barcha narxlar aniq, yashirin to&apos;lov yo&apos;q.
+            </p>
+          </div>
+        )}
 
         {/* Tabs Control */}
         <div className="flex justify-center mb-12">
@@ -55,7 +65,8 @@ export function PricingSection() {
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
-              💻 Veb-saytlar
+              <Laptop className="w-4 h-4 inline-block -mt-0.5 mr-1.5" aria-hidden="true" />
+              Veb-saytlar
             </button>
             <button type="button"
               onClick={() => setActiveTab("systems")}
@@ -66,7 +77,8 @@ export function PricingSection() {
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
-              ⚙️ Tizimlar & SEO
+              <Settings className="w-4 h-4 inline-block -mt-0.5 mr-1.5" aria-hidden="true" />
+              Tizimlar & SEO
             </button>
           </div>
         </div>
@@ -92,7 +104,8 @@ export function PricingSection() {
               {plan.popular && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                   <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[10px] font-bold bg-primary text-white shadow-[0_4px_16px_rgba(37,99,235,0.3)] tracking-wide uppercase">
-                    ★ Tavsiya etiladi
+                    <Star className="w-3 h-3 fill-current" aria-hidden="true" />
+                    Tavsiya etiladi
                   </span>
                 </div>
               )}
@@ -114,7 +127,8 @@ export function PricingSection() {
                   </span>
                 </div>
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-muted/65 text-[11px] font-semibold text-foreground/80 border border-border/60">
-                  ⏳ Muddat: <span className="text-primary font-bold">{plan.duration}</span>
+                  <Clock className="w-3 h-3" aria-hidden="true" />
+                  Muddat: <span className="text-primary font-bold">{plan.duration}</span>
                 </div>
               </div>
 

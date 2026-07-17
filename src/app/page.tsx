@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { TrustedCompanies } from "@/components/sections/TrustedCompanies";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { WhyUsSection } from "@/components/sections/WhyUsSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { SITE_CONFIG, SERVICES, FAQS, TESTIMONIALS } from "@/lib/constants";
 
-const ProjectsSection = dynamic(() => import("@/components/sections/ProjectsSection").then((m) => m.ProjectsSection));
 const PricingSection = dynamic(() => import("@/components/sections/PricingSection").then((m) => m.PricingSection));
 const TestimonialsSection = dynamic(() => import("@/components/sections/TestimonialsSection").then((m) => m.TestimonialsSection));
 const FAQSection = dynamic(() => import("@/components/sections/FAQSection").then((m) => m.FAQSection));
@@ -25,7 +23,7 @@ export const metadata: Metadata = {
   keywords: [
     "sayt yaratish", "veb sayt yaratish", "internet do'kon yaratish",
     "landing page", "korporativ sayt", "web dizayn", "sayt yaratish narxi",
-    "O'zbekiston veb studiya", "O'zbekiston bo'ylab sayt yaratish", "CRM tizim",
+    "O'zbekiston IT kompaniya", "O'zbekiston bo'ylab sayt yaratish", "CRM tizim",
     "Telegram bot yaratish", "saytyaratamiz",
   ],
   openGraph: {
@@ -154,11 +152,9 @@ export default function HomePage() {
     <>
       <HomeJsonLd />
       <HeroSection />
-      <TrustedCompanies />
       <ServicesSection />
       <WhyUsSection />
       <ProcessSection />
-      <ProjectsSection />
       <PricingSection />
       <StatsSection />
       <TestimonialsSection />

@@ -14,32 +14,32 @@ const BENEFITS = [
   {
     icon: Zap,
     title: "Maksimal tezlik va hosildorlik",
-    desc: "Saytlarimiz Next.js va React kabi eng zamonaviy texnologiyalardan foydalanib quriladi. Bu esa 1 soniyadan kam yuklanish vaqti va Google PageSpeed testlarida 95+ natijani kafolatlaydi.",
+    desc: "Next.js va React asosida — 1 soniyadan kam yuklanish, PageSpeed'da 95+ ball.",
   },
   {
     icon: Search,
     title: "Chuqur va professional SEO",
-    desc: "Metadata API, JSON-LD schema, Breadcrumb va sitemap fayllari birinchi kundan boshlab standart bo'yicha qo'shiladi. Saytingiz Google qidiruv tizimida tez va samarali indekslanadi.",
+    desc: "Metadata, JSON-LD, sitemap — birinchi kundanoq standart, Google tez indekslaydi.",
   },
   {
     icon: Eye,
     title: "Mutlaqo shaffof va aniq shartlar",
-    desc: "Loyihaning aniq narxi va topshirilish muddati texnik topshiriqda belgilab olinadi. Biznesingiz uchun hech qanday yashirin to'lovlar yoki asossiz kechikishlar bo'lmaydi.",
+    desc: "Narx va muddat texnik topshiriqda aniq belgilanadi — yashirin to'lov yo'q.",
   },
   {
     icon: ShieldCheck,
     title: "3 oylik bepul texnik yordam",
-    desc: "Saytingiz topshirilgandan so'ng ham sizni yolg'iz qoldirmaymiz. Tizim xavfsizligini ta'minlash, backup olish va kichik o'zgarishlar kiritish 3 oy davomida bepul bajariladi.",
+    desc: "Topshirilgandan keyin ham yolg'iz qoldirmaymiz — xavfsizlik, backup, mayda tuzatishlar bepul.",
   },
   {
     icon: Smartphone,
     title: "100% mobil va responsive UI/UX",
-    desc: "Barcha saytlarimiz telefonlar, planshetlar va noutbuklar uchun mukammal moslashgan. Foydalanuvchilarga saytdan foydalanishda maksimal qulaylik yaratiladi.",
+    desc: "Telefon, planshet, noutbuk — barcha qurilmada mukammal ko'rinadi.",
   },
   {
     icon: TrendingUp,
     title: "Biznes natijalariga yo'naltirilganlik",
-    desc: "Biz shunchaki chiroyli kod yozmaymiz. Har bir tugma, forma va kontent bloki mijozlarni jalb qilish va onlayn savdolaringizni oshirish maqsadida maxsus loyihalashtiriladi.",
+    desc: "Har bir tugma va bo'lim bitta maqsadga xizmat qiladi: sizga ko'proq mijoz va savdo.",
   },
 ];
 
@@ -57,7 +57,7 @@ export function WhyUsSection() {
             Biznesingizni <span className="gradient-text">Raqamli Dunyoda</span> Rivojlantiring
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
-            Biz professional yondashuv, yuksak texnologik sifat va tezkor qo&apos;llab-quvvatlashni yagona tizimda jamlaymiz.
+            Professional yondashuv, yuqori sifat va tezkor qo&apos;llab-quvvatlash — bir joyda.
           </p>
         </div>
 

@@ -137,7 +137,7 @@ export function Navbar() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-[300px] bg-background border-l border-border shadow-[−20px_0_60px_rgba(0,0,0,0.08)] lg:hidden flex flex-col"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[300px] bg-background border-l border-border shadow-[-20px_0_60px_rgba(0,0,0,0.08)] lg:hidden flex flex-col"
             >
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-border">

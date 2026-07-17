@@ -1,4 +1,4 @@
-import type { Service, Project, Testimonial, FAQ, TeamMember, PricingPlan, NavItem } from "@/types";
+import type { Service, Testimonial, FAQ, TeamMember, PricingPlan, NavItem } from "@/types";
 
 export const SITE_CONFIG = {
   name: "SaytYaratamiz.uz",
@@ -17,7 +17,6 @@ export const SITE_CONFIG = {
 export const NAV_ITEMS: NavItem[] = [
   { label: "Bosh sahifa", href: "/" },
   { label: "Xizmatlar", href: "/xizmatlar" },
-  { label: "Loyihalar", href: "/loyihalar" },
   { label: "Narxlar", href: "/narxlar" },
   { label: "Blog", href: "/blog" },
   { label: "Biz haqimizda", href: "/haqimizda" },
@@ -29,7 +28,7 @@ export const SERVICES: Service[] = [
     id: "1",
     title: "Korporativ Sayt",
     description:
-      "Kompaniyangiz uchun professional korporativ veb-sayt. Brend imijingizni kuchaytiring va yangi mijozlar jalb qiling.",
+      "Kompaniyangiz uchun professional korporativ sayt — brend imijingizni kuchaytirib, yangi mijoz jalb qiladi.",
     icon: "Building2",
     features: [
       "Dizayn va brending",
@@ -46,7 +45,7 @@ export const SERVICES: Service[] = [
     id: "2",
     title: "Internet Do'kon",
     description:
-      "Mahsulotlaringizni onlayn soting. To'liq funksional e-commerce sayt: to'lov tizimlari, mahsulot katalogi va boshqaruv paneli.",
+      "To'liq funksional internet do'kon — to'lov, katalog va boshqaruv paneli bilan onlayn soting.",
     icon: "ShoppingCart",
     features: [
       "Mahsulot katalogi",
@@ -64,7 +63,7 @@ export const SERVICES: Service[] = [
     id: "3",
     title: "Landing Page",
     description:
-      "Mahsulot yoki xizmatni taqdim etish uchun yuqori konversiyali bir sahifali sayt. Reklama kampaniyalaringiz uchun ideal.",
+      "Reklama kampaniyalari uchun ideal — yuqori konversiyali bir sahifali sayt.",
     icon: "LayoutTemplate",
     features: [
       "Bir sahifali dizayn",
@@ -81,7 +80,7 @@ export const SERVICES: Service[] = [
     id: "4",
     title: "Veb Dastur",
     description:
-      "Murakkab biznes jarayonlarini avtomatlashtiradigan maxsus veb ilovalar. CRM, ERP, dashboard va boshqa yechimlar.",
+      "Biznes jarayonlarini avtomatlashtiradigan maxsus veb ilovalar: CRM, ERP, dashboard va boshqalar.",
     icon: "Code2",
     features: [
       "Maxsus funksionallik",
@@ -98,7 +97,7 @@ export const SERVICES: Service[] = [
     id: "5",
     title: "SEO Optimallashtirish",
     description:
-      "Saytingizni Google'da yuqori o'ringa chiqaring. Kalit so'zlar tahlili, texnik SEO, kontent optimizatsiya.",
+      "Saytingizni Google'da yuqori o'ringa chiqaramiz — kalit so'z, texnik SEO va kontent optimizatsiyasi bilan.",
     icon: "TrendingUp",
     features: [
       "Kalit so'zlar tadqiqoti",
@@ -115,7 +114,7 @@ export const SERVICES: Service[] = [
     id: "6",
     title: "Saytni Qayta Ishlash",
     description:
-      "Eski saytingizni zamonaviy texnologiyalar bilan yangilang. Tezlik, dizayn va funksionallikni oshiring.",
+      "Eski saytingizni zamonaviy texnologiyada yangilaymiz — tezroq, chiroyliroq, funksionalroq.",
     icon: "RefreshCw",
     features: [
       "Dizayn yangilash",
@@ -130,63 +129,6 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export const PROJECTS: Project[] = [
-  {
-    id: "1",
-    title: "GearBox",
-    description: "Avtomobil ehtiyot qismlari internet do'koni. 10,000+ mahsulot, onlayn to'lov, tezkor yetkazib berish.",
-    category: "Internet Do'kon",
-    image: "/projects/autoparts.jpg",
-    technologies: ["Next.js", "PostgreSQL", "Stripe", "Redis"],
-    slug: "gearbox",
-  },
-  {
-    id: "2",
-    title: "CareClinic",
-    description: "Tibbiy klinika uchun korporativ sayt va online qabulga yozilish tizimi.",
-    category: "Korporativ Sayt",
-    image: "/projects/medcenter.jpg",
-    technologies: ["Next.js", "Tailwind", "Node.js", "MongoDB"],
-    slug: "careclinic",
-  },
-  {
-    id: "3",
-    title: "RestoApp",
-    description: "Restoran va kafeler uchun onlayn menyu va buyurtma qabul qilish tizimi.",
-    category: "Veb Dastur",
-    image: "/projects/restopos.jpg",
-    technologies: ["React", "Node.js", "Socket.io", "MySQL"],
-    slug: "restoapp",
-  },
-  {
-    id: "4",
-    title: "ApexAcademy",
-    description: "Online ta'lim platformasi. Video darslar, testlar va sertifikat berish tizimi.",
-    category: "Veb Dastur",
-    image: "/projects/edulearn.jpg",
-    technologies: ["Next.js", "Prisma", "AWS S3", "Stripe"],
-    slug: "apexacademy",
-  },
-  {
-    id: "5",
-    title: "SolidConstruct",
-    description: "Qurilish kompaniyasi uchun professional korporativ sayt va loyihalar portfoliosi.",
-    category: "Korporativ Sayt",
-    image: "/projects/buildpro.jpg",
-    technologies: ["Next.js", "Framer Motion", "Sanity CMS"],
-    slug: "solidconstruct",
-  },
-  {
-    id: "6",
-    title: "StyleHub",
-    description: "Kiyim-kechak internet do'koni. 5,000+ mahsulot, filtr, wishlist va to'lov tizimi.",
-    category: "Internet Do'kon",
-    image: "/projects/fashionstore.jpg",
-    technologies: ["Next.js", "Shopify API", "Tailwind", "TypeScript"],
-    slug: "stylehub",
-  },
-];
-
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "1",
@@ -194,7 +136,7 @@ export const TESTIMONIALS: Testimonial[] = [
     position: "Direktor",
     company: "TechVision LLC",
     content:
-      "SaytYaratamiz.uz jamoasi biz uchun ajoyib korporativ sayt yaratdi. Narx va sifat nisbati juda yaxshi. Loyiha belgilangan muddatda topshirildi va biz kutganimizdan ham yaxshi chiqdi.",
+      "Shohruz va uning jamoasi biz uchun ajoyib korporativ sayt yaratdi. Narx va sifat nisbati juda yaxshi. Loyiha belgilangan muddatda topshirildi va biz kutganimizdan ham yaxshi chiqdi.",
     rating: 5,
     avatar: "/testimonials/jasur.jpg",
   },
@@ -255,56 +197,56 @@ export const FAQS: FAQ[] = [
     id: "1",
     question: "Sayt yaratish qancha vaqt oladi?",
     answer:
-      "Sayt turiga qarab farq qiladi. Landing page 5-7 ish kuni, korporativ sayt 10-15 ish kuni, internet do'kon 20-30 ish kuni davom etadi. Aniq muddat texnik vazifa asosida belgilanadi.",
+      "Sayt turiga qarab: landing page 5-7, korporativ sayt 10-15, internet do'kon 20-30 ish kuni. Aniq muddat texnik vazifada belgilanadi.",
     category: "Jarayon",
   },
   {
     id: "2",
     question: "Saytni yaratgandan keyin qo'llab-quvvatlaysizmi?",
     answer:
-      "Ha, barcha loyihalar uchun 3 oy bepul texnik qo'llab-quvvatlash beramiz. Keyin oylik yoki yillik xizmat shartnomasi orqali davom ettirishingiz mumkin.",
+      "Ha, barcha loyihalar uchun 3 oy bepul texnik yordam beramiz — keyin oylik yoki yillik shartnoma orqali davom ettirish mumkin.",
     category: "Qo'llab-quvvatlash",
   },
   {
     id: "3",
     question: "Narxga nima kiradi?",
     answer:
-      "Narxga: dizayn, dasturlash, test qilish, saytni serverga joylashtirish va 3 oylik qo'llab-quvvatlash kiradi. Domain va hosting xarajatlari alohida hisoblanadi (yiliga ~200,000 so'm).",
+      "Narxga dizayn, dasturlash, test va 3 oylik yordam kiradi. Domain va hosting alohida (yiliga ~200 000 so'm).",
     category: "Narx",
   },
   {
     id: "4",
     question: "To'lovni qanday amalga oshiraman?",
     answer:
-      "To'lov 2 bosqichda amalga oshiriladi: loyiha boshlanishida 50%, tugaganda 50%. Naqd pul, bank o'tkazmasi yoki Payme/Click orqali to'lash mumkin.",
+      "To'lov 2 bosqichda: boshida 50%, yakunda 50% — naqd, bank o'tkazmasi yoki Payme/Click orqali.",
     category: "To'lov",
   },
   {
     id: "5",
     question: "Saytim Google'da ko'rinadimi?",
     answer:
-      "Barcha saytlarimiz asosiy SEO optimallashtirish bilan taqdim etiladi. Yuqori o'rinlar uchun esa alohida SEO xizmatimizdan foydalanishingiz mumkin.",
+      "Barcha saytlar asosiy SEO bilan taqdim etiladi — yuqori o'rin uchun alohida SEO xizmatimiz bor.",
     category: "SEO",
   },
   {
     id: "6",
     question: "Saytni o'zim boshqara olamanmi?",
     answer:
-      "Ha, barcha saytlarga qulay admin panel o'rnatamiz. Siz texnik bilimga ega bo'lmasdan ham kontent, narxlar va boshqa ma'lumotlarni o'zgartirishingiz mumkin.",
+      "Ha, qulay admin panel bilan kontent va narxlarni texnik bilimsiz ham o'zgartira olasiz.",
     category: "Boshqaruv",
   },
   {
     id: "7",
     question: "Dizaynni o'zim taklif qila olamanmi?",
     answer:
-      "Albatta! Siz o'zingiz yoqtirgan misollar keltira olasiz. Biz esa ularni asosida yoki mutlaqo yangi original dizayn yaratamiz.",
+      "Albatta — yoqtirgan misollaringizni bering, biz asosida yoki mutlaqo yangi dizayn yaratamiz.",
     category: "Dizayn",
   },
   {
     id: "8",
     question: "Mobil versiya ham bo'ladimi?",
     answer:
-      "Ha, barcha saytlarimiz 100% mobil mos (responsive) bo'ladi. Telefon, planshet va kompyuterda mukammal ko'rinadi.",
+      "Ha, barcha saytlar 100% mobil moslashgan — telefon, planshet va kompyuterda mukammal ko'rinadi.",
     category: "Texnik",
   },
 ];
@@ -475,7 +417,7 @@ export interface BlogPost {
   category: string;
   readTime: string;
   date: string;
-  emoji: string;
+  icon: string;
   tags: string[];
   author: string;
 }
@@ -503,7 +445,7 @@ Barcha kontentingiz mobil versiyada ham to'liq bo'lishi shart. Google asosan mob
     category: "SEO",
     readTime: "7 daqiqa",
     date: "2025-06-20",
-    emoji: "🔍",
+    icon: "Search",
     tags: ["SEO", "Google", "Kalit so'zlar", "Core Web Vitals"],
     author: "Sardor Qodirov",
   },
@@ -529,7 +471,7 @@ Yuqori sifatli rasmlar — savdoning 40% ini ta'minlaydi. WebP format, alt text 
     category: "E-commerce",
     readTime: "10 daqiqa",
     date: "2025-06-15",
-    emoji: "🛒",
+    icon: "ShoppingCart",
     tags: ["Internet do'kon", "E-commerce", "Payme", "Click"],
     author: "Asilbek Xolmatov",
   },
@@ -558,7 +500,7 @@ Har 1 soniya kechikish = 7% konversiya yo'qotish. PageSpeed Insights da 90+ ball
     category: "Landing Page",
     readTime: "8 daqiqa",
     date: "2025-06-08",
-    emoji: "🎯",
+    icon: "Target",
     tags: ["Landing Page", "Konversiya", "CTA", "A/B Testing"],
     author: "Kamola Umarova",
   },
@@ -584,7 +526,7 @@ Endi default holda fetch keshlanmaydi. Bu ko'p dasturchilarni chalg'itgan muammo
     category: "Texnologiya",
     readTime: "12 daqiqa",
     date: "2025-05-30",
-    emoji: "💻",
+    icon: "Code2",
     tags: ["Next.js", "React", "JavaScript", "Performance"],
     author: "Asilbek Xolmatov",
   },
@@ -607,7 +549,7 @@ Sahifa yuklanayotganda elementlarning siljishi. Maqsad: 0.1 dan kam. Rasmlar va 
     category: "Performance",
     readTime: "9 daqiqa",
     date: "2025-05-22",
-    emoji: "⚡",
+    icon: "Zap",
     tags: ["Performance", "Core Web Vitals", "SEO", "Tezlik"],
     author: "Sardor Qodirov",
   },
@@ -636,7 +578,7 @@ Live commerce (jonli translyatsiyada sotish), one-click checkout, WhatsApp/Teleg
     category: "E-commerce",
     readTime: "6 daqiqa",
     date: "2025-05-15",
-    emoji: "📊",
+    icon: "BarChart2",
     tags: ["E-commerce", "O'zbekiston", "Tendensiya", "Statistika"],
     author: "Asilbek Xolmatov",
   },

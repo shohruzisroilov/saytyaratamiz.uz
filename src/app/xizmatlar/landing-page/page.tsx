@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, TrendingUp, Target, Zap, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle2, TrendingUp, Target, Zap, Clock, Package, Phone, Trophy, Briefcase, ShoppingBag } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -26,12 +26,12 @@ const FEATURES = [
 ];
 
 const USE_CASES = [
-  { emoji: "🎯", title: "Mahsulot taqdimoti", desc: "Yangi mahsulot yoki xizmatni bozorga chiqarish uchun." },
-  { emoji: "📦", title: "Oʻtkazish aksiyasi", desc: "Chegirma va aksiyalarni keng auditoriyaga yetkazish." },
-  { emoji: "📞", title: "Lead generatsiya", desc: "Potensial mijozlar kontaktlarini to'plash." },
-  { emoji: "🏆", title: "Event registration", desc: "Konferensiya, seminar va onlayn tadbirlar uchun." },
-  { emoji: "💼", title: "Franchise taklif", desc: "Franchise yoki hamkorlik taklifini taqdim etish." },
-  { emoji: "🛍️", title: "Maxsus taklif", desc: "Black Friday, yangi yil va boshqa maxsus takliflar." },
+  { icon: Target, title: "Mahsulot taqdimoti", desc: "Yangi mahsulot yoki xizmatni bozorga chiqarish uchun." },
+  { icon: Package, title: "Oʻtkazish aksiyasi", desc: "Chegirma va aksiyalarni keng auditoriyaga yetkazish." },
+  { icon: Phone, title: "Lead generatsiya", desc: "Potensial mijozlar kontaktlarini to'plash." },
+  { icon: Trophy, title: "Event registration", desc: "Konferensiya, seminar va onlayn tadbirlar uchun." },
+  { icon: Briefcase, title: "Franchise taklif", desc: "Franchise yoki hamkorlik taklifini taqdim etish." },
+  { icon: ShoppingBag, title: "Maxsus taklif", desc: "Black Friday, yangi yil va boshqa maxsus takliflar." },
 ];
 
 function JsonLd() {
@@ -82,7 +82,7 @@ export default function LandingPagePage() {
               </p>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 py-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-2">
                 {[
                   { val: "40%", label: "O'rtacha konversiya o'sishi" },
                   { val: "3 kun", label: "Yaratish muddati" },
@@ -100,7 +100,7 @@ export default function LandingPagePage() {
                   Buyurtma berish
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link href="/loyihalar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+                <Link href="/xizmatlar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                   Namunalar
                 </Link>
               </div>
@@ -156,7 +156,9 @@ export default function LandingPagePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {USE_CASES.map((u) => (
               <div key={u.title} className="flex items-start gap-4 p-5 rounded-xl bg-card border border-border hover:border-primary/20 transition-colors duration-200">
-                <span className="text-2xl">{u.emoji}</span>
+                <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center shrink-0">
+                  <u.icon className="w-5 h-5 text-primary" aria-hidden="true" />
+                </div>
                 <div>
                   <h3 className="font-display font-semibold text-foreground text-sm mb-1">{u.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{u.desc}</p>

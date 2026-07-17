@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Bot, CreditCard, Bell, Users, MessageSquare, BarChart2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Bot, CreditCard, Bell, Users, MessageSquare, BarChart2, ShoppingBag, CalendarCheck, Ticket, BookOpen, Handshake } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -22,12 +22,12 @@ const FEATURES = [
 ];
 
 const BOT_TYPES = [
-  { emoji: "🛍️", title: "Savdo boti", desc: "Mahsulotlar katalogi, savat va to'lov bilan to'liq do'kon boti." },
-  { emoji: "📅", title: "Bron boti", desc: "Restoran, klinika va salonlar uchun onlayn navbat olish." },
-  { emoji: "🎫", title: "Tiket boti", desc: "Murojaat va shikoyatlarni qabul qiluvchi support boti." },
-  { emoji: "📚", title: "Ta'lim boti", desc: "Darslar, testlar va sertifikatlarni boshqarish." },
-  { emoji: "📊", title: "Hisobot boti", desc: "Kunlik, haftalik va oylik savdo hisobotlarini yuborish." },
-  { emoji: "🤝", title: "CRM boti", desc: "Mijozlar bilan muloqotni yozib boradigan CRM bot." },
+  { icon: ShoppingBag, title: "Savdo boti", desc: "Mahsulotlar katalogi, savat va to'lov bilan to'liq do'kon boti." },
+  { icon: CalendarCheck, title: "Bron boti", desc: "Restoran, klinika va salonlar uchun onlayn navbat olish." },
+  { icon: Ticket, title: "Tiket boti", desc: "Murojaat va shikoyatlarni qabul qiluvchi support boti." },
+  { icon: BookOpen, title: "Ta'lim boti", desc: "Darslar, testlar va sertifikatlarni boshqarish." },
+  { icon: BarChart2, title: "Hisobot boti", desc: "Kunlik, haftalik va oylik savdo hisobotlarini yuborish." },
+  { icon: Handshake, title: "CRM boti", desc: "Mijozlar bilan muloqotni yozib boradigan CRM bot." },
 ];
 
 const PROCESS = [
@@ -80,9 +80,8 @@ export default function TelegramBotPage() {
               Qiling
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              O'zbekistonda 20 mln+ Telegram foydalanuvchisi bor. Ularni to'g'ridan-to'g'ri
-              botingiz orqali mijozga aylantiring. Buyurtma qabul qiling, Payme/Click bilan
-              to'lov oling, bildirishnomalar yuboring.
+              O'zbekistonda 20 mln+ Telegram foydalanuvchisini botingiz orqali mijozga aylantiring —
+              buyurtma, to'lov va bildirishnoma bitta joyda.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <a
@@ -111,7 +110,9 @@ export default function TelegramBotPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {BOT_TYPES.map((b) => (
               <div key={b.title} className="flex items-start gap-4 p-5 rounded-xl bg-card border border-border hover:border-primary/20 transition-colors duration-200">
-                <span className="text-2xl">{b.emoji}</span>
+                <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center shrink-0">
+                  <b.icon className="w-5 h-5 text-primary" aria-hidden="true" />
+                </div>
                 <div>
                   <h3 className="font-display font-semibold text-foreground text-sm mb-1">{b.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>

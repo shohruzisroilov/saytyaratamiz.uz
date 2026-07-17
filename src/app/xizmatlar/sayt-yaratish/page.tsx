@@ -73,8 +73,7 @@ export default function SaytYaratishPage() {
               Xizmati
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              O'zbekistondagi eng tajribali veb studiya. Next.js, React va zamonaviy texnologiyalar
-              asosida tez yuklanadigan, SEO ready va chiroyli saytlar yaratamiz.
+              Next.js va React asosida tez, SEO-tayyor va chiroyli saytlar yaratamiz.
               Narx 1 200 000 so'mdan boshlanadi.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">

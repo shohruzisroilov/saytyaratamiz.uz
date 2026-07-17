@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "web dizayn",
     "sayt yaratish narxi",
     "sayt yaratish xizmati",
-    "O'zbekiston veb studiya",
+    "O'zbekiston IT kompaniya",
     "O'zbekiston bo'ylab sayt yaratish",
     "CRM tizim",
     "Telegram bot yaratish",
@@ -209,7 +209,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
-      <body className="min-h-screen bg-background text-foreground font-sans antialiased">
+      <body className="min-h-dvh bg-background text-foreground font-sans antialiased">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-S2EHQ259P0"
           strategy="afterInteractive"
@@ -232,7 +232,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             Asosiy kontentga o&apos;tish
           </a>
-          <div className="flex min-h-screen flex-col">
+          <div className="flex min-h-dvh flex-col">
             <Navbar />
             <main id="main-content" className="flex-1" tabIndex={-1}>
               {children}

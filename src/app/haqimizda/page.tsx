@@ -5,17 +5,17 @@ import { TEAM_MEMBERS, STATS, SITE_CONFIG } from "@/lib/constants";
 import { CTASection } from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
-  title: "Biz Haqimizda — SaytYaratamiz.uz Veb Studiya | 2019-yildan Beri",
+  title: "Biz Haqimizda — SaytYaratamiz.uz IT Kompaniya | 2019-yildan Beri",
   description:
-    "SaytYaratamiz.uz haqida: 2019-yildan beri faoliyat, 5+ yillik tajriba, 150+ loyiha, 120+ mamnun mijoz. O'zbekistondagi professional veb studiya jamoasi bilan tanishing.",
+    "SaytYaratamiz.uz haqida: 2019-yildan beri faoliyat, 5+ yillik tajriba, 150+ loyiha, 120+ mamnun mijoz. O'zbekistondagi professional IT jamoasi bilan tanishing.",
   alternates: { canonical: `${SITE_CONFIG.url}/haqimizda` },
   keywords: [
-    "saytyaratamiz haqida", "veb studiya O'zbekiston", "professional veb dasturchi O'zbekiston",
+    "saytyaratamiz haqida", "IT kompaniya O'zbekiston", "professional veb dasturchi O'zbekiston",
     "sayt yaratish jamoasi", "5 yillik tajriba",
   ],
   openGraph: {
     title: "Biz Haqimizda — SaytYaratamiz.uz",
-    description: "2019-yildan beri O'zbekistonda 150+ loyiha. Tajribali veb studiya jamoasi.",
+    description: "2019-yildan beri O'zbekistonda 150+ loyiha. Tajribali IT jamoasi.",
     url: `${SITE_CONFIG.url}/haqimizda`,
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
@@ -25,24 +25,18 @@ const VALUES = [
   {
     icon: Target,
     title: "Maqsadga Yo'naltirilganlik",
-    desc: "Har bir loyihada mijozning biznes maqsadlariga erishishga harakat qilamiz. Faqat chiroyli emas, natija beradigan saytlar yaratamiz.",
+    desc: "Faqat chiroyli emas — mijozning biznes maqsadiga xizmat qiladigan saytlar yaratamiz.",
   },
   {
     icon: Eye,
     title: "Shaffoflik",
-    desc: "Jarayon, narx va muddatlar haqida doimo ochiq bo'lamiz. Hech qanday yashirin to'lov yoki kutilmagan xarajat yo'q.",
+    desc: "Jarayon, narx va muddat haqida doimo ochiqmiz — yashirin to'lov yo'q.",
   },
   {
     icon: Heart,
     title: "Sifatga Sadoqat",
-    desc: "Har bir sayt uchun to'liq mas'uliyat olamiz. Siz mamnun bo'lguningizcha ishlaymiz.",
+    desc: "Har bir sayt uchun to'liq mas'uliyat olib, siz mamnun bo'lguningizcha ishlaymiz.",
   },
-];
-
-const AVATAR_COLORS = [
-  "from-blue-400 to-blue-600",
-  "from-violet-400 to-violet-600",
-  "from-teal-400 to-teal-600",
 ];
 
 function AboutJsonLd() {
@@ -61,7 +55,7 @@ function AboutJsonLd() {
         "@id": `${SITE_CONFIG.url}/haqimizda`,
         url: `${SITE_CONFIG.url}/haqimizda`,
         name: "SaytYaratamiz.uz haqida",
-        description: "O'zbekistondagi professional veb studiya. 2019-yildan beri 150+ loyiha.",
+        description: "O'zbekistondagi professional IT kompaniya. 2019-yildan beri 150+ loyiha.",
         mainEntity: {
           "@id": `${SITE_CONFIG.url}/#organization`,
         },
@@ -109,17 +103,15 @@ export default function AboutPage() {
               <h1 id="about-heading" className="font-display text-4xl sm:text-5xl font-bold text-foreground leading-tight tracking-[-0.02em]">
                 O&apos;zbekistondagi{" "}
                 <span className="gradient-text">Ishonchli</span>{" "}
-                Veb Studiya
+                IT Kompaniya
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                2019-yildan beri O&apos;zbekiston bo&apos;ylab yuzlab tadbirkorlar,
-                startaplar va korporatsiyalar uchun professional veb-saytlar va
-                ilovalar yaratib kelmoqdamiz.
+                2019-yildan beri O&apos;zbekiston bo&apos;ylab tadbirkorlar va kompaniyalar
+                uchun professional sayt va ilovalar yaratamiz.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Bizning jamoamiz — tajribali dizaynerlar, dasturchilar va SEO
-                mutaxassislardan iborat. Biz faqat chiroyli ko&apos;rinadigan emas,
-                balki biznes natijasini beradigan saytlar yaratamiz.
+                Tajribali dizayner, dasturchi va SEO mutaxassislardan iborat jamoamiz —
+                faqat chiroyli emas, natija beradigan saytlar yaratadi.
               </p>
               <Link
                 href="/aloqa"
@@ -172,37 +164,6 @@ export default function AboutPage() {
                 </article>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-20 lg:py-24 bg-background" aria-labelledby="team-heading">
-        <div className="container mx-auto px-5 sm:px-8 lg:px-10">
-          <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
-              Jamoa
-            </span>
-            <h2 id="team-heading" className="font-display text-3xl sm:text-4xl font-bold text-foreground tracking-[-0.02em]">
-              Sizning Loyihangiz Ustida Kim Ishlaydi?
-            </h2>
-            <p className="text-muted-foreground">Tajribali va ishtiyoqli mutaxassislar jamoasi.</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-3xl mx-auto">
-            {TEAM_MEMBERS.map((member, i) => (
-              <article key={member.id} className="p-6 rounded-xl bg-muted/30 border border-border text-center hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300">
-                <div
-                  className={`w-16 h-16 rounded-xl bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]} flex items-center justify-center mx-auto mb-4 text-xl font-black text-white shadow-[0_4px_14px_rgba(0,0,0,0.15)]`}
-                  aria-hidden="true"
-                >
-                  {member.name[0]}
-                </div>
-                <h3 className="font-display font-semibold text-foreground text-[15px]">{member.name}</h3>
-                <p className="text-xs text-primary font-semibold mt-1 mb-3">{member.role}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>

@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock, Search, ShoppingCart, Target, Code2, Zap, BarChart2, FileText } from "lucide-react";
 import { SITE_CONFIG, BLOG_POSTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { BlogList } from "@/components/blog/BlogList";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  Search, ShoppingCart, Target, Code2, Zap, BarChart2,
+};
 
 export const metadata: Metadata = {
   title: "Blog — Veb Dizayn, SEO va E-Commerce Maqolalari",
@@ -69,6 +73,7 @@ function BlogJsonLd() {
 
 export default function BlogPage() {
   const [featured, ...rest] = BLOG_POSTS;
+  const FeaturedIcon = ICON_MAP[featured.icon] || FileText;
 
   return (
     <>
@@ -103,8 +108,8 @@ export default function BlogPage() {
           <Link href={`/blog/${featured.slug}`}>
             <article className="mb-10 rounded-2xl overflow-hidden border border-border bg-card hover:border-primary/20 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300 group cursor-pointer">
               <div className="grid md:grid-cols-2">
-                <div className="h-64 md:h-auto bg-gradient-to-br from-primary/8 to-accent/8 flex items-center justify-center text-7xl select-none" role="img" aria-label={featured.title}>
-                  {featured.emoji}
+                <div className="h-64 md:h-auto bg-gradient-to-br from-primary/8 to-accent/8 flex items-center justify-center select-none" aria-hidden="true">
+                  <FeaturedIcon className="w-16 h-16 text-primary/70" strokeWidth={1.5} />
                 </div>
                 <div className="p-7 sm:p-9 flex flex-col justify-between">
                   <div className="space-y-4">

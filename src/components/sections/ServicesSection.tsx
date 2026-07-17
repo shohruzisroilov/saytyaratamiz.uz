@@ -127,8 +127,7 @@ export function ServicesSection() {
             Qanday Sayt Kerak?
           </h2>
           <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
-            Har qanday turdagi veb-sayt va ilovani professional darajada yaratamiz.
-            Narx va sifat nisbatida eng yaxshi tanlov.
+            Har qanday turdagi sayt va ilovani professional darajada yaratamiz — narx-sifat nisbati eng yaxshisi.
           </p>
         </motion.div>
 

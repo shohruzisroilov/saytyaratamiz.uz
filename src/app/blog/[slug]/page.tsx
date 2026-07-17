@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Clock, Calendar, Tag, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Tag, ArrowRight, Search, ShoppingCart, Target, Code2, Zap, BarChart2, FileText } from "lucide-react";
 import { SITE_CONFIG, BLOG_POSTS } from "@/lib/constants";
 import { CTASection } from "@/components/sections/CTASection";
 import { cn } from "@/lib/utils";
 import { SocialShare } from "@/components/blog/SocialShare";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  Search, ShoppingCart, Target, Code2, Zap, BarChart2,
+};
 
 export async function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
@@ -204,12 +208,14 @@ export default async function BlogPostPage({
       {/* Cover */}
       <div
         className="bg-gradient-to-br from-primary/6 to-accent/6 border-y border-border"
-        role="img"
-        aria-label={post.title}
+        aria-hidden="true"
       >
         <div className="container mx-auto px-5 sm:px-8 lg:px-10 max-w-3xl">
-          <div className="flex items-center justify-center h-52 text-8xl select-none">
-            {post.emoji}
+          <div className="flex items-center justify-center h-52 select-none">
+            {(() => {
+              const CoverIcon = ICON_MAP[post.icon] || FileText;
+              return <CoverIcon className="w-20 h-20 text-primary/70" strokeWidth={1.5} />;
+            })()}
           </div>
         </div>
       </div>
@@ -303,11 +309,13 @@ export default async function BlogPostPage({
               Boshqa maqolalar
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {relatedPosts.map((p) => (
+              {relatedPosts.map((p) => {
+                const RelatedIcon = ICON_MAP[p.icon] || FileText;
+                return (
                 <Link key={p.id} href={`/blog/${p.slug}`}>
                   <article className="h-full rounded-xl bg-card border border-border hover:border-primary/20 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300 group overflow-hidden cursor-pointer">
-                    <div className="h-32 bg-gradient-to-br from-muted/60 to-muted flex items-center justify-center text-4xl select-none" role="img" aria-label={p.title}>
-                      {p.emoji}
+                    <div className="h-32 bg-gradient-to-br from-muted/60 to-muted flex items-center justify-center select-none" aria-hidden="true">
+                      <RelatedIcon className="w-9 h-9 text-primary/70" strokeWidth={1.5} />
                     </div>
                     <div className="p-4 space-y-2">
                       <span className={cn("px-2.5 py-0.5 rounded-full text-[11px] font-semibold", CATEGORY_COLORS[p.category] || "bg-muted text-muted-foreground")}>
@@ -323,7 +331,8 @@ export default async function BlogPostPage({
                     </div>
                   </article>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </div>
         </aside>

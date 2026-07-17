@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Xizmatlar — Sayt Yaratish, CRM, Telegram Bot va Boshqa Veb Xizmatlar",
   description:
-    "SaytYaratamiz.uz barcha veb xizmatlari: korporativ sayt, internet do'kon, landing page, CRM tizim, Telegram bot va SEO. O'zbekistonda professional veb studiya.",
+    "SaytYaratamiz.uz barcha veb xizmatlari: korporativ sayt, internet do'kon, landing page, CRM tizim, Telegram bot va SEO. O'zbekistonda professional IT kompaniya.",
   alternates: { canonical: `${SITE_CONFIG.url}/xizmatlar` },
   keywords: ["sayt yaratish xizmatlari", "CRM tizim", "Telegram bot", "internet do'kon", "korporativ sayt"],
 };
@@ -83,8 +83,7 @@ export default function ServicesPage() {
             <span className="gradient-text">Veb Xizmatlar</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Har qanday turdagi veb-loyihani professional darajada yaratamiz.
-            Saytdan tortib CRM tizim va Telegram botgacha — yagona jamoa, yagona sifat.
+            Saytdan tortib CRM tizim va Telegram botgacha — professional darajada, yagona sifat bilan.
           </p>
         </div>
       </section>

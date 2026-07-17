@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Building2, Globe, Shield, BarChart2, Users, Search } from "lucide-react";
+import { ArrowRight, CheckCircle2, Building2, Globe, Shield, BarChart2, Users, Search, Hospital, Scale, HardHat, GraduationCap, Landmark, UtensilsCrossed, Sparkles, Car, Home, Package, Code2, Leaf } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -26,18 +26,18 @@ const FEATURES = [
 ];
 
 const INDUSTRIES = [
-  { emoji: "🏥", label: "Tibbiyot klinikaları" },
-  { emoji: "⚖️", label: "Yuridik firmalar" },
-  { emoji: "🏗️", label: "Qurilish kompaniyalari" },
-  { emoji: "🎓", label: "Ta'lim muassasalari" },
-  { emoji: "🏦", label: "Moliya va bank" },
-  { emoji: "🍽️", label: "Restoran va kafeler" },
-  { emoji: "💆", label: "Go'zallik salonlari" },
-  { emoji: "🚗", label: "Avtomobil servis" },
-  { emoji: "🏠", label: "Ko'chmas mulk" },
-  { emoji: "📦", label: "Logistika va yetkazib berish" },
-  { emoji: "💻", label: "IT kompaniyalar" },
-  { emoji: "🌿", label: "Ekologiya va agro" },
+  { icon: Hospital, label: "Tibbiyot klinikaları" },
+  { icon: Scale, label: "Yuridik firmalar" },
+  { icon: HardHat, label: "Qurilish kompaniyalari" },
+  { icon: GraduationCap, label: "Ta'lim muassasalari" },
+  { icon: Landmark, label: "Moliya va bank" },
+  { icon: UtensilsCrossed, label: "Restoran va kafeler" },
+  { icon: Sparkles, label: "Go'zallik salonlari" },
+  { icon: Car, label: "Avtomobil servis" },
+  { icon: Home, label: "Ko'chmas mulk" },
+  { icon: Package, label: "Logistika va yetkazib berish" },
+  { icon: Code2, label: "IT kompaniyalar" },
+  { icon: Leaf, label: "Ekologiya va agro" },
 ];
 
 function JsonLd() {
@@ -81,8 +81,8 @@ export default function KorporativSaytPage() {
               <span className="gradient-text">Kuchaytiring</span>
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Birinchi taassurot muhim. Professional korporativ sayt yangi mijozlar jalb qiladi,
-              ishonch uyg'otadi va brendingizni yuksaltiradi. Narx{" "}
+              Birinchi taassurot muhim — professional korporativ sayt yangi mijoz jalb qilib,
+              brendingizga ishonch uyg'otadi. Narx{" "}
               <strong className="text-foreground">2 900 000 so'mdan</strong> boshlanadi.
             </p>
 
@@ -91,7 +91,7 @@ export default function KorporativSaytPage() {
                 Bepul Maslahat Olish
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/loyihalar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
+              <Link href="/xizmatlar" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md border border-border text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all duration-200">
                 Namunalarni Ko'rish
               </Link>
             </div>
@@ -125,7 +125,7 @@ export default function KorporativSaytPage() {
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             {INDUSTRIES.map((ind) => (
               <div key={ind.label} className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-border bg-muted/40 text-sm font-medium text-foreground hover:border-primary/30 transition-colors duration-200">
-                <span>{ind.emoji}</span>
+                <ind.icon className="w-4 h-4 text-primary" aria-hidden="true" />
                 {ind.label}
               </div>
             ))}

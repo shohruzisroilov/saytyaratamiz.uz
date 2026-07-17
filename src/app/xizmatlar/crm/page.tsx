@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Users, BarChart2, Bell, Workflow, Mail, Shield } from "lucide-react";
+import { ArrowRight, CheckCircle2, Users, BarChart2, Bell, Workflow, Mail, Shield, Building2, HardHat, Hospital, BookOpen, Home, Car } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -28,12 +28,12 @@ const INTEGRATIONS = [
 ];
 
 const FOR_WHO = [
-  { emoji: "🏢", label: "Savdo bo'limlari" },
-  { emoji: "🏗️", label: "Qurilish kompaniyalari" },
-  { emoji: "🏥", label: "Tibbiyot klinikalari" },
-  { emoji: "📚", label: "O'quv markazlari" },
-  { emoji: "🏠", label: "Ko'chmas mulk" },
-  { emoji: "🚗", label: "Avtosalon va servis" },
+  { icon: Building2, label: "Savdo bo'limlari" },
+  { icon: HardHat, label: "Qurilish kompaniyalari" },
+  { icon: Hospital, label: "Tibbiyot klinikalari" },
+  { icon: BookOpen, label: "O'quv markazlari" },
+  { icon: Home, label: "Ko'chmas mulk" },
+  { icon: Car, label: "Avtosalon va servis" },
 ];
 
 function JsonLd() {
@@ -78,8 +78,7 @@ export default function CrmPage() {
               va Nazorat Qiling
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Biznesingizning ehtiyojlariga mos maxsus CRM tizim. Mijozlar yo'qolmasin,
-              bitimlar unutilmasin, savdo ko'rsatkichlari oshsin.
+              Biznesingizga mos maxsus CRM — mijoz yo'qolmasin, bitim unutilmasin, savdo ossin.
               Narx <strong className="text-foreground">6 000 000 so'mdan</strong> boshlanadi.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -127,7 +126,7 @@ export default function CrmPage() {
           <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
             {FOR_WHO.map((w) => (
               <div key={w.label} className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-border bg-muted/40 text-sm font-medium text-foreground">
-                <span>{w.emoji}</span>
+                <w.icon className="w-4 h-4 text-primary" aria-hidden="true" />
                 {w.label}
               </div>
             ))}

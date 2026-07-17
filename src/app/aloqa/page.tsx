@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Phone, Mail, MapPin, Send, MessageCircle, HelpCircle, ChevronDown } from "lucide-react";
+import { Phone, MapPin, Send, MessageCircle, HelpCircle, ChevronDown } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { ContactForm } from "@/components/contact/ContactForm";
 
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
     `SaytYaratamiz.uz bilan bog'laning. Tel: ${SITE_CONFIG.phone}. Telegram: @Shohruz_Isroilov. Bepul konsultatsiya oling va saytingizni rejalashtiring.`,
   alternates: { canonical: `${SITE_CONFIG.url}/aloqa` },
   keywords: [
-    "saytyaratamiz aloqa", "veb studiya telefon", "sayt yaratish konsultatsiya",
-    "bepul konsultatsiya sayt", "O'zbekiston veb studiya aloqa",
+    "saytyaratamiz aloqa", "IT kompaniya telefon", "sayt yaratish konsultatsiya",
+    "bepul konsultatsiya sayt", "O'zbekiston IT kompaniya aloqa",
   ],
   openGraph: {
     title: "Biz bilan Bog'laning — SaytYaratamiz.uz",
@@ -37,13 +37,6 @@ const CONTACT_ITEMS = [
     external: true,
   },
   {
-    icon: Mail,
-    label: "Email",
-    value: SITE_CONFIG.email,
-    href: `mailto:${SITE_CONFIG.email}`,
-    description: "24 soat ichida javob",
-  },
-  {
     icon: MapPin,
     label: "Manzil",
     value: SITE_CONFIG.address,
@@ -56,19 +49,19 @@ const CONTACT_ITEMS = [
 const CONTACT_FAQS = [
   {
     q: "Loyiha bo'yicha konsultatsiya olish mutlaqo bepulmi?",
-    a: "Ha, loyihangiz maqsadi, kerakli sahifalar soni va umumiy xarajatlarni aniqlab beruvchi dastlabki konsultatsiya va smeta hisob-kitobi mutlaqo bepul bo'lib, sizga hech qanday majburiyat yuklamaydi.",
+    a: "Ha, loyiha maqsadi, sahifalar soni va xarajatni aniqlab beruvchi dastlabki konsultatsiya va smeta butunlay bepul — hech qanday majburiyat yo'q.",
   },
   {
     q: "Murojaat yuborilganidan so'ng qancha vaqtda javob berasiz?",
-    a: "Telegram orqali bog'lansangiz, mutaxassisimiz 30 daqiqa ichida javob beradi. Veb-saytdagi murojaat formasi orqali yuborilgan so'rovlarga esa ish vaqtida 1-2 soat ichida bog'lanamiz.",
+    a: "Telegram orqali 30 daqiqada, sayt formasi orqali esa ish vaqtida 1-2 soat ichida javob beramiz.",
   },
   {
     q: "Sayt yaratish uchun qanday ma'lumotlar talab etiladi?",
-    a: "Dastlab saytning asosiy maqsadi, raqobatchilaringiz va sizga ma'qul kelgan boshqa sayt havolalari kerak bo'ladi. Matnlar va rasmlar bo'lsa, ularni ham taqdim etishingiz mumkin.",
+    a: "Saytning maqsadi, raqobatchilar va yoqqan sayt namunalari kerak bo'ladi — matn va rasmlaringiz bo'lsa, ularni ham bering.",
   },
   {
     q: "Hamkorlik qanday to'lov usullarida amalga oshiriladi?",
-    a: "To'lovlarni Click, Payme ilovalari orqali, bank kartalari yordamida yoki yuridik shaxslar uchun rasmiy shartnoma asosida pul o'tkazish (yuridik to'lov) yo'li bilan amalga oshirishingiz mumkin.",
+    a: "Click, Payme, bank kartasi yoki yuridik shaxslar uchun rasmiy shartnoma asosida to'lov qilishingiz mumkin.",
   },
 ];
 
@@ -129,7 +122,7 @@ export default function ContactPage() {
             Biz bilan <span className="gradient-text">Bog&apos;laning</span>
           </h1>
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Loyihangiz haqida batafsil suhbatlashish va bepul smeta hisob-kitobini olish uchun quyidagi shaklni to&apos;ldiring yoki biz bilan to&apos;g&apos;ridan-to&apos;g&apos;ri bog&apos;laning.
+            Loyihangiz haqida gaplashish va bepul smeta olish uchun shaklni to&apos;ldiring yoki to&apos;g&apos;ridan-to&apos;g&apos;ri bog&apos;laning.
           </p>
         </div>
       </section>
