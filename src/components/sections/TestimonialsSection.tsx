@@ -5,6 +5,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { EASE_SMOOTH, REVEAL_VIEWPORT } from "@/lib/motion";
 
 const AVATAR_COLORS = [
   "from-blue-400 to-blue-600",
@@ -18,7 +19,7 @@ const AVATAR_COLORS = [
 export function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, REVEAL_VIEWPORT);
 
   const prev = () => setCurrent((c) => (c - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
   const next = () => setCurrent((c) => (c + 1) % TESTIMONIALS.length);
@@ -35,7 +36,7 @@ export function TestimonialsSection() {
           ref={ref}
           initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.6, ease: EASE_SMOOTH }}
           className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-12"
         >
           <div className="space-y-3">
@@ -76,8 +77,8 @@ export function TestimonialsSection() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.35, delay: i * 0.06 }}
-                  className="flex flex-col p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover transition-all duration-300"
+                  transition={{ duration: 0.4, delay: i * 0.06, ease: EASE_SMOOTH }}
+                  className="flex flex-col p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover transition-shadow duration-300"
                 >
                   {/* Stars */}
                   <div className="flex gap-0.5 mb-4" aria-label={`${item.rating} yulduz`}>

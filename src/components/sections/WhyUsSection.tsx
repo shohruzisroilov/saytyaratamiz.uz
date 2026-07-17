@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Zap, Search, Eye, ShieldCheck, Smartphone, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { EASE_SMOOTH, REVEAL_VIEWPORT } from "@/lib/motion";
 
 const CHIP_COLORS = [
   "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white",
@@ -71,9 +72,10 @@ export function WhyUsSection() {
                 key={b.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="p-6 sm:p-8 rounded-2xl bg-card shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group"
+                viewport={REVEAL_VIEWPORT}
+                transition={{ duration: 0.65, delay: i * 0.06, ease: EASE_SMOOTH }}
+                whileHover={{ y: -4, transition: { duration: 0.25, ease: EASE_SMOOTH } }}
+                className="p-6 sm:p-8 rounded-2xl bg-card shadow-card hover:shadow-card-hover transition-shadow duration-300 group"
               >
                 <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300", chip)}>
                   <Icon className="w-5 h-5" />

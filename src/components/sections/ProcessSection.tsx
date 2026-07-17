@@ -6,6 +6,7 @@ import {
   MessageSquare, FileText, Palette, Code2, TestTube2, Rocket,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { EASE_SMOOTH, REVEAL_VIEWPORT } from "@/lib/motion";
 
 const STEPS = [
   {
@@ -60,7 +61,7 @@ const STEPS = [
 
 export function ProcessSection() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, REVEAL_VIEWPORT);
 
   return (
     <section className="py-20 lg:py-28 bg-surface" aria-labelledby="process-heading">
@@ -70,7 +71,7 @@ export function ProcessSection() {
           ref={ref}
           initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.6, ease: EASE_SMOOTH }}
           className="max-w-xl mx-auto text-center mb-14 lg:mb-16 space-y-4"
         >
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">
@@ -93,9 +94,10 @@ export function ProcessSection() {
                 key={step.num}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: index * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
-                className="relative p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 group overflow-hidden"
+                viewport={REVEAL_VIEWPORT}
+                transition={{ duration: 0.65, delay: index * 0.06, ease: EASE_SMOOTH }}
+                whileHover={{ y: -4, transition: { duration: 0.25, ease: EASE_SMOOTH } }}
+                className="relative p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover transition-shadow duration-300 group overflow-hidden"
               >
                 {/* Step number — small filled badge */}
                 <span className={cn(

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { CheckCircle2, Minus, ArrowRight, Star, HelpCircle, Laptop, Settings, Clock } from "lucide-react";
 import { PRICING_PLANS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { EASE_SMOOTH, REVEAL_VIEWPORT } from "@/lib/motion";
 
 // Comparison table raw data
 const COMPARISON_FEATURES = [
@@ -90,11 +91,11 @@ export function PricingSection({ showHeader = true }: PricingSectionProps) {
               key={plan.id}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              viewport={REVEAL_VIEWPORT}
+              transition={{ duration: 0.65, delay: index * 0.07, ease: EASE_SMOOTH }}
+              whileHover={{ y: -6, transition: { duration: 0.25, ease: EASE_SMOOTH } }}
               className={cn(
-                "relative flex flex-col rounded-3xl bg-card p-6 sm:p-8 transition-all duration-300",
+                "relative flex flex-col rounded-3xl bg-card p-6 sm:p-8 transition-shadow duration-300",
                 plan.popular
                   ? "shadow-[0_20px_40px_rgba(37,99,235,0.1)] ring-1 ring-primary/25 scale-[1.02] md:scale-[1.03]"
                   : "shadow-card hover:shadow-card-hover"

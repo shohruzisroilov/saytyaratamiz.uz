@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { SERVICES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { EASE_SMOOTH, REVEAL_VIEWPORT } from "@/lib/motion";
 import type { Service } from "@/types";
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -38,12 +39,13 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay: index * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
+      viewport={REVEAL_VIEWPORT}
+      transition={{ duration: 0.65, delay: index * 0.06, ease: EASE_SMOOTH }}
+      whileHover={{ y: -4, transition: { duration: 0.25, ease: EASE_SMOOTH } }}
       className={cn(
         "relative flex flex-col rounded-2xl p-6 bg-card shadow-card",
-        "hover:shadow-card-hover hover:-translate-y-0.5",
-        "transition-all duration-300 group",
+        "hover:shadow-card-hover",
+        "transition-shadow duration-300 group",
         service.popular && "ring-1 ring-primary/20"
       )}
     >
@@ -109,7 +111,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
 export function ServicesSection() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, REVEAL_VIEWPORT);
 
   return (
     <section className="py-20 lg:py-28 bg-background" aria-labelledby="services-heading" id="xizmatlar">
@@ -119,7 +121,7 @@ export function ServicesSection() {
           ref={ref}
           initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
+          transition={{ duration: 0.6, ease: EASE_SMOOTH }}
           className="max-w-2xl mx-auto text-center mb-14 lg:mb-16 space-y-4"
         >
           <SectionLabel>Bizning Xizmatlar</SectionLabel>

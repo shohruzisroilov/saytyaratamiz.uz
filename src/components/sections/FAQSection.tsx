@@ -5,6 +5,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { FAQS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { EASE_SMOOTH, REVEAL_VIEWPORT } from "@/lib/motion";
 
 function FAQItem({
   question, answer, isOpen, onToggle, index,
@@ -19,10 +20,10 @@ function FAQItem({
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      viewport={REVEAL_VIEWPORT}
+      transition={{ duration: 0.5, delay: index * 0.05, ease: EASE_SMOOTH }}
       className={cn(
-        "rounded-2xl overflow-hidden transition-all duration-200 bg-card",
+        "rounded-2xl overflow-hidden transition-shadow duration-200 bg-card",
         isOpen
           ? "shadow-card-hover ring-1 ring-primary/15"
           : "shadow-card hover:shadow-card-hover"
@@ -67,7 +68,7 @@ function FAQItem({
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, REVEAL_VIEWPORT);
 
   return (
     <section className="py-20 lg:py-28 bg-surface" aria-labelledby="faq-heading">
@@ -78,7 +79,7 @@ export function FAQSection() {
             ref={ref}
             initial={{ opacity: 0, y: 18 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.6, ease: EASE_SMOOTH }}
             className="text-center mb-12 space-y-4"
           >
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/8 text-primary border border-primary/15">

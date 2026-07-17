@@ -5,10 +5,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Phone, Send, ArrowRight } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { EASE_SMOOTH, REVEAL_VIEWPORT } from "@/lib/motion";
 
 export function CTASection() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, REVEAL_VIEWPORT);
 
   return (
     <section className="py-16 lg:py-24 bg-background" aria-labelledby="cta-heading">
@@ -17,7 +18,7 @@ export function CTASection() {
           ref={ref}
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.65, ease: EASE_SMOOTH }}
           className="relative overflow-hidden rounded-3xl bg-[#0f172a] px-8 sm:px-12 lg:px-16 py-14 lg:py-20"
         >
           {/* Subtle blue gradient top-left */}
