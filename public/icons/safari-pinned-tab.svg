@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#000000"/>
-  <text x="256" y="340" font-family="system-ui,sans-serif" font-size="280" font-weight="800" fill="white" text-anchor="middle">S</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <path
+    d="M23.5 13C23.5 13 21 10.5 18 10.5C14.5 10.5 12.5 12.5 12.5 15.5C12.5 19.5 23.5 17.5 23.5 21.5C23.5 24.5 21.5 26.5 18 26.5C14.5 26.5 12.5 24 12.5 24"
+    stroke="#000000"
+    stroke-width="3.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <circle cx="18" cy="18.5" r="2.2" fill="#000000"/>
 </svg>
